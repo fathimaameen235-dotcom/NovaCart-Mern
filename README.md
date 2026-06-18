@@ -77,7 +77,7 @@ novacart/
 ### Clone Repository
 
 bash
-git clone https://github.com/your-username/novacart.git
+git clone [https://github.com/your-username/novacart.git](https://github.com/fathimaameen235-dotcom/NovaCart-Mern.git)
 cd novacart
 
 ### Backend Setup
