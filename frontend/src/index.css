@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────
+   DESIGN TOKENS + BASE RESET
+───────────────────────────────────────── */
+
+@layer base {
+:root {
+  --nova-bg:        #080a10;
+  --nova-card:      #0f1219;
+  --nova-border:    #1a1d2e;
+  --nova-surface:   #13161f;
+  --nova-surface2:  #1c2032;
+  --nova-accent:    #7c5cfc;
+  --nova-accent2:   #3b82f6;
+  --nova-accent3:   #06b6d4;
+  --nova-glow:      rgba(124, 92, 252, 0.25);
+  --nova-glow2:     rgba(59, 130, 246, 0.15);
+  --nova-text:      #eef2ff;
+  --nova-text2:     #c7d2fe;
+  --nova-muted:     #525878;
+  --nova-muted2:    #6b7280;
+  --nova-success:   #10b981;
+  --nova-warning:   #f59e0b;
+  --nova-error:     #ef4444;
+
+  --gradient-primary: linear-gradient(135deg, #7c5cfc 0%, #3b82f6 100%);
+  --gradient-aurora:  linear-gradient(135deg, #7c5cfc 0%, #3b82f6 50%, #06b6d4 100%);
+  --gradient-dark:    linear-gradient(160deg, #0f1219 0%, #080a10 100%);
+  --gradient-card:    linear-gradient(145deg, #0f1219 0%, #080a10 100%);
+
+  --radius-sm:   8px;
+  --radius-md:   12px;
+  --radius-lg:   16px;
+  --radius-xl:   20px;
+  --radius-2xl:  24px;
+  --radius-full: 9999px;
+
+  --shadow-sm:   0 2px 8px rgba(0,0,0,0.4);
+  --shadow-md:   0 8px 24px rgba(0,0,0,0.5);
+  --shadow-lg:   0 20px 60px rgba(0,0,0,0.6);
+  --shadow-glow: 0 0 30px rgba(124,92,252,0.2);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.4), 0 1px 4px rgba(0,0,0,0.3);
+
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out:    cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* RESET */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--nova-bg);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(124,92,252,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(59,130,246,0.05) 0%, transparent 50%);
+  background-attachment: fixed;
+  color: var(--nova-text);
+  font-family: "DM Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Syne", sans-serif;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--nova-text);
+}
+
+p { color: var(--nova-text2); }
+
+a { text-decoration: none; color: inherit; }
+
+img { display: block; max-width: 100%; }
+
+button { font-family: "Syne", sans-serif; }
+
+::selection {
+  background: rgba(124, 92, 252, 0.3);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--nova-accent);
+  outline-offset: 3px;
+}
+}
+
+/* ─────────────────────────────────────────
+   SCROLLBAR FIX (no warning)
+───────────────────────────────────────── */
+
+@layer utilities {
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--nova-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--nova-surface2);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nova-accent);
+}
+}
