@@ -22,15 +22,17 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: (origin, callback) => {
-      // allow non-browser requests (curl, Postman) and listed origins
       if (!origin || allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
-      callback(new Error(`CORS blocked: ${origin}`));
+
+      console.log("❌ CORS BLOCKED:", origin);
+      return callback(null, false); // 👈 IMPORTANT FIX
     },
     credentials: true,
   })
 );
+
 
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
@@ -38,6 +40,7 @@ app.use(express.urlencoded({ extended: true }));
 if (process.env.NODE_ENV !== "test") {
   app.use(morgan("dev"));
 }
+
 
 // ─── Routes ───────────────────────────────────────────────────
 app.use("/api/auth", require("./routes/authRoutes"));
