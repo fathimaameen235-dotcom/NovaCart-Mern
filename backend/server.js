@@ -16,7 +16,9 @@ const app = express();
 
 const allowedOrigins = process.env.FRONTEND_URL
   ? process.env.FRONTEND_URL.split(",").map((o) => o.trim())
-  : [];
+  : ["https://novacart-mern.vercel.app"]; // fallback default
+
+console.log("✅ Allowed CORS origins:", allowedOrigins);
 
 app.use(
   cors({
@@ -24,9 +26,12 @@ app.use(
       // Allow requests with no origin (mobile apps, curl, Postman)
       if (!origin) return callback(null, true);
       if (allowedOrigins.includes(origin)) return callback(null, true);
-      callback(new Error(`CORS: origin '${origin}' not allowed`));
+      console.error(`❌ CORS blocked: ${origin}`);
+      callback(new Error(`CORS blocked: ${origin}`));
     },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
