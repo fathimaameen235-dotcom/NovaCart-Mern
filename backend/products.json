@@ -1,0 +1,2464 @@
+[{
+  "_id": {
+    "$oid": "6a32a68cacde5438190edff5"
+  },
+  "title": "Redmi 15 5G (Sandy Purple, 6GB RAM, 128GB Storage)",
+  "description": "📱 Experience powerful performance with the Redmi 15 5G, featuring a massive 7000mAh battery 🔋 that keeps you going all day. Powered by the Qualcomm Snapdragon 6s Gen 3 processor, it delivers smooth multitasking, gaming, and everyday performance. Enjoy stunning visuals on the 6.9-inch FHD+ 144Hz display, capture every moment with the 50MP AI Dual Camera 📸, and stay ahead with Android 15 and Xiaomi HyperOS. With 6GB RAM, 128GB storage, 33W fast charging, and a stylish Sandy Purple finish, the Redmi 15 5G is the perfect combination of power, style, and reliability.",
+  "price": 20499,
+  "category": "Electronics",
+  "subCategory": "Smartphones",
+  "images": [
+    "https://m.media-amazon.com/images/I/812OvmyYPmL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T13:52:12.667Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T13:52:12.667Z"
+  },
+  "slug": "redmi-15-5g-sandy-purple-6gb-ram-128gb-storage",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32a801acde5438190ee010"
+  },
+  "title": "📱 Apple iPhone 17 Pro 256GB – A19 Pro Chip | 6.3\" 120Hz Display | Pro Camera | Deep Blue",
+  "description": "📱 Experience the next level of innovation with the Apple iPhone 17 Pro 256GB.Powered by the advanced A19 Pro chip, it delivers exceptional speed and seamless performance for everything you do. Enjoy stunning visuals on the 6.3-inch ProMotion 120Hz display, capture professional-quality photos with the Pro Fusion Camera System 📸, and stay powered throughout the day with breakthrough battery life 🔋. Finished with a premium Ceramic Shield design and the latest iOS, the iPhone 17 Pro offers the perfect combination of power, elegance, and reliability.",
+  "price": 139900,
+  "category": "Electronics",
+  "subCategory": "Smartphones",
+  "images": [
+    "https://m.media-amazon.com/images/I/618vU2qKXQL._SX425_.jpg"
+  ],
+  "stock": 1,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T13:58:25.676Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T13:58:25.676Z"
+  },
+  "slug": "-apple-iphone-17-pro-256gb-a19-pro-chip-63-120hz-display-pro-camera-deep-blue",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32a952acde5438190ee029"
+  },
+  "title": "💻 Acer Aspire Lite i5 12th Gen | 12GB RAM | 512GB SSD | 15.6\" FHD Display | Win 11",
+  "description": "💻 Experience reliable performance with the Acer Aspire Lite, powered by the 12th Gen Intel Core i5 processor for smooth multitasking, work, and entertainment. Enjoy vibrant visuals on the 15.6-inch Full HD IPS display, while 12GB RAM and a 512GB SSD ensure fast performance and quick boot times. With Windows 11 Home, Office 2024 + Microsoft 365 Basic and a backlit keyboard, this thin and lightweight laptop is the perfect choice for work, study, and everyday productivity.",
+  "price": 53990,
+  "category": "Electronics",
+  "subCategory": "Laptops",
+  "images": [
+    "https://m.media-amazon.com/images/I/81qzE9lsXkL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:04:02.677Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:04:02.677Z"
+  },
+  "slug": "-acer-aspire-lite-i5-12th-gen-12gb-ram-512gb-ssd-156-fhd-display-win-11",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32aae3acde5438190ee042"
+  },
+  "title": "💻 Apple MacBook Pro 16\" M5 Pro | 24GB RAM | 1TB SSD | Liquid Retina XDR | Space Black",
+  "description": "💻Experience unmatched performance with the Apple MacBook Pro 16-inch, powered by the advanced M5 Pro chip for lightning-fast speed and AI-powered workflows. Enjoy breathtaking visuals on the 16.2-inch Liquid Retina XDR display, while 24GB unified memory and a 1TB SSD deliver seamless multitasking and ultra-fast storage. With all-day battery life, macOS, and a premium Space Black finish, it's the perfect laptop for professionals, creators, and power users.",
+  "price": 294990,
+  "category": "Electronics",
+  "subCategory": "Laptops",
+  "images": [
+    "https://m.media-amazon.com/images/I/61h78UMEXjL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:10:43.408Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:10:43.408Z"
+  },
+  "slug": "-apple-macbook-pro-16-m5-pro-24gb-ram-1tb-ssd-liquid-retina-xdr-space-black",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32abb8acde5438190ee05b"
+  },
+  "title": "📱 Lenovo Tab 10.1\" | 4GB RAM | 64GB Storage | Wi-Fi | Dolby Atmos | Android 14 | Polar Blue",
+  "description": "📱 Enjoy smooth everyday performance with the Lenovo Tab 10.1-inch, featuring a vibrant WUXGA IPS display for immersive viewing. Powered by the MediaTek Helio G85 processor with 4GB RAM and 64GB expandable storage, it handles browsing, streaming, study, and light gaming with ease. Experience rich audio through dual Dolby Atmos speakers 🔊, stay connected with Wi-Fi 5, and enjoy all-day productivity with the 5100mAh battery. Running Android 14 in a sleek Polar Blue metal body, it's the perfect tablet for work, learning, and entertainment.",
+  "price": 14999,
+  "category": "Electronics",
+  "subCategory": "Tablets",
+  "images": [
+    "https://m.media-amazon.com/images/I/71qxj-OeOWL._SL1500_.jpg"
+  ],
+  "stock": 3,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:14:16.590Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:14:16.590Z"
+  },
+  "slug": "-lenovo-tab-101-4gb-ram-64gb-storage-wifi-dolby-atmos-android-14-polar-blue",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32acc1acde5438190ee074"
+  },
+  "title": "Typecase iPad 11th/10th Gen Keyboard Case | Backlit Bluetooth | 360° Rotate | Pencil Holder | Black",
+  "description": "Typecase iPad 11th/10th Gen Keyboard Case 💻📱\n\nCompatible with New iPad A16 2025 (11th Gen) & iPad 10th Gen models only ⚠️ Not for Air or Pro.\n\nEnjoy a smooth typing experience with a Bluetooth backlit keyboard 🔵 featuring 11-color RGB lighting 🌈 and quiet scissor-switch keys ⌨️ for comfortable use day or night.\n\nThe 360° rotating hinge 🔄 offers 7 flexible modes for typing, viewing, drawing, and more—perfect for study, work, or entertainment 📚🎬.\n\nBuilt-in Apple Pencil holder ✏️ keeps your stylus safe and handy, while the hard-shell design 🛡️ gives full protection from scratches and drops.\n\nLightweight and portable 🎒 with auto sleep/wake function ⚡ to save battery and improve convenience. Ideal for students and professionals 👍",
+  "price": 4790,
+  "category": "Electronics",
+  "subCategory": "Tablets",
+  "images": [
+    "https://m.media-amazon.com/images/I/71mT90EVpFL._SL1500_.jpg"
+  ],
+  "stock": 3,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:18:41.496Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:18:41.496Z"
+  },
+  "slug": "typecase-ipad-11th10th-gen-keyboard-case-backlit-bluetooth-360-rotate-pencil-holder-black",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32ad8cacde5438190ee08d"
+  },
+  "title": "Audio Array AM-C1 USB Condenser Microphone Kit | Podcast, Streaming, Gaming, Singing 🎤",
+  "description": "Audio Array AM-C1 USB Condenser Microphone Kit 🎤\nPlug & Play setup ⚡ – no drivers needed\nStudio-quality audio 🎧 (192kHz/24bit, cardioid mic)\nNoise control design 🔇 with pop filter & foam cover\nUniversal compatibility 💻📱 (Mac, Windows, Smartphones)\nComplete setup kit 🛠️ – boom arm, shock mount, tripod & more\nPerfect for podcasting 🎙️ streaming 🎮 singing 🎶 voice over & recording 🎤",
+  "price": 2649,
+  "category": "Electronics",
+  "subCategory": "Audio",
+  "images": [
+    "https://m.media-amazon.com/images/I/51Oyw7ZrF3L._SY355_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:22:04.901Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:22:04.901Z"
+  },
+  "slug": "audio-array-amc1-usb-condenser-microphone-kit-podcast-streaming-gaming-singing-",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32ae75acde5438190ee0a8"
+  },
+  "title": "GOBOULT Astra Neo Earbuds | 70H Playtime 🔋 | Bass 🎧 | ENC Mic | BT 5.4 | Gaming 🎮 | Black",
+  "description": "GOBOULT Astra Neo Bluetooth Earbuds 🎧⚡\nEnjoy powerful 70H playtime 🔋 for all-day music, gaming, and entertainment without frequent charging. With Lightning fast charging ⚡, just 10 minutes gives up to 100 minutes playtime.\nExperience immersive sound 🔊 with 13mm BoomX drivers delivering deep bass, clear highs, and rich audio quality. Perfect for music 🎶, movies 🎬, and gaming 🎮.\nStay ahead in games with 40ms low latency mode 🎮 for real-time audio sync and smooth performance. ZEN Quad Mic ENC 🎤 ensures crystal-clear calls by reducing background noise.\nLatest Bluetooth 5.4 📶 with Blink & Pair technology offers fast, stable, and seamless connectivity. Stylish Mode Sync LEDs 🌈 add a cool gaming vibe while you play.\nPerfect blend of performance, style, and comfort in a sleek black design 🖤.",
+  "price": 1099,
+  "category": "Electronics",
+  "subCategory": "Audio",
+  "images": [
+    "https://m.media-amazon.com/images/I/71Z51FTqRXL._SL1440_.jpg"
+  ],
+  "stock": 3,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:25:57.102Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:25:57.102Z"
+  },
+  "slug": "goboult-astra-neo-earbuds-70h-playtime-bass-enc-mic-bt-54-gaming-black",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32af5eacde5438190ee0d7"
+  },
+  "title": "4K Digital Camera | 56MP Vlogging Camera 📸 | 180° Flip Screen | 16X Zoom | 32GB SD Card | Compact Travel Camera 🎥",
+  "description": "GOBOULT Astra Neo Bluetooth Earbuds 🎧⚡\nEnjoy powerful 70H playtime 🔋 for music, gaming, and travel without frequent charging. With Lightning Fast Charging ⚡, just 10 minutes gives up to 100 minutes of playback.\nExperience deep bass and clear sound 🔊 with 13mm BoomX drivers, perfect for music 🎶, movies 🎬, and gaming 🎮. The 40ms ultra-low latency mode ensures real-time audio sync for smooth gaming performance.\nZEN Quad Mic ENC 🎤 delivers crystal-clear calls by reducing background noise, making communication clean and clear anywhere. Latest Bluetooth 5.4 📶 with Blink & Pair technology ensures fast and stable connectivity.\nStylish Mode Sync LEDs 🌈 add a cool gaming look, making these earbuds perfect for everyday use and gaming vibes 🎮🖤",
+  "price": 1099,
+  "category": "Electronics",
+  "subCategory": "Cameras",
+  "images": [
+    "https://m.media-amazon.com/images/I/716RSOrLS9L._SL1500_.jpg"
+  ],
+  "stock": 1,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:29:50.286Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:29:50.286Z"
+  },
+  "slug": "4k-digital-camera-56mp-vlogging-camera-180-flip-screen-16x-zoom-32gb-sd-card-compact-travel-camera-",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b05bacde5438190ee0f0"
+  },
+  "title": "Smart Fitness Bracelet JF28 | Health Tracker ⌚ | Sleep Monitor | Dual Bands | Free App | Men & Women 🏃‍♂️",
+  "description": "Smart Bracelet JF28 ⌚\nTracks your daily activity & health data 📊 for better fitness insights.\nMonitors sleep stages 😴 including deep sleep, light sleep & duration.\nGPS run tracking 🏃‍♂️ records your workout routes & performance.\nSyncs with app 📱 to view daily, weekly & monthly reports.\nPerfect for fitness & lifestyle tracking 💪✨",
+  "price": 2999,
+  "category": "Electronics",
+  "subCategory": "Wearables",
+  "images": [
+    "https://m.media-amazon.com/images/I/610QTV6LKVL.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:34:03.519Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:34:03.519Z"
+  },
+  "slug": "smart-fitness-bracelet-jf28-health-tracker-sleep-monitor-dual-bands-free-app-men-women-",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b156acde5438190ee109"
+  },
+  "title": "Seagull Nylon Gadget Organizer Bag | Cable Storage Case 🎒 | Mobile Stand | Navy Blue | 27×20×9 cm",
+  "description": "Seagull Nylon Gadget Organizer Bag 🎒\nKeep all your gadgets neatly organized in one place with this multi-layer cable organizer 💼. Made with waterproof nylon 💧 and soft padding for full protection against scratches, dust, and impacts.\nFeatures multiple compartments 🧩, mesh pockets, and adjustable dividers to store chargers, cables, power banks, earphones, SD cards, and more. Also includes dedicated slots for small accessories 📱💾.\nCompact, durable, and travel-friendly ✈️, it’s perfect for daily use, office, or trips. Comes with a handy mobile stand as a value add 📱✨ for extra convenience.",
+  "price": 569,
+  "category": "Electronics",
+  "subCategory": "Accessories",
+  "images": [
+    "https://m.media-amazon.com/images/I/71e3YLIZHWL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:38:14.811Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:38:14.811Z"
+  },
+  "slug": "seagull-nylon-gadget-organizer-bag-cable-storage-case-mobile-stand-navy-blue-27209-cm",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b247acde5438190ee122"
+  },
+  "title": "Leriya Fashion Men’s Formal Shirt 👔 | Slim Fit | Textured | Long Sleeve | Business Wear | Plus Size",
+  "description": "Leriya Fashion Men’s Formal Shirt 👔\nStylish textured polycotton shirt with a comfortable regular fit 👍. Designed with a classic pointed collar and long sleeves for a smart, clean look.\nPerfect for office wear 💼, meetings, or casual outings. Pair it with jeans or chinos for a sharp smart-casual style ✨.\nLightweight, breathable, and comfortable for all-day use 😊. Also makes a great gift for friends and family 🎁.",
+  "price": 499,
+  "category": "Fashion",
+  "subCategory": "Men",
+  "images": [
+    "https://m.media-amazon.com/images/I/61hmjIQ3tqL._SY550_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:42:15.589Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:42:15.589Z"
+  },
+  "slug": "leriya-fashion-mens-formal-shirt-slim-fit-textured-long-sleeve-business-wear-plus-size",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b32facde5438190ee13b"
+  },
+  "title": "Leriya Fashion Men’s Oversized Hoodie | Stylish Sweatshirt 🧥 | Kangaroo Pocket | Drawstring Hood | Casual Wear",
+  "description": "Leriya Fashion Men’s Hoodie 🧥\nStylish oversized hoodie made with premium poly cotton fabric for comfort, breathability, and durability 👍. Designed with a hooded neck, drawstring closure, and kangaroo pocket for a trendy streetwear look.\nPerfect for casual wear, gym, travel, or lounging 💪. Lightweight yet warm, making it ideal for layering in cool weather ❄️.\nSoft, comfortable, and versatile for everyday use ✨. A great choice for modern style and winter comfort 🖤",
+  "price": 598,
+  "category": "Fashion",
+  "subCategory": "Men",
+  "images": [
+    "https://m.media-amazon.com/images/I/71+hUdvHLEL._SY679_.jpg"
+  ],
+  "stock": 4,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:46:07.735Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:46:07.735Z"
+  },
+  "slug": "leriya-fashion-mens-oversized-hoodie-stylish-sweatshirt-kangaroo-pocket-drawstring-hood-casual-wear",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b3b5acde5438190ee154"
+  },
+  "title": "KOTTY Mens Regular Fit|Classic Design with Stylish Look |Day Comfort|Mide Rise Strachable Jeans",
+  "description": "Men’s Denim Jeans 👖\nDurable heavy-duty denim with reinforced stitching for long-lasting wear 💪. Designed with a soft cotton-blend fabric for all-day comfort and breathability 😊.\nPerfect for casual, streetwear, and outdoor looks 🧢. Classic yet modern style that fits any occasion—from daily wear to special outings ✨.\nFade-resistant and easy to maintain 🧼, making it a reliable and stylish wardrobe essential for men 🖤.",
+  "price": 380,
+  "category": "Fashion",
+  "subCategory": "Men",
+  "images": [
+    "https://m.media-amazon.com/images/I/61dFcpPdJkL._SY679_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:48:21.133Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:48:21.133Z"
+  },
+  "slug": "kotty-mens-regular-fitclassic-design-with-stylish-look-day-comfortmide-rise-strachable-jeans",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b457acde5438190ee16d"
+  },
+  "title": "Symbol Women’s Slim Fit Formal Trousers | 4-Way Stretch 👖 | Flexi-Waist | Easy Care | Plus Size | Office Wear",
+  "description": "Symbol Women’s Slim Fit Trousers 👖\nClassic ankle-length formal trousers made from a comfortable polyester blend ✨. Designed with a slim fit that offers a sleek and elegant look for everyday office wear 💼.\nMid-rise waist with hook & zipper closure ensures a secure and comfortable fit 👍. Perfect for both formal meetings and smart casual outfits.\nEasy to maintain and machine washable 🧼, making it ideal for daily use with a stylish desk-to-dinner look 🌟.",
+  "price": 1299,
+  "category": "Fashion",
+  "subCategory": "Women",
+  "images": [
+    "https://m.media-amazon.com/images/I/61wvC1+w57L._SX522_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:51:03.726Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:51:03.726Z"
+  },
+  "slug": "symbol-womens-slim-fit-formal-trousers-4way-stretch-flexiwaist-easy-care-plus-size-office-wear",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b4e2acde5438190ee186"
+  },
+  "title": "Amazon Brand - Myx Women's Kurta Pant Set with Embroidered Organza Dupatta |A-line fit (Available in Plus Sizes)",
+  "description": "Women’s Ethnic Kurta Set 🌸\nElegant 3-piece set featuring a calf-length A-line kurta with sequin embroidery ✨, 3/4 sleeves, and soft breathable fabric for all-day comfort 😊. Comes with a straight-fit pyjama and a lightweight organza dupatta with beautiful scallop embroidery 💫.Perfect for festive occasions, parties, and celebrations 🎉. Easy to style with jewellery and ethnic footwear for a complete traditional look 💃. Comfortable fit with elastic waist for better ease and movement 👍.",
+  "price": 1599,
+  "category": "Fashion",
+  "subCategory": "Women",
+  "images": [
+    "https://m.media-amazon.com/images/I/71AI7l3UrML._SY550_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:53:22.351Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:53:22.351Z"
+  },
+  "slug": "amazon-brand-myx-womens-kurta-pant-set-with-embroidered-organza-dupatta-aline-fit-available-in-plus-sizes",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b59bacde5438190ee19f"
+  },
+  "title": "Leriya Women’s 3-Piece Co-ord Set 👗 | Blazer Suit | Office Wear | Lycra Blend | Stylish Formal",
+  "description": "Leriya Fashion Women’s Co-ord Set 👗\nStylish 3-piece western co-ord set made with stretchable Lycra fabric ✨ for a comfortable regular fit. Includes inner top, wide-leg pants, and a full-sleeve blazer for a complete trendy look 💼.\nPerfect for office wear, parties, casual outings, and evening events 🎉. Features a modern blazer style with crop top and wide-leg pants for a chic fashion statement 👠.\nSoft, breathable, and easy-care material 🧼 ensures all-day comfort with a stylish professional look 👍.",
+  "price": 749,
+  "category": "Fashion",
+  "subCategory": "Women",
+  "images": [
+    "https://m.media-amazon.com/images/I/51rWMybjj3L._SY550_.jpg"
+  ],
+  "stock": 5,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:56:27.810Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:56:27.810Z"
+  },
+  "slug": "leriya-womens-3piece-coord-set-blazer-suit-office-wear-lycra-blend-stylish-formal",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b660acde5438190ee1ce"
+  },
+  "title": "Brand: Generic Summer and all seasons girl and baby girl cotton dress |||Girl dress_summer",
+  "description": "Baby Girl Cotton Frock 👶👗\nSoft and breathable cotton blend frock designed for maximum comfort 😊. Perfect for keeping your little one cool and stylish during summer ☀️.\nGentle fabric ensures all-day comfort for delicate baby skin 💕. Easy pull-on design for hassle-free dressing 👍.\nIdeal for daily wear, outings, and special moments 🌸. A cute and comfortable outfit for baby girls 👶✨",
+  "price": 218,
+  "category": "Fashion",
+  "subCategory": "Kids",
+  "images": [
+    "https://m.media-amazon.com/images/I/51KzwGjKOhL._SX385_.jpg"
+  ],
+  "stock": 0,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T14:59:44.800Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T14:59:44.800Z"
+  },
+  "slug": "brand-generic-summer-and-all-seasons-girl-and-baby-girl-cotton-dress-girl-dresssummer",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b71dacde5438190ee1e7"
+  },
+  "title": "I.T Baby T-Shirt & Shorts Set 👕🩳 | Hosiery & Denim Print | Half Sleeve | Boys & Girls Kids Wear",
+  "description": "Baby T-Shirt & Shorts Set 👕🩳\nCute and stylish kids clothing set with playful prints ✨ on both T-shirt and shorts, perfect for a fun everyday look 😊.\nMade from soft hosiery & denim fabric 🧵 for breathable comfort and gentle feel on baby skin 👶.\nEasy pull-on design 👍 for quick dressing and hassle-free use for parents.\nLightweight, comfy, and perfect for daily wear, playtime, or outings 🌈. A charming outfit for baby boys & girls 💕",
+  "price": 499,
+  "category": "Fashion",
+  "subCategory": "Kids",
+  "images": [
+    "https://m.media-amazon.com/images/I/51jjgc9i0AL._SX679_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:02:53.325Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:02:53.325Z"
+  },
+  "slug": "it-baby-tshirt-shorts-set-hosiery-denim-print-half-sleeve-boys-girls-kids-wear",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b7ddacde5438190ee200"
+  },
+  "title": "DRUNKEN Slippers 🩴 | Winter Soft Fur Slides ❄️ | Anti-Slip EVA | Home Comfort | Men & Women",
+  "description": "DRUNKEN Winter Slippers 🩴❄️\nSoft fur lining 🧸 keeps your feet warm and cozy in cold weather. Lightweight EVA sole 👣 provides comfort with every step.\nAnti-slip grip sole 🛡️ ensures safe walking on indoor floors. Cute embroidered design 🐻 adds a stylish and playful look.\nPerfect for home use 🏠, relaxing, and daily indoor wear. Durable, soft, and super comfortable winter footwear 👍",
+  "price": 999,
+  "category": "Fashion",
+  "subCategory": "Footwear",
+  "images": [
+    "https://m.media-amazon.com/images/I/61LcpuZo7AL._SY500_.jpg"
+  ],
+  "stock": 6,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:06:05.139Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:06:05.139Z"
+  },
+  "slug": "drunken-slippers-winter-soft-fur-slides-antislip-eva-home-comfort-men-women",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b885acde5438190ee219"
+  },
+  "title": "woman heel sandal heels for girls heels for woman sandal",
+  "description": "Women’s Fashion Heeled Sandals 👡✨\nElegant faux leather sandals with glossy finish and stylish gold chain design 💛 for a classy modern look.\nSoft cushioned insole 👣 ensures all-day comfort for casual and special occasions.\nEasy slip-on style 👍 with durable non-slip rubber sole for better grip and stability.\nPerfect to pair with jeans, dresses, or ethnic outfits 👗 – ideal for both casual and semi-formal wear 🌸",
+  "price": 399,
+  "category": "Fashion",
+  "subCategory": "Footwear",
+  "images": [
+    "https://m.media-amazon.com/images/I/61RVL-JrLVL._SY500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:08:53.459Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:08:53.459Z"
+  },
+  "slug": "woman-heel-sandal-heels-for-girls-heels-for-woman-sandal",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b918acde5438190ee232"
+  },
+  "title": "Richmen Slippers 🩴 | Double Buckle EVA Slides | Soft Pillow Comfort | Non-Slip Platform | Men & Women Casual Wear",
+  "description": "Richmen Double Buckle Slippers 🩴\nSoft rubber slippers with a classic double buckle design 👍 for easy slip-on and removal. Comfortable and stylish for daily use.\nWater-resistant 💧 and lightweight, perfect for both indoor and outdoor wear. Non-slip sole 🛡️ ensures better grip and stability.\nUltra-soft cushioning 👣 provides all-day comfort, making it ideal to pair with any casual outfit 🌸. Perfect for everyday use for men & women.",
+  "price": 349,
+  "category": "Fashion",
+  "subCategory": "Footwear",
+  "images": [
+    "https://m.media-amazon.com/images/I/51j+vCtGLTL._SY500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:11:20.690Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:11:20.690Z"
+  },
+  "slug": "richmen-slippers-double-buckle-eva-slides-soft-pillow-comfort-nonslip-platform-men-women-casual-wear",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32b9d5acde5438190ee24d"
+  },
+  "title": "Wazdorf Travel Duffle Bag 🎒 | 41L | Waterproof | Foldable | Pink | Women’s Luggage Bag",
+  "description": "Wazdorf Travel Duffle Bag 🎒\nDurable waterproof nylon material 💧 for long-lasting use and travel protection.\nSpacious 41L capacity 📦 with multiple pockets for cosmetics, essentials, and daily items.\nEasy to carry 👜 with hand/shoulder straps and luggage belt for convenience.\nPerfect for travel ✈️, gym, shopping, beach, and weekend trips 🌸. Lightweight, foldable, and highly practical 👍",
+  "price": 499,
+  "category": "Fashion",
+  "subCategory": "Bags",
+  "images": [
+    "https://m.media-amazon.com/images/I/41rqpp4gsjL._SY300_SX300_QL70_FMwebp_.jpg"
+  ],
+  "stock": 5,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:14:29.077Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:14:29.077Z"
+  },
+  "slug": "wazdorf-travel-duffle-bag-41l-waterproof-foldable-pink-womens-luggage-bag",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32bb2facde5438190ee266"
+  },
+  "title": "HighSpark 925 Silver Heart Pendant Necklace 💖 | Sterling Silver | Zirconia Shine | Women’s Gift 🎁",
+  "description": "HighSpark 925 Silver Heart Pendant 💖\nElegant solitaire heart pendant made with 92.5 sterling silver ✨ and sparkling zirconia for a diamond-like shine 💎.\nPerfect size for daily wear or special occasions 🌸, adding a classy and stylish touch to any outfit.\nComes with a fine silver chain (16” + extender) 🔗 for a comfortable fit.\nA beautiful and meaningful gift 🎁 for birthdays, anniversaries, weddings, and special moments 💕",
+  "price": 1999,
+  "category": "Fashion",
+  "subCategory": "Jewellery",
+  "images": [
+    "https://m.media-amazon.com/images/I/617EiPRPm1L._SY500_.jpg"
+  ],
+  "stock": 4,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:20:15.541Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:20:15.541Z"
+  },
+  "slug": "highspark-925-silver-heart-pendant-necklace-sterling-silver-zirconia-shine-womens-gift-",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32bbdfacde5438190ee27f"
+  },
+  "title": "YouBella Fashion Jewellery Celebrity Inspired Combo of Latest Stylish Stackable Kunckle Rings Set for Women and Girls",
+  "description": "Fashion Brass Ring 💍\nStylish one-size ring made with high-quality brass and premium polish ✨ for a long-lasting shine.\nSkin-friendly design 👍, nickel-free and lead-free for safe everyday wear.\nPerfect for gifting 🎁 and suitable for all occasions like parties, birthdays, anniversaries, and engagements 💕.\nLightweight and elegant 💫, pairs well with both casual and party outfits for a classy look.",
+  "price": 225,
+  "category": "Fashion",
+  "subCategory": "Jewellery",
+  "images": [
+    "https://m.media-amazon.com/images/I/610kKHwQM8L._SY535_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:23:11.147Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:23:11.147Z"
+  },
+  "slug": "youbella-fashion-jewellery-celebrity-inspired-combo-of-latest-stylish-stackable-kunckle-rings-set-for-women-and-girls",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32bc69acde5438190ee298"
+  },
+  "title": "Nilu's Collection Rose Gold And Silver Plated Heart Shape Bracelet For Women (white,Purple)",
+  "description": "Copper Charm Bracelet 💫\nElegant copper bracelet with sparkling cubic zirconia ✨ for a timeless and stylish look.\nDesigned with a simple, classy finish 💖 that adds charm to everyday outfits and special occasions.\nEasy hook clasp 👍 for comfortable wear and secure fit.\nPerfect gift 🎁 for birthdays, anniversaries, weddings, and Valentine’s Day. Lightweight and beautifully crafted for daily elegance 🌸",
+  "price": 599,
+  "category": "Fashion",
+  "subCategory": "Jewellery",
+  "images": [
+    "https://m.media-amazon.com/images/I/51WqJB9AavL._SY395_.jpg"
+  ],
+  "stock": 1,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:25:29.568Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:25:29.568Z"
+  },
+  "slug": "nilus-collection-rose-gold-and-silver-plated-heart-shape-bracelet-for-women-whitepurple",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32bd20acde5438190ee2b1"
+  },
+  "title": "Single Seater Swing Chair 🪑 | Stand & Cushion | Indoor/Outdoor | Balcony Garden Swing | NS-17",
+  "description": "Alisha Craft Swing Chair 🪑\nStylish single-seater hammock swing made with handwoven synthetic rattan wicker 🌿 and strong powder-coated iron frame for durability.\nComes with soft cushioned seat 🛋️ for maximum comfort and relaxation.\nPerfect for indoor & outdoor use 🏡—balcony, garden, living room, or patio.\nSupports up to 125 kg 💪 and designed for long-lasting comfort, style, and easy maintenance ✨.",
+  "price": 10498.99,
+  "category": "Home & Living",
+  "subCategory": "Furniture",
+  "images": [
+    "https://m.media-amazon.com/images/I/61lyVN9E-ML._SY300_SX300_QL70_FMwebp_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:28:32.765Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:28:32.765Z"
+  },
+  "slug": "single-seater-swing-chair-stand-cushion-indooroutdoor-balcony-garden-swing-ns17",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32bdd0acde5438190ee2ca"
+  },
+  "title": "Nilkamal Goa Sofa Set 🛋️ | 3+1+1 Seater | Plastic Sofa | Indoor/Outdoor | Cushion | Brown",
+  "description": "Nilkamal Goa Sofa Set 🛋️\nStylish 3+1+1 seater plastic sofa set with modern design and curved armrests ✨ for a premium look and comfort.\nMade from durable, UV-treated plastic 💪 ensuring long-lasting indoor & outdoor use.\nComes with soft fabric cushions 🛋️ for a comfortable seating experience.\nLightweight, sturdy, and weather-resistant 🌦️—perfect for living room, garden, terrace, cafes, and outdoor spaces 👍.",
+  "price": 28490,
+  "category": "Home & Living",
+  "subCategory": "Furniture",
+  "images": [
+    "https://m.media-amazon.com/images/I/412kiPGqb1L._SY300_SX300_QL70_FMwebp_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:31:28.773Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:31:28.773Z"
+  },
+  "slug": "nilkamal-goa-sofa-set-311-seater-plastic-sofa-indooroutdoor-cushion-brown",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32be80acde5438190ee2e3"
+  },
+  "title": "BASINQU Kitchen Sink 🛁 | 304 SS | Waterfall | Pull-Down Faucet | 30x18x9 | Black Finish",
+  "description": "BASINQU Kitchen Sink 🛁\nPremium 304 stainless steel waterfall kitchen sink ✨ with integrated pull-down faucet for smooth and easy use.\nIncludes RO tap, glass washer, soap dispenser, cutting board & drain accessories 🧩 for full kitchen convenience.\nDurable nano-coated surface 💪 resists rust, stains, and scratches for long-lasting shine.\nPerfect modern workstation sink for stylish and functional kitchens 🍽️✨",
+  "price": 8544,
+  "category": "Home & Living",
+  "subCategory": "Kitchen",
+  "images": [
+    "https://m.media-amazon.com/images/I/51hBmIUDcCL._SY300_SX300_QL70_FMwebp_.jpg"
+  ],
+  "stock": 3,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:34:24.883Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:34:24.883Z"
+  },
+  "slug": "basinqu-kitchen-sink-304-ss-waterfall-pulldown-faucet-30x18x9-black-finish",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32bf73acde5438190ee314"
+  },
+  "title": "Airtight Ceramic Jars Set of 2 🫙 | 450ml | Wooden Lid | Kitchen Storage | Multi-Utility | Beige",
+  "description": "M’majolica Ceramic Storage Jars Set of 2 🫙\nElegant 450ml ceramic jars with classic decal design ✨ for stylish kitchen storage.\nComes with airtight wooden lids 🌿 to keep food fresh, flavorful, and safe for longer.\nPerfect for storing spices, tea, sugar, snacks, and dry fruits 🍪🍯.\nDurable, food-safe, and dishwasher-safe ceramic build 💪 ideal for everyday kitchen use and décor 🏡✨",
+  "price": 600,
+  "category": "Home & Living",
+  "subCategory": "Kitchen",
+  "images": [
+    "https://m.media-amazon.com/images/I/710cKUaLD-L._SL1500_.jpg"
+  ],
+  "stock": 6,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:38:27.416Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:38:27.416Z"
+  },
+  "slug": "airtight-ceramic-jars-set-of-2-450ml-wooden-lid-kitchen-storage-multiutility-beige",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32c09eacde5438190ee32d"
+  },
+  "title": "Stoa Paris Bedsheet Set 🛏️ | Double | 300 TC Satin | 2 Pillow Covers | Olive Oasis",
+  "description": "Stoa Paris Bedsheet Set 🛏️\nPremium double bedsheet made with 300 TC ultra satin ✨ for a silky smooth and luxurious feel.\nIncludes 1 bedsheet + 2 pillow covers 💤 with elegant Olive Oasis design for a modern aesthetic look.\nSoft, breathable, and hypoallergenic 🌿 for comfortable sleep all year round.\nEasy to maintain 🧼, machine washable, and wrinkle-resistant for everyday luxury and style 💚",
+  "price": 1499,
+  "category": "Home & Living",
+  "subCategory": "Bedding",
+  "images": [
+    "https://m.media-amazon.com/images/I/71K3Y63RUoL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:43:26.376Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:43:26.376Z"
+  },
+  "slug": "stoa-paris-bedsheet-set-double-300-tc-satin-2-pillow-covers-olive-oasis",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32c1bcacde5438190ee374"
+  },
+  "title": "Floryn Decor Ceramic Family Statue Set of 4 – Home Decor Items for Living Room, Bedroom, Office & Table Artifact (White)",
+  "description": "Floryn Decor Family Sculpture Set 🗿\nModern abstract ceramic statue set featuring a beautiful family design 💞 symbolizing love, unity, and peaceful bonding.\nElegant matte white finish 🤍 adds a stylish and artistic touch to any home décor.\nPerfect for living room, tabletop, or office spaces 🏡✨.\nA meaningful decorative piece that brings warmth, emotion, and modern aesthetic vibes 🌿",
+  "price": 598,
+  "category": "Home & Living",
+  "subCategory": "Decor",
+  "images": [
+    "https://m.media-amazon.com/images/I/617w61ACQ3L._SX425_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:48:12.771Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:48:12.771Z"
+  },
+  "slug": "floryn-decor-ceramic-family-statue-set-of-4-home-decor-items-for-living-room-bedroom-office-table-artifact-white",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32c28eacde5438190ee38d"
+  },
+  "title": "Dekorly Mini Artificial Plant 🌿 | 16cm | Fake Potted Decor | Home & Office | Brown Pot",
+  "description": "Dekorly Artificial Mini Plants 🌿\nSet of 2 small bonsai-style artificial plants for stylish home décor 🏡.\nLifelike green design that stays fresh all year round ✨ with no watering, sunlight, or maintenance needed.\nPerfect for living room, office, bedroom, or tabletop decoration 🪴.\nDurable, washable pots and long-lasting design 💪 for effortless aesthetic beauty anywhere.",
+  "price": 299,
+  "category": "Home & Living",
+  "subCategory": "Decor",
+  "images": [
+    "https://m.media-amazon.com/images/I/717NYPQWK2L._SL1500_.jpg"
+  ],
+  "stock": 1,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:51:42.431Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:51:42.431Z"
+  },
+  "slug": "dekorly-mini-artificial-plant-16cm-fake-potted-decor-home-office-brown-pot",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32c31dacde5438190ee3a6"
+  },
+  "title": "FILLISKA® Luxurious Hanging/Pendant Light (FrenchGold-MX333)",
+  "description": "FILLISKA 3-in-1 Pendant Light ✨\nModern aluminium pendant light with a luxurious French gold finish 💛 for an elegant interior look.\nStylish 3-in-1 lighting design 💡 perfect for living room, bedroom, dining, or pooja space.\nRust-free and durable build 💪 with premium quality finish for long-lasting use.\nIdeal for adding a classy, decorative, and warm lighting vibe to any indoor space 🏡✨",
+  "price": 1849,
+  "category": "Home & Living",
+  "subCategory": "Lighting",
+  "images": [
+    "https://m.media-amazon.com/images/I/41AhJicyRQL._SY445_SX342_QL70_FMwebp_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:54:05.898Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:54:05.898Z"
+  },
+  "slug": "filliska-luxurious-hangingpendant-light-frenchgoldmx333",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32c468acde5438190ee3bf"
+  },
+  "title": "MIRADH Curtain Fairy Lights 🌟 | 16 Stars | 136 LED | 8 Modes | Battery Powered | Warm White | 3m",
+  "description": "MIRADH Curtain Star Lights 🌟\nWarm white 136 LED fairy lights with beautiful star design ✨ for elegant home decoration.\nFeatures 8 lighting modes 🎛️ like twinkle, wave, slow fade, and steady glow for perfect ambience.\nIdeal for Diwali, Christmas, weddings, parties, and room décor 🎉🏡.\nEasy plug & play setup 🔌 with energy-efficient and waterproof design for safe long-lasting use 💡",
+  "price": 599,
+  "category": "Home & Living",
+  "subCategory": "Lighting",
+  "images": [
+    "https://m.media-amazon.com/images/I/61gm7W8gBUL._SL1000_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T15:59:36.735Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T15:59:36.735Z"
+  },
+  "slug": "miradh-curtain-fairy-lights-16-stars-136-led-8-modes-battery-powered-warm-white-3m",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32c53eacde5438190ee3d8"
+  },
+  "title": "TEX-RO Plastic Wardrobe 🗄️ | 4XL Storage | Clothes Organizer | White & Transparent",
+  "description": "TEX-RO Plastic Wardrobe 🗄️\nMultipurpose 4XL storage organizer made with durable plastic 💪 for clothes, toys, books, and home essentials.\nFeatures multiple shelves & compartments 📦 with foldable, space-saving design for easy setup.\nIdeal for bedroom, kitchen, living room, or office use 🏡✨.\nKeeps your space neat, tidy, and clutter-free 👍 with modern transparent design.",
+  "price": 1897,
+  "category": "Home & Living",
+  "subCategory": "Storage",
+  "images": [
+    "https://m.media-amazon.com/images/I/71lWwr6M2OL._SX425_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:03:10.391Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:03:10.391Z"
+  },
+  "slug": "texro-plastic-wardrobe-4xl-storage-clothes-organizer-white-transparent",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32c66dacde5438190ee3f1"
+  },
+  "title": "PowerMax TDA-96 Treadmill 🏃‍♂️ | 4HP Auto Incline | 110KG Capacity | Bluetooth | LED Display | Folding Design",
+  "description": "PowerMax Fitness Treadmill 🏃‍♂️\nPowerful 4HP motor with speed up to 12 km/h ⚡ and 15% auto incline for intense home workouts.\nSupports up to 110 kg 💪 with strong, stable build and smooth performance.\nIncludes 12 preset programs 📊 for walking, jogging, and running based on your fitness goals.\nSmart Bluetooth connectivity 📱 for music and workout tracking via app. Hydraulic folding design 🔄 saves space and makes storage easy, perfect for home use 🏡.",
+  "price": 24990,
+  "category": "Sports",
+  "subCategory": "Fitness",
+  "images": [
+    "https://m.media-amazon.com/images/I/61ImviAJuLL._SL1088_.jpg"
+  ],
+  "stock": 3,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:08:13.421Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:08:13.421Z"
+  },
+  "slug": "powermax-tda96-treadmill-4hp-auto-incline-110kg-capacity-bluetooth-led-display-folding-design",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32c6fbacde5438190ee40a"
+  },
+  "title": "Fitkit FK7004 Spin Bike 🚴‍♂️ | Magnetic | 130KG | LCD | Home Fitness",
+  "description": "Fitkit FK7004 Spin Bike 🚴‍♂️\nSturdy steel frame 💪 with cushioned seat and foam handlebars for safe and comfortable workouts.Features 8kg flywheel + stepless magnetic resistance 🔇 for ultra-smooth, silent cycling experience.\nSupports up to 130kg ⚖️ with fully adjustable seat and handlebars for perfect fit.LCD display 📊 shows time, speed, distance, calories, RPM, and pulse for real-time tracking.Built-in heart rate sensor ❤️ helps maintain optimal training zone for effective fitness.Ideal for home workouts 🏠 with transport wheels for easy movement and storage.",
+  "price": 14499,
+  "category": "Sports",
+  "subCategory": "Fitness",
+  "images": [
+    "https://m.media-amazon.com/images/I/31e-voZCCgL._SY300_SX300_QL70_FMwebp_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:10:35.132Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:10:35.132Z"
+  },
+  "slug": "fitkit-fk7004-spin-bike-magnetic-130kg-lcd-home-fitness",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32c786acde5438190ee423"
+  },
+  "title": "Homehop Solar Garden Lights 🔥 | Flame Flickering Torch | 12 LED | Waterproof | Outdoor Pathway Lamp | Pack of 1",
+  "description": "Homehop Solar Garden Lights 🔥\nSolar-powered flame torch lights for garden & pathway décor 🌿✨ with realistic flickering effect.\nHigh-efficiency monocrystalline panel ☀️ charges in sunlight and gives up to 12 hours lighting. IP65 waterproof & heat-resistant 💧 built for long-lasting outdoor use in all weather. Easy installation with adjustable height 📏 perfect for gardens, pathways, lawns, and Diwali decoration 🎉",
+  "price": 599,
+  "category": "Sports",
+  "subCategory": "Outdoor",
+  "images": [
+    "https://m.media-amazon.com/images/I/81ubgeA7ZAL._SX425_.jpg"
+  ],
+  "stock": 4,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:12:54.633Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:12:54.633Z"
+  },
+  "slug": "homehop-solar-garden-lights-flame-flickering-torch-12-led-waterproof-outdoor-pathway-lamp-pack-of-1",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32c828acde5438190ee43c"
+  },
+  "title": "London Hills Men’s Sports Shorts 🏃‍♂️ | Quick Dry | Gym & Running | Zipper Pockets",
+  "description": "London Hills Men’s Sports Shorts 🏃‍♂️\nLightweight and breathable nylon shorts 💨 designed for all-day comfort during workouts and sports.\nQuick-dry & sweat-wicking fabric 💪 keeps you fresh and dry while running, gym, or training.\nFeatures secure zipper side pockets 🔒 to safely carry phone, keys, and essentials. Elastic waistband with adjustable drawstring 🎯 ensures a perfect and comfortable fit. Ideal for gym, running, jogging, fitness, and casual outdoor wear 🌿✨",
+  "price": 649,
+  "category": "Sports",
+  "subCategory": "Team Sports",
+  "images": [
+    "https://m.media-amazon.com/images/I/71sq1pn0vXL._SX522_.jpg"
+  ],
+  "stock": 3,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:15:36.479Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:15:36.479Z"
+  },
+  "slug": "london-hills-mens-sports-shorts-quick-dry-gym-running-zipper-pockets",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32c8e3acde5438190ee455"
+  },
+  "title": "MuscleBlaze Stainless Steel Gym Shaker (Silver, 700ml)",
+  "description": "MuscleBlaze Steel Shaker 🥤\n700ml stainless steel gym shaker 💪 perfect for pre, intra, and post-workout nutrition.\nDurable, rust-resistant build 🔩 with premium reusable design. Includes steel whisk ⚙️ for smooth, lump-free mixing.\nLeakproof knob closure 🔒 prevents spills, with wide mouth for easy cleaning and refilling. Ideal for gym, fitness, and daily protein shakes 🏋️‍♂️✨",
+  "price": 699,
+  "category": "Sports",
+  "subCategory": "Water Sports",
+  "images": [
+    "https://m.media-amazon.com/images/I/41656vq5uWL._SY300_SX300_QL70_FMwebp_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 3,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:18:43.010Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:18:43.010Z"
+  },
+  "slug": "muscleblaze-stainless-steel-gym-shaker-silver-700ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32c974acde5438190ee46e"
+  },
+  "title": "SOLARA Insulated Water Bottle 🥤 | 2000ml | Thermosteel | Hot & Cold | Travel & Gym | Black Knight",
+  "description": "SOLARA Insulated Water Bottle 🥤\n2000ml premium stainless steel bottle 💪 with double-wall vacuum insulation. Keeps drinks cold up to 24 hours ❄️ and hot up to 12 hours 🔥 for all-day hydration. Leakproof & sweat-proof design 🔒 for safe carrying in bags and backpacks. Wide mouth opening 🧊 for easy filling, cleaning, and adding ice cubes. Perfect for gym, travel, school, office, and outdoor use 🏋️‍♂️🏕️✨",
+  "price": 1999.01,
+  "category": "Sports",
+  "subCategory": "Water Sports",
+  "images": [
+    "https://m.media-amazon.com/images/I/31jgiDaBA-L._SY300_SX300_QL70_FMwebp_.jpg"
+  ],
+  "stock": 3,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:21:08.744Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:21:08.744Z"
+  },
+  "slug": "solara-insulated-water-bottle-2000ml-thermosteel-hot-cold-travel-gym-black-knight",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32ca21acde5438190ee487"
+  },
+  "title": "Lifelong Fit Pro Spin Bike 🚴‍♂️ | 7KG Flywheel | 120KG | Magnetic Resistance | Home Fitness",
+  "description": "Lifelong Spin Bike 🚴‍♂️\n6kg flywheel spin bike 💪 with smooth and stable cycling performance for home workouts.\nAdjustable resistance 🎯 with belt-driven system for quiet and efficient exercise. Foam grip handlebars ✋ with built-in heart rate sensor ❤️ for real-time tracking.\nLCD display 📊 shows speed, time, distance, calories, and heart rate for better fitness monitoring. Perfect for indoor cardio, weight loss, and daily home training 🏠✨",
+  "price": 8999,
+  "category": "Sports",
+  "subCategory": "Cycling",
+  "images": [
+    "https://m.media-amazon.com/images/I/7181tSL0awL._SL1500_.jpg"
+  ],
+  "stock": 1,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:24:01.930Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:24:01.930Z"
+  },
+  "slug": "lifelong-fit-pro-spin-bike-7kg-flywheel-120kg-magnetic-resistance-home-fitness",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32ca9eacde5438190ee4a0"
+  },
+  "title": "Boldfit Yoga Belt 🧘‍♂️ | 6ft Strap | Adjustable D-Ring | Stretching Aid | Purple | Yoga Accessory",
+  "description": "Boldfit Yoga Belt 🧘‍♀️\nDurable cotton yoga strap 💪 designed for stretching, yoga, and physical therapy.\nAdjustable metal D-ring buckle 🔒 ensures secure fit and easy use for all poses.\nHelps improve flexibility, posture, and range of motion 🧎‍♂️ over time.\nStrong, tear-resistant stitching 🧵 with lightweight and portable design for daily workouts.\nEasy to clean and maintain 🧼 perfect for home, gym, and travel yoga sessions ✨",
+  "price": 149,
+  "category": "Sports",
+  "subCategory": "Yoga",
+  "images": [
+    "https://m.media-amazon.com/images/I/71YemJcYtBL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:26:06.689Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:26:06.689Z"
+  },
+  "slug": "boldfit-yoga-belt-6ft-strap-adjustable-dring-stretching-aid-purple-yoga-accessory",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32cb83acde5438190ee4b9"
+  },
+  "title": "Lakme SPF 50 Sunscreen 🌞 | PA++++ | Blue Light Protection | No White Cast | 100ml",
+  "description": "Lakme SPF 50 Sunscreen 🌞\nBrightening sunscreen lotion with SPF 50 PA++++ for strong UVA/UVB & blue light protection.\nHelps reduce dark spots, pigmentation, and tanning ✨ while improving skin glow.\nUltra-light, matte finish 🤍 with no white cast and fast absorption.\nEnriched with squalane & niacinamide 💧 for hydration and skin barrier repair.",
+  "price": 327,
+  "category": "Beauty",
+  "subCategory": "Skincare",
+  "images": [
+    "https://m.media-amazon.com/images/I/31wPBLZrY7L._SY300_SX300_QL70_FMwebp_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:29:55.548Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:29:55.548Z"
+  },
+  "slug": "lakme-spf-50-sunscreen-pa-blue-light-protection-no-white-cast-100ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32cc0aacde5438190ee4d2"
+  },
+  "title": "Deconstruct Gel Sunscreen SPF 50 PA++++ 🌞 | Oily Skin | Lightweight Non-Greasy | 4 UV Filters | 30g",
+  "description": "Deconstruct Gel Sunscreen SPF 50 PA++++ 🌞\nLightweight gel sunscreen for oily & sensitive skin 💧 with fast absorption and non-greasy feel.\nPowered by 4 modern UV filters 🛡️ for long-lasting, photostable UVA & UVB protection.\nHelps prevent tanning, sunburn & premature aging ✨ with broad-spectrum SPF 50+ coverage.\nNo white cast 🤍 and gentle formula for comfortable everyday use.",
+  "price": 236,
+  "category": "Beauty",
+  "subCategory": "Skincare",
+  "images": [
+    "https://m.media-amazon.com/images/I/41jGahkFZZL._SL1080_.jpg"
+  ],
+  "stock": 3,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:32:10.098Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:32:10.098Z"
+  },
+  "slug": "deconstruct-gel-sunscreen-spf-50-pa-oily-skin-lightweight-nongreasy-4-uv-filters-30g",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32ccacacde5438190ee4eb"
+  },
+  "title": "Kérastase Discipline Fluidealiste Shampoo 🧴 | Anti-Frizz | Sulphate-Free | Frizzy Hair Care | 250ml",
+  "description": "Kérastase Discipline Anti-Frizz Shampoo 🧴\nSulphate-free shampoo for frizz control & smooth hair ✨ designed for chemically treated hair.\nHelps tame flyaways and reduce frizz for up to 72 hours 💨 while keeping hair soft and manageable.\nPowered by Morpho-Kératine complex 💧 to smooth hair fibre and improve strength. Lightweight, gentle formula 🌿 that cleans without stripping natural oils—ideal for daily use.",
+  "price": 2600,
+  "category": "Beauty",
+  "subCategory": "Haircare",
+  "images": [
+    "https://m.media-amazon.com/images/I/61n7MBtTpQL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:34:52.811Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:34:52.811Z"
+  },
+  "slug": "krastase-discipline-fluidealiste-shampoo-antifrizz-sulphatefree-frizzy-hair-care-250ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32cd25acde5438190ee504"
+  },
+  "title": "Indulekha Bringha Hair Growth Treatment Scalp Serum with Bringha, Rosemary and Amla for Hair Growth, 30 ml",
+  "description": "Indulekha Hair Growth Serum 🌿\nAyurvedic hair serum for hair fall control & regrowth 💇‍♂️ enriched with Bringha, Brahmi & Rosemary.\nClinically proven formula ✨ supports stronger hair and healthier scalp by improving blood circulation. Lightweight & non-greasy 💧 suitable for daily use without leaving residue. Safe, sulphate-free & paraben-free 🌱 ideal for both men and women for regular hair care routine.",
+  "price": 435,
+  "category": "Beauty",
+  "subCategory": "Haircare",
+  "images": [
+    "https://m.media-amazon.com/images/I/51AI+xOPsoL._SL1000_.jpg"
+  ],
+  "stock": 1,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:36:53.706Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:36:53.706Z"
+  },
+  "slug": "indulekha-bringha-hair-growth-treatment-scalp-serum-with-bringha-rosemary-and-amla-for-hair-growth-30-ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32cdbcacde5438190ee51f"
+  },
+  "title": "Lakme Forever Matte Liquid Lipstick 💄 | Nude Charm | Long-Lasting | Transferproof | Smudgeproof | 5.6ml",
+  "description": "Lakme Matte Liquid Lipstick 💄 (Nude Charm)\nUltra-matte liquid lipstick with intense color payoff ✨ that gives a smooth, bold finish in just one swipe.\nLong-lasting wear ⏳ stays fresh for up to 20 hours without fading or drying out",
+  "price": 252.01,
+  "category": "Beauty",
+  "subCategory": "Makeup",
+  "images": [
+    "https://m.media-amazon.com/images/I/418PMqHN8DL._SL1000_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:39:24.533Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:39:24.533Z"
+  },
+  "slug": "lakme-forever-matte-liquid-lipstick-nude-charm-longlasting-transferproof-smudgeproof-56ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32ce95acde5438190ee538"
+  },
+  "title": "Makeup Kit 💄 | Waterproof HD Combo | Bridal & Party Use | All-in-One Set | Women & Girls",
+  "description": "Cosmac Professional Makeup Kit 💄\nAll-in-one HD waterproof makeup combo for flawless beauty ✨ suitable for women & girls of all skin tones.\nIncludes primer, foundation, and essential makeup items 🎨 for smooth, blendable application.\nLong-lasting & smudge-proof formula 💧 stays fresh without fading, melting, or settling into fine lines.\nLightweight HD finish 🌸 perfect for party, bridal, engagement, or everyday makeup looks.",
+  "price": 2290,
+  "category": "Beauty",
+  "subCategory": "Makeup",
+  "images": [
+    "https://m.media-amazon.com/images/I/71g0tRyu8PL._SL1500_.jpg"
+  ],
+  "stock": 0,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T16:43:01.507Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T16:43:01.507Z"
+  },
+  "slug": "makeup-kit-waterproof-hd-combo-bridal-party-use-allinone-set-women-girls",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32dab4acde5438190ee582"
+  },
+  "title": "Nykaa Rose Quartz EDP 🌸 | Floral Musk Perfume for Women | Long-Lasting | 50ml | Elegant Gift for Her",
+  "description": "Nykaa Rose Quartz EDP 🌸\nFloral musky perfume for women with soft notes of pear, peony, vanilla, amber & musk ✨\nLong-lasting Eau de Parfum ⏳ keeps you fresh and elegant from day to night.\nSoft, feminine fragrance 💖 perfect for office, parties, dates, and daily wear.\nPremium luxury scent 🌷 ideal gift for her and special occasions.",
+  "price": 1081,
+  "category": "Beauty",
+  "subCategory": "Fragrances",
+  "images": [
+    "https://m.media-amazon.com/images/I/71BL2o0YyPL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T17:34:44.134Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T17:34:44.134Z"
+  },
+  "slug": "nykaa-rose-quartz-edp-floral-musk-perfume-for-women-longlasting-50ml-elegant-gift-for-her",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32db6facde5438190ee59b"
+  },
+  "title": "Wild Stone Edge EDP Perfume for Men 🖤 | 100ml | Long-Lasting | Premium Luxury Fragrance | Gift for Him",
+  "description": "Wild Stone Edge EDP Perfume for Men 🖤\nDeep masculine woody Eau de Toilette with fresh lemon, green & amber notes 🌿🍋\nLong-lasting fragrance ⏳ designed for everyday use and modern lifestyle.\nEasy spray application 💨 perfect for body or clothes for all-day freshness. Ideal premium gift for men 🎁 with a bold, confident scent.",
+  "price": 349,
+  "category": "Beauty",
+  "subCategory": "Fragrances",
+  "images": [
+    "https://m.media-amazon.com/images/I/61BXRNekoEL._SY355_.jpg"
+  ],
+  "stock": 1,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T17:37:51.536Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T17:37:51.536Z"
+  },
+  "slug": "wild-stone-edge-edp-perfume-for-men-100ml-longlasting-premium-luxury-fragrance-gift-for-him",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32dc1aacde5438190ee5b4"
+  },
+  "title": "Bella Vita Luxury Perfume Gift Set 🌸 | 4x20ml | Floral & Fruity EDP | Long-Lasting | Women’s Gift Set",
+  "description": "Bella Vita Luxury Perfume Gift Set 🌸\nMini travel perfume set for women (4x20ml) with floral & fruity luxury scents ✨\nIncludes Date, Glam, Rose & Senorita 💖 perfect for every mood and occasion.\nLong-lasting fragrance ⏳ stays fresh up to 10 hours with elegant aroma. Compact & portable 👝 ideal for travel, handbag use, and gifting.",
+  "price": 540.01,
+  "category": "Beauty",
+  "subCategory": "Fragrances",
+  "images": [
+    "https://m.media-amazon.com/images/I/61Z0HyOvTfL._SY355_.jpg"
+  ],
+  "stock": 3,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T17:40:42.812Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T17:40:42.812Z"
+  },
+  "slug": "bella-vita-luxury-perfume-gift-set-4x20ml-floral-fruity-edp-longlasting-womens-gift-set",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32dccbacde5438190ee5cd"
+  },
+  "title": "Braun Series 5 AIO5545 Grooming Kit ✂️ | 9-in-1 Trimmer | SkinGuard | 120 Min Runtime | Wet & Dry Use | Grey",
+  "description": "Braun AIO5 Grooming Kit ✂️\n9-in-1 all-in-one grooming device for beard, hair, nose & full body care 💪\nUltra-sharp blades 🔪 for precise trimming and clean styling in fewer strokes.\nSkinGuard technology 🛡️ ensures safe and gentle grooming for sensitive areas.\n100% waterproof with AquaGrip 💧 for wet & dry use and easy cleaning.",
+  "price": 4499,
+  "category": "Beauty",
+  "subCategory": "Men's Grooming",
+  "images": [
+    "https://m.media-amazon.com/images/I/716t2dlYuDL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T17:43:39.935Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T17:43:39.935Z"
+  },
+  "slug": "braun-series-5-aio5545-grooming-kit-9in1-trimmer-skinguard-120-min-runtime-wet-dry-use-grey",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32dd70acde5438190ee5e6"
+  },
+  "title": "Yardley Gentleman Grooming Kit 🎁 | Luxury Men’s Set | Shaving & Deodorant Combo | Premium Gift for Men",
+  "description": "Yardley Gentleman Grooming Kit 🎁\nComplete men’s grooming set with charcoal soap, shaving cream, aftershave lotion & deodorant spray ✨\nDeep cleansing formula 🧼 removes dirt, oil & impurities for fresh, clean skin.\nSmooth shaving experience 🪒 with skin-soothing aloe vera for comfort and protection.\nLong-lasting premium fragrance 🌿 with a classic masculine woody-floral scent.",
+  "price": 350,
+  "category": "Beauty",
+  "subCategory": "Men's Grooming",
+  "images": [
+    "https://m.media-amazon.com/images/I/61weKxDr4PL._SY355_.jpg"
+  ],
+  "stock": 3,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T17:46:24.330Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T17:46:24.330Z"
+  },
+  "slug": "yardley-gentleman-grooming-kit-luxury-mens-set-shaving-deodorant-combo-premium-gift-for-men",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32de06acde5438190ee5ff"
+  },
+  "title": "The Tubewell House 📖 | Psychological Thriller | Village Secrets | Abhishek Chaudhary",
+  "description": "The Tubewell House 📖\nA gripping psychological thriller set in a quiet village where hidden secrets and haunting pasts slowly unravel.\nFollows Ashank Sinha, a former forex trader, as he arrives in Lawrenceganj and is drawn into mysterious connections and unanswered questions.\nAs buried truths resurface, he is forced to face his past and a reality that blurs instinct, memory, and fear.\nA tense, emotional story filled with suspense, mystery, and psychological depth.",
+  "price": 271,
+  "category": "Books",
+  "subCategory": "Fiction",
+  "images": [
+    "https://m.media-amazon.com/images/I/41MvSdwAclL._SY445_SX342_FMwebp_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T17:48:54.825Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T17:48:54.825Z"
+  },
+  "slug": "the-tubewell-house-psychological-thriller-village-secrets-abhishek-chaudhary",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32de7cacde5438190ee618"
+  },
+  "title": "Never Lie: A Totally Gripping Thriller with Mind-bending Twists | TikTok Viral & Bestseller Pick",
+  "description": "Psychological Thriller 📖\nNewlyweds Tricia and Ethan move into a remote manor that once belonged to a missing psychiatrist, Dr. Adrienne Hale.\nTrapped inside during a violent storm, Tricia discovers hidden audio transcripts from the doctor’s patient sessions.\nAs she listens, she uncovers disturbing secrets about the house and the mysterious disappearance.\nA gripping, twist-filled thriller where every clue brings her closer to the truth… and danger.",
+  "price": 345,
+  "category": "Books",
+  "subCategory": "Fiction",
+  "images": [
+    "https://m.media-amazon.com/images/I/71oFEmHrdxL._SY342_.jpg"
+  ],
+  "stock": 0,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T17:50:52.847Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T17:50:52.847Z"
+  },
+  "slug": "never-lie-a-totally-gripping-thriller-with-mindbending-twists-tiktok-viral-bestseller-pick",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32df17acde5438190ee631"
+  },
+  "title": "You Can 📘 | Self-Help & Motivation | George Matthew Adams | Success & Personal Growth",
+  "description": "You Can 📘\nA classic self-help guide focused on building self-belief, discipline, and personal growth for a successful life.\nEncourages habits like self-reflection, learning from mistakes, managing time, and helping others to achieve your goals.\nFilled with timeless motivational wisdom ✨ that inspires you to take control of your thoughts, actions, and future.\nA powerful reminder that success begins with believing in yourself 💪",
+  "price": 99.02,
+  "category": "Books",
+  "subCategory": "Non-Fiction",
+  "images": [
+    "https://m.media-amazon.com/images/I/81T05w0B3lL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T17:53:27.322Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T17:53:27.322Z"
+  },
+  "slug": "you-can-selfhelp-motivation-george-matthew-adams-success-personal-growth",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e060acde5438190ee64a"
+  },
+  "title": "You Are Born to Blossom 📘 | Dr. A.P.J. Abdul Kalam | Motivation & Personal Growth for Youth",
+  "description": "You Are Born to Blossom 📘\nAn inspiring vision by Dr. A.P.J. Abdul Kalam on education, knowledge, and national development.\nHighlights how rural talent, technology, and education can work together to transform society and build a better future.\nEncourages a growth mindset 🌱 where learning continues at every stage of life, from students to senior citizens.\nA motivational guide for youth ✨ promoting discipline, creativity, and values in building a strong nation.",
+  "price": 217,
+  "category": "Books",
+  "subCategory": "Non-Fiction",
+  "images": [
+    "https://m.media-amazon.com/images/I/71cltb-TnML._SL1500_.jpg"
+  ],
+  "stock": 1,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T17:58:56.571Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T17:58:56.571Z"
+  },
+  "slug": "you-are-born-to-blossom-dr-apj-abdul-kalam-motivation-personal-growth-for-youth",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e10aacde5438190ee663"
+  },
+  "title": "The Academy | A Middle Grade Football Adventure for Kids 8-12 | Books for Football Fans",
+  "description": "The Academy 📘\nA fast-paced, inspiring soccer story about Leo K. Doyle, a small-town boy with big dreams of becoming a professional player.\nWhen he gets a chance to join the elite London Dragons youth squad, he steps into a world of intense competition, challenges, and self-discovery.\nFacing rivals, pressure, and his own fears, Leo must prove himself among the best young players in the world.\nA motivational sports adventure ⚽ about dreams, teamwork, resilience, and never giving up.",
+  "price": 348.01,
+  "category": "Books",
+  "subCategory": "Academic",
+  "images": [
+    "https://m.media-amazon.com/images/I/81SGXNYDOsL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:01:46.461Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:01:46.461Z"
+  },
+  "slug": "the-academy-a-middle-grade-football-adventure-for-kids-812-books-for-football-fans",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e173acde5438190ee67c"
+  },
+  "title": "Ruskin Bond Short Stories - Set of 4 Bestselling Children Story Books",
+  "description": "Ruskin Bond Short Stories Collection 📚\nA beautiful set of 4 books featuring timeless short stories by Ruskin Bond, loved by readers for generations.\nFilled with simple, charming, and heartwarming tales that capture childhood, nature, and everyday life.\nPerfect for young readers and adults alike ✨ offering joy, imagination, and nostalgia in every story.\nA wonderful gift set 🎁 that inspires reading habits and brings classic Indian storytelling to life.",
+  "price": 579,
+  "category": "Books",
+  "subCategory": "Children",
+  "images": [
+    "https://m.media-amazon.com/images/I/51UtH2UMb+S._SY445_SX342_FMwebp_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:03:31.709Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:03:31.709Z"
+  },
+  "slug": "ruskin-bond-short-stories-set-of-4-bestselling-children-story-books",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e206acde5438190ee695"
+  },
+  "title": "Sank Magic Practice Copybook ✏️ | 4 Books + Pen + Refill Set | Number Tracing | Reusable Writing Practice for Kids",
+  "description": "Magic Practice Copybook ✏️\nReusable handwriting practice set designed for preschoolers to learn numbers, letters, and basic calligraphy easily.\nIncludes 4 books, 10 refills, pen, and grip for smooth writing practice and better control.\nMagic fading ink ✨ helps kids trace repeatedly until they master writing skills. Perfect learning tool 📘 to improve handwriting, hand coordination, and early education skills in a fun way.",
+  "price": 109,
+  "category": "Books",
+  "subCategory": "Children",
+  "images": [
+    "https://m.media-amazon.com/images/I/61l1RKyOSrL._SL1000_.jpg"
+  ],
+  "stock": 4,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:05:58.093Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:05:58.093Z"
+  },
+  "slug": "sank-magic-practice-copybook-4-books-pen-refill-set-number-tracing-reusable-writing-practice-for-kids",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e2b8acde5438190ee6ae"
+  },
+  "title": "The Cosmic Detective: Exporing the Mysteries of Our Universe",
+  "description": "The Cosmic Detective 📘\nA fascinating journey into the mysteries of the universe by Dr. Mani Bhaumik.\nExplores big questions about space 🌌 like the origin of the universe, stars, galaxies, black holes, and quasars.\nPacked with scientific insights and stunning cosmic facts ✨ that make space exploration easy and exciting to understand.\nPerfect for students and curious readers 🔭 who want to discover the wonders of the cosmos.",
+  "price": 250,
+  "category": "Books",
+  "subCategory": "Comics",
+  "images": [
+    "https://m.media-amazon.com/images/I/91-NNQEF5sL._SL1500_.jpg"
+  ],
+  "stock": 4,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:08:56.758Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:08:56.758Z"
+  },
+  "slug": "the-cosmic-detective-exporing-the-mysteries-of-our-universe",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e3e6acde5438190ee6c7"
+  },
+  "title": "The Little Book of Cosmic Energy: A Beginner’s Guide to Harnessing the Power of the Universe",
+  "description": "Raise Your Vibration 📘\nA beginner’s guide to understanding cosmic energy and how vibrations influence your life.\nExplains how raising your frequency ✨ can help improve happiness, health, and overall well-being.\nIncludes simple practices like meditation, chakra balancing, reiki, crystal healing, and aura cleansing 💫.\nA practical guide 🌿 to positive thinking, manifestation, and creating a more purposeful, peaceful life.",
+  "price": 454,
+  "category": "Books",
+  "subCategory": "Comics",
+  "images": [
+    "https://m.media-amazon.com/images/I/71UtkzYVIBL._SL1500_.jpg"
+  ],
+  "stock": 0,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:13:58.273Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:13:58.273Z"
+  },
+  "slug": "the-little-book-of-cosmic-energy-a-beginners-guide-to-harnessing-the-power-of-the-universe",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e4e0acde5438190ee6e0"
+  },
+  "title": "Self-Compassion",
+  "description": "Self-Compassion 📘\nA powerful guide that helps you stop self-criticism and overcome insecurity to live a more peaceful and fulfilled life.\nFocuses on building self-compassion 💖 instead of self-esteem, as a healthier way to handle stress and emotional struggles.\nIncludes practical exercises and action plans 🌿 to deal with everyday challenges like relationships, parenting, and personal growth.\nA supportive psychology-based book ✨ that helps you accept yourself, heal emotionally, and unlock your true potential.",
+  "price": 693,
+  "category": "Books",
+  "subCategory": "Self-Help",
+  "images": [
+    "https://m.media-amazon.com/images/I/81izunhB0iL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:18:08.188Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:18:08.188Z"
+  },
+  "slug": "selfcompassion",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e59eacde5438190ee6f9"
+  },
+  "title": "Toy Imagine Retro Handheld Gaming Console 🎮 | 520 Classic Games | Portable Mini Gamepad | Kids Toy (6+)",
+  "description": "Toy Imagine Retro Handheld Console 🎮\nA compact mini gaming console with 520 classic built-in games for endless retro fun.\nPortable pocket-sized design 🕹️ with easy controls, perfect for kids aged 6+ and casual gaming.\n3-inch vibrant display with rechargeable battery 🔋 for smooth gaming on the go.\nIdeal gift for kids 🎁 offering fun, travel-friendly entertainment anytime, anywhere.",
+  "price": 749,
+  "category": "Gaming",
+  "subCategory": "Consoles",
+  "images": [
+    "https://m.media-amazon.com/images/I/61kD+CFzWoL._SL1000_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:21:18.828Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:21:18.828Z"
+  },
+  "slug": "toy-imagine-retro-handheld-gaming-console-520-classic-games-portable-mini-gamepad-kids-toy-6",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e65aacde5438190ee712"
+  },
+  "title": "TOYTONIC Retro Game Console 🎮 | 620 Games | 3.5” Screen | TV Output | Portable Kids Gaming",
+  "description": "Toy Imagine Retro Game Console 🎮\nPortable handheld console with 620 built-in classic games for nonstop retro fun.\n3.5” color display 📺 for smooth solo gaming anytime, anywhere—no internet needed.\nRechargeable battery ⚡ gives 4–5 hours playtime, perfect for travel and daily use.\nKid-friendly design 🎁 ideal gift for boys and girls aged 7–14 years.",
+  "price": 1099,
+  "category": "Gaming",
+  "subCategory": "Consoles",
+  "images": [
+    "https://m.media-amazon.com/images/I/716whx0JDdL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:24:26.628Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:24:26.628Z"
+  },
+  "slug": "toytonic-retro-game-console-620-games-35-screen-tv-output-portable-kids-gaming",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e733acde5438190ee72b"
+  },
+  "title": "**Toy Imagine Handheld Game Console 🎮 | 620 Built-in Games | 3.5” Screen | Portable Retro Gaming**",
+  "description": "DHANISHTHA Gaming Stand 🎮\nWall-mount headphone and controller holder designed to keep your gaming setup neat and organized.\nStrong plastic build 🖤 with double-sided tape for easy installation on any surface.\nHelps store headphones, PS5/Xbox controllers, and cables neatly for a clutter-free desk.\nPerfect gaming setup accessory 🕹️ for desks, PC setups, and modern workspaces.",
+  "price": 297,
+  "category": "Gaming",
+  "subCategory": "PC Gaming",
+  "images": [
+    "https://m.media-amazon.com/images/I/71fE3jpkT2L._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:28:03.237Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:28:03.237Z"
+  },
+  "slug": "toy-imagine-handheld-game-console-620-builtin-games-35-screen-portable-retro-gaming",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e7d7acde5438190ee744"
+  },
+  "title": "Cubonic Strike 02 PUBG Trigger 🎮 | Mobile Gaming Controller | Vibration & Auto Shoot | 2 Pcs Set",
+  "description": "Cubonic Strike 02 PUBG Trigger 🎮\nAdvanced mobile gaming trigger set with record & playback function for faster automatic shooting.\nUpgraded cap air mapping technology ⚡ ensures stable connection with synchronized sound and response.\nAdjustable head design 🎯 for precise control without damaging your mobile screen.\nHigh sensitivity gaming accessory 🎮 supports fast, smooth and competitive gameplay.",
+  "price": 1899,
+  "category": "Gaming",
+  "subCategory": "Mobile Gaming",
+  "images": [
+    "https://m.media-amazon.com/images/I/41FF1OIIMPL.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:30:47.591Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:30:47.591Z"
+  },
+  "slug": "cubonic-strike-02-pubg-trigger-mobile-gaming-controller-vibration-auto-shoot-2-pcs-set",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e869acde5438190ee75d"
+  },
+  "title": "**SpinBot BattleMods T10 Gaming Trigger 🎮 | Electric Burst Mode | For Tablets & iPads | BGMI/Free Fire/COD (1 Pair)**",
+  "description": "SpinBot BattleMods T10 Gaming Trigger 🎮\nTablet/iPad gaming trigger with capacitive conduction technology for fast and stable shooting response.\nSupports burst mode ⚡ (10/12/16 shots per second) to convert semi-auto guns into automatic fire in supported games. Ergonomic adjustable grip 🎯 fits securely even with tablet back covers. Perfect gaming accessory 🎮 designed for BGMI, Free Fire Max, COD Mobile (tablet/iPad only).",
+  "price": 1799,
+  "category": "Gaming",
+  "subCategory": "Mobile Gaming",
+  "images": [
+    "https://m.media-amazon.com/images/I/51yYPVsaSaL._SY300_SX300_QL70_FMwebp_.jpg"
+  ],
+  "stock": 5,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 3,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:33:13.705Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:33:13.705Z"
+  },
+  "slug": "spinbot-battlemods-t10-gaming-trigger-electric-burst-mode-for-tablets-ipads-bgmifree-firecod-1-pair",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e91aacde5438190ee776"
+  },
+  "title": "**One94Store RGB Rope Light 🎮 | 5M | App & Remote | Music Sync | Gaming Room LED**",
+  "description": "One94Store Smart RGB Rope Light 🎮\n5M smart LED rope light with app and remote control for easy color and brightness adjustment.\nMusic sync mode 🎶 makes lights react to songs for a vibrant party or gaming vibe.\nSupports 16M+ colors 🌈 with multiple dynamic lighting effects for any mood or occasion. Energy-efficient LED strip 💡 perfect for gaming setups, bedroom décor, and festive lighting.",
+  "price": 599,
+  "category": "Gaming",
+  "subCategory": "Accessories",
+  "images": [
+    "https://m.media-amazon.com/images/I/71UTu-DjHVL._SL1254_.jpg"
+  ],
+  "stock": 4,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:36:10.282Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:36:10.282Z"
+  },
+  "slug": "one94store-rgb-rope-light-5m-app-remote-music-sync-gaming-room-led",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32e9acacde5438190ee78f"
+  },
+  "title": "ZEBRONICS PHERO Gaming Mouse 🎮 | Wired | 1600 DPI | RGB Lights | 4 Buttons | Plug & Play",
+  "description": "ZEBRONICS PHERO Gaming Mouse 🎮\nCompact wired gaming mouse with rainbow LED lights for a stylish setup.\nAdjustable DPI settings (800/1200/1600) 🎯 for smooth and precise control in gaming and work.\nHigh-precision optical sensor ⚡ ensures accurate tracking and responsive performance. Durable 4-button design 🖱️ with long lifespan, perfect for everyday gaming and productivity use.",
+  "price": 184,
+  "category": "Gaming",
+  "subCategory": "Accessories",
+  "images": [
+    "https://m.media-amazon.com/images/I/71PfyTreJIL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:38:36.036Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:38:36.036Z"
+  },
+  "slug": "zebronics-phero-gaming-mouse-wired-1600-dpi-rgb-lights-4-buttons-plug-play",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32eb0facde5438190ee7c3"
+  },
+  "title": "Wooden 2-in-1 Board Game 🧠 | Tic Tac Toe + Solitaire (Brain Vita)",
+  "description": "The Mind Challenge Wooden Board Game 🧠\nA 2-in-1 classic wooden game set featuring Tic Tac Toe and Solitaire (Brainvita).\nMade from durable wood 🌳, designed for both kids and adults to enjoy strategic thinking fun.\nHelps improve concentration, logic, and problem-solving skills while playing 🎯. Perfect educational board game 🎁 for family time, travel, and gifting on birthdays.",
+  "price": 499,
+  "category": "Gaming",
+  "subCategory": "Games",
+  "images": [
+    "https://m.media-amazon.com/images/I/71JOcfMNxFL._SL1500_.jpg"
+  ],
+  "stock": 7,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:44:31.655Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:44:31.655Z"
+  },
+  "slug": "wooden-2in1-board-game-tic-tac-toe-solitaire-brain-vita",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a32ebebacde5438190ee7dc"
+  },
+  "title": "Portronics iKonnect C Pro 🎧 | Type-C to 3.5mm DAC Audio Adapter",
+  "description": "Portronics Type-C to 3.5mm Adapter 🎧\nUSB-C to AUX audio converter with built-in DAC chip for clear, noise-free sound.\nSupports music playback and calls 📞 with wire control functionality.\nDurable braided cable design 🔌 with strong bend resistance for long-lasting use.\nPlug & play ⚡ compatible with most Type-C smartphones for instant audio connection.",
+  "price": 220,
+  "category": "Gaming",
+  "subCategory": "Accessories",
+  "images": [
+    "https://m.media-amazon.com/images/I/61Lfhj2LdxL._SL1500_.jpg"
+  ],
+  "stock": 4,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-17T18:48:11.998Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-17T18:48:11.998Z"
+  },
+  "slug": "portronics-ikonnect-c-pro-typec-to-35mm-dac-audio-adapter",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a34125a5e92a5bfa2114930"
+  },
+  "title": "Daniel Hechter Bercy Watch – DHM1001 ⌚",
+  "description": "The Daniel Hechter Bercy Chronograph Watch (DHM1001) features a modern square dial with a sophisticated chronograph-inspired design, making it a stylish choice for both casual and formal occasions. The premium brown silicone strap offers all-day comfort and durability, while the multi-functional display adds a sporty and contemporary touch. Powered by precise quartz movement and built with water resistance for everyday use, this watch combines elegance, functionality, and modern fashion in one sleek accessory. ⌚✨",
+  "price": 2799,
+  "category": "Accessories",
+  "subCategory": "Watches",
+  "images": [
+    "https://m.media-amazon.com/images/I/71Ozj5O+fEL._SX679_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T15:44:26.314Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T15:44:26.314Z"
+  },
+  "slug": "daniel-hechter-bercy-watch-dhm1001-",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a34172b5e92a5bfa2114949"
+  },
+  "title": "GOBOULT Mustang Muscle Smartwatch – White Armor Edition ⌚✨",
+  "description": "The GOBOULT Mustang Muscle Smartwatch – White Armor Edition combines premium design with advanced smart features. It features a 2.01\" Ultra HD 3D Curved Display, Bluetooth calling, AI assistant, health monitoring, and 120+ sports modes. With a stylish convertible strap, IP68 water resistance, and up to 7 days of battery life, it is designed for both performance and everyday elegance. ⌚✨",
+  "price": 2999,
+  "category": "Accessories",
+  "subCategory": "Watches",
+  "images": [
+    "https://m.media-amazon.com/images/I/71poAtvPdqL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:04:59.762Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:04:59.762Z"
+  },
+  "slug": "goboult-mustang-muscle-smartwatch-white-armor-edition-",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a3417d05e92a5bfa2114962"
+  },
+  "title": "Apple Watch SE 3 GPS + Cellular 44mm Midnight Aluminium Case with Midnight Sport Band - M/L",
+  "description": "The Apple Watch SE 3 delivers powerful health, fitness, and connectivity features in a sleek design. It features an Always-On Display, advanced health tracking, sleep monitoring, heart rate alerts, and workout tracking with real-time metrics. With Bluetooth and Cellular connectivity, you can make calls, send messages, stream music, and stay connected even without your iPhone nearby. Fast charging and all-day battery life make it the perfect companion for an active lifestyle. ⌚✨",
+  "price": 30999,
+  "category": "Accessories",
+  "subCategory": "Watches",
+  "images": [
+    "https://m.media-amazon.com/images/I/71CkZJg9dGL._SL1500_.jpg"
+  ],
+  "stock": 3,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:07:44.069Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:07:44.069Z"
+  },
+  "slug": "apple-watch-se-3-gps-cellular-44mm-midnight-aluminium-case-with-midnight-sport-band-ml",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a341db95e92a5bfa211497b"
+  },
+  "title": "ARICKS Steampunk Sunglasses Hippie Glasses Retro Round Metal Frame Women Men",
+  "description": "These stylish unisex sunglasses feature a lightweight and durable frame designed for everyday comfort. Perfect for casual outings, travel, driving, and outdoor activities, they offer a modern look that complements any outfit. The package includes 1 pair of sunglasses with a protective hard case for safe storage and long-lasting use. 😎✨",
+  "price": 399,
+  "category": "Accessories",
+  "subCategory": "Sunglasses",
+  "images": [
+    "https://m.media-amazon.com/images/I/517-5dUtCEL._SX522_.jpg"
+  ],
+  "stock": 4,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:32:57.637Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:32:57.637Z"
+  },
+  "slug": "aricks-steampunk-sunglasses-hippie-glasses-retro-round-metal-frame-women-men",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a341e445e92a5bfa2114994"
+  },
+  "title": "ARICKS Classic Aviator Sunglasses for Men Women Driving Sun glasses Glass Lens 100% UV Blocking",
+  "description": "The ARICKS Sunglasses combine premium style with superior eye protection. Featuring scratch-resistant glass lenses with anti-glare coating, they provide crystal-clear vision and enhanced durability. Designed with a sturdy double-screw hinge and 100% UVA/UVB protection, these sunglasses are perfect for driving, travel, and everyday outdoor use while ensuring comfort, durability, and a modern look. 😎✨",
+  "price": 249,
+  "category": "Accessories",
+  "subCategory": "Sunglasses",
+  "images": [
+    "https://m.media-amazon.com/images/I/516X8sQWLDL._SX522_.jpg"
+  ],
+  "stock": 0,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:35:16.175Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:35:16.175Z"
+  },
+  "slug": "aricks-classic-aviator-sunglasses-for-men-women-driving-sun-glasses-glass-lens-100-uv-blocking",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a341ed65e92a5bfa21149ad"
+  },
+  "title": "VOGARD Genuine Leather Woven Belt",
+  "description": "The VOGARD Braided Leather Belt features a timeless hand-woven design crafted from genuine leather for a refined and sophisticated look. Its flexible braided construction provides a comfortable, adjustable fit, while the classic brass buckle adds a touch of elegance. Perfect for pairing with jeans, chinos, and casual trousers, this versatile belt complements both everyday and smart-casual outfits. 👔✨",
+  "price": 799,
+  "category": "Accessories",
+  "subCategory": "Belts",
+  "images": [
+    "https://m.media-amazon.com/images/I/61ZXdafmaLL._SX522_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:37:42.807Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:37:42.807Z"
+  },
+  "slug": "vogard-genuine-leather-woven-belt",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a341fb75e92a5bfa21149c6"
+  },
+  "title": "LionVII Adjustable Webbing Belt for Men",
+  "description": "The LionVII Nylon Canvas Belt combines durability, comfort, and practicality in a modern design. Crafted from high-strength 800D nylon webbing, it offers a lightweight, breathable fit ideal for everyday wear, outdoor activities, and travel. The metal-free YKK buckle ensures hassle-free airport security checks, while the fully adjustable, trim-to-fit design provides a customized and secure fit for all-day comfort. 🧳✨",
+  "price": 8218,
+  "category": "Accessories",
+  "subCategory": "Belts",
+  "images": [
+    "https://m.media-amazon.com/images/I/71syTUHXp+L._SX466_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:41:27.981Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:41:27.981Z"
+  },
+  "slug": "lionvii-adjustable-webbing-belt-for-men",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a34202c5e92a5bfa21149df"
+  },
+  "title": "URBAN FOREST Travis Sand Leather Wallet for Men",
+  "description": "The URBAN FOREST RFID Leather Wallet combines style, security, and functionality in a premium bi-fold design. Crafted from quality leather, it features RFID protection to safeguard your cards, multiple card slots, dual currency compartments, a coin pocket, and secret storage sections to keep your essentials organized. Its elegant sand-colored finish and secure button closure make it a perfect choice for everyday use. 👛✨",
+  "price": 457,
+  "category": "Accessories",
+  "subCategory": "Wallets",
+  "images": [
+    "https://m.media-amazon.com/images/I/41i8mXU0TaL._SL1500_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:43:24.884Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:43:24.884Z"
+  },
+  "slug": "urban-forest-travis-sand-leather-wallet-for-men",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a3420df5e92a5bfa21149f8"
+  },
+  "title": "AICA Customized Wallet Gift Set – Navy Blue 🎁✨",
+  "description": "The AICA Personalized Leather Gift Set is a stylish and thoughtful gifting solution featuring a customized wallet, passport cover, sunglasses case, and keychain. Crafted from premium faux leather, this elegant combo offers organized storage for cards, cash, documents, and keys while adding a personal touch with custom name engraving. Perfect for birthdays, anniversaries, weddings, and special occasions. 🎁✨",
+  "price": 999,
+  "category": "Accessories",
+  "subCategory": "Wallets",
+  "images": [
+    "https://m.media-amazon.com/images/I/81+IsmsgbEL._SY450_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:46:23.020Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:46:23.020Z"
+  },
+  "slug": "aica-customized-wallet-gift-set-navy-blue-",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a34217a5e92a5bfa2114a11"
+  },
+  "title": "Nobero Adjustable Sports Cap for Men 🧢✨",
+  "description": "The Nobero Premium Cotton Baseball Cap offers a perfect blend of comfort and everyday style. Crafted from soft, breathable cotton, it features a classic silhouette with an adjustable strap for a secure and personalized fit. Its versatile unisex design pairs effortlessly with casual, sporty, and streetwear outfits, making it an ideal accessory for daily wear, travel, and outdoor activities. 🧢✨",
+  "price": 598,
+  "category": "Accessories",
+  "subCategory": "Caps",
+  "images": [
+    "https://m.media-amazon.com/images/I/61TtJVV2DnL._SX425_.jpg"
+  ],
+  "stock": 4,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:48:58.353Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:48:58.353Z"
+  },
+  "slug": "nobero-adjustable-sports-cap-for-men-",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a3422275e92a5bfa2114a2a"
+  },
+  "title": "Jack&Jones Men's Baseball Cap with Adjustable Closure | Unisex Cap",
+  "description": "The JACK & JONES Classic Blue Baseball Cap combines timeless style with everyday comfort. Crafted from premium cotton, it features a vintage-washed finish, embroidered detailing, and an adjustable buckle closure for a secure fit. Lightweight and breathable, this cap is perfect for casual outings, outdoor activities, and adding a stylish touch to your everyday look. 🧢✨",
+  "price": 1019,
+  "category": "Accessories",
+  "subCategory": "Caps",
+  "images": [
+    "https://m.media-amazon.com/images/I/71ZIL25dYgL._SY550_.jpg"
+  ],
+  "stock": 2,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:51:51.982Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:51:51.982Z"
+  },
+  "slug": "jackjones-mens-baseball-cap-with-adjustable-closure-unisex-cap",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a3422b25e92a5bfa2114a43"
+  },
+  "title": "KE KANHA Multicolor Border Print Scarf for Women ✨🧣",
+  "description": "The KE KANHA Women's Printed Scarf & Stole is a stylish and versatile accessory designed for everyday elegance and comfort. Crafted from soft, lightweight viscose fabric, it features a beautiful boho-inspired border print with decorative tassels for a trendy look. Perfect for use as a scarf, stole, face cover, or head wrap, it provides protection from sun, dust, and wind while complementing casual, ethnic, and beachwear outfits. 🧣✨🌸",
+  "price": 499,
+  "category": "Accessories",
+  "subCategory": "Scarves",
+  "images": [
+    "https://m.media-amazon.com/images/I/81gB9C2pWzL._SY550_.jpg"
+  ],
+  "stock": 0,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:54:10.791Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:54:10.791Z"
+  },
+  "slug": "ke-kanha-multicolor-border-print-scarf-for-women-",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a34232b5e92a5bfa2114a5c"
+  },
+  "title": "PARTYMOUSE Floral Print Satin Scarf – Pink 🌸🧣✨",
+  "description": "The PARTYMOUSE Vintage Rose Satin Scarf features an elegant floral and gold buckle print on a soft pink background, adding a timeless touch to any outfit. Crafted from premium satin-feel fabric, it offers a smooth, lightweight drape with a luxurious silk-like finish. Its versatile square design can be styled as a neck scarf, head wrap, hair accessory, or handbag accent, making it a chic accessory for every season. 🌸🧣✨",
+  "price": 899,
+  "category": "Accessories",
+  "subCategory": "Scarves",
+  "images": [
+    "https://m.media-amazon.com/images/I/61YEdHyjaUL._SX522_.jpg"
+  ],
+  "stock": 3,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 4,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:56:11.239Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:56:11.239Z"
+  },
+  "slug": "partymouse-floral-print-satin-scarf-pink-",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6a34239c5e92a5bfa2114a75"
+  },
+  "title": "Max Women Printed Scarf(Pink_FS)",
+  "description": "The Max Women's Printed Scarf is a stylish and lightweight accessory designed to add elegance to your everyday wardrobe. Crafted from soft polyester fabric, it features a beautiful printed design in a charming pink shade that complements both casual and festive outfits. Comfortable to wear and easy to maintain, this versatile scarf is perfect for daily use, travel, and seasonal styling. 🌸🧣✨",
+  "price": 199,
+  "category": "Accessories",
+  "subCategory": "Scarves",
+  "images": [
+    "https://m.media-amazon.com/images/I/71sqS8R7XPL._SY550_.jpg"
+  ],
+  "stock": 5,
+  "createdBy": {
+    "$oid": "6a316e45c6f703804a843101"
+  },
+  "averageRating": 5,
+  "reviewCount": 0,
+  "isDeleted": false,
+  "createdAt": {
+    "$date": "2026-06-18T16:58:04.569Z"
+  },
+  "updatedAt": {
+    "$date": "2026-06-18T16:58:04.569Z"
+  },
+  "slug": "max-women-printed-scarfpinkfs",
+  "__v": 0
+}]
