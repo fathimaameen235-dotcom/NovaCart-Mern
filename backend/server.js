@@ -13,25 +13,12 @@ connectDB();
 const app = express();
 
 // ─── Middleware ───────────────────────────────────────────────
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:3000",
-  process.env.FRONTEND_URL,
-].filter(Boolean);
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
 
-      console.log("❌ CORS BLOCKED:", origin);
-      return callback(null, false); // 👈 IMPORTANT FIX
-    },
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: true,
+  credentials: true,
+}));
 
 
 app.use(express.json({ limit: "10mb" }));
