@@ -65,24 +65,24 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-nova-bg">
+    <div className="min-h-screen bg-nova-bg overflow-x-hidden">
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-24 px-4 overflow-hidden">
+      <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-14 sm:pb-20 lg:pb-24 px-4 overflow-hidden">
 
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-nova-accent/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-40 right-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-20 left-1/4 w-72 h-72 sm:w-96 sm:h-96 bg-nova-accent/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute top-40 right-1/4 w-60 h-60 sm:w-80 sm:h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-5xl mx-auto text-center animate-fade-in">
 
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-nova-border bg-nova-surface mb-8">
-            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-            <span className="text-nova-muted text-sm font-mono">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-nova-border bg-nova-surface mb-6 sm:mb-8">
+            <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse flex-shrink-0" />
+            <span className="text-nova-muted text-xs sm:text-sm font-mono">
               AI-powered shopping experience
             </span>
           </div>
 
-          <h1 className="font-display font-extrabold text-5xl sm:text-6xl lg:text-7xl text-nova-text mb-6 leading-tight">
+          <h1 className="font-display font-extrabold text-3xl sm:text-5xl lg:text-7xl text-nova-text mb-4 sm:mb-6 leading-tight px-1">
             Shop the Future,
             <br />
             <span className="text-transparent bg-clip-text bg-nova-gradient">
@@ -90,36 +90,39 @@ const Home = () => {
             </span>
           </h1>
 
-          <p className="font-body text-nova-muted text-lg sm:text-xl max-w-2xl mx-auto mb-10">
+          <p className="font-body text-nova-muted text-base sm:text-lg lg:text-xl max-w-2xl mx-auto mb-8 sm:mb-10 px-2">
             NovaCart is the modern commerce platform built for the next generation.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4 sm:px-0">
 
             <Link
               to="/products"
-              className="nova-btn-primary px-8 py-4 rounded-xl inline-flex items-center gap-2"
+              className="nova-btn-primary px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl inline-flex items-center justify-center gap-2 text-sm sm:text-base w-full sm:w-auto"
             >
               Explore Products
             </Link>
 
             <Link
               to="/register"
-              className="nova-btn-secondary px-8 py-4 rounded-xl"
+              className="nova-btn-secondary px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base w-full sm:w-auto text-center"
             >
               Create Account
             </Link>
 
           </div>
 
-          <div className="relative mt-20 flex justify-center">
-            <div className="flex gap-4">
+          {/* Floating images — scales down and wraps on small screens so it never forces horizontal scroll */}
+          <div className="relative mt-12 sm:mt-16 lg:mt-20 flex justify-center px-2">
+            <div className="flex flex-wrap justify-center gap-2.5 sm:gap-4 max-w-full">
               {floatingImages.map((src, i) => (
                 <div
                   key={i}
-                  className="w-24 h-24 rounded-2xl overflow-hidden border border-nova-border"
+                  className={`w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-xl sm:rounded-2xl overflow-hidden border border-nova-border flex-shrink-0 ${
+                    i >= 4 ? "hidden sm:block" : ""
+                  }`}
                   style={{
-                    transform: `translateY(${i % 2 === 0 ? "-8px" : "8px"})`,
+                    transform: `translateY(${i % 2 === 0 ? "-6px" : "6px"})`,
                   }}
                 >
                   <img
@@ -141,16 +144,16 @@ const Home = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-12 px-4 border-y border-nova-border bg-nova-surface/30">
-        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
+      <section className="py-8 sm:py-12 px-4 border-y border-nova-border bg-nova-surface/30">
+        <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
 
           {stats.map((stat, i) => (
             <div key={i} className="text-center">
-              <div className="text-3xl">{stat.icon}</div>
-              <div className="text-3xl font-bold text-nova-text">
+              <div className="text-2xl sm:text-3xl">{stat.icon}</div>
+              <div className="text-xl sm:text-2xl lg:text-3xl font-bold text-nova-text">
                 {stat.value}
               </div>
-              <div className="text-nova-muted text-sm">{stat.label}</div>
+              <div className="text-nova-muted text-xs sm:text-sm">{stat.label}</div>
             </div>
           ))}
 
@@ -158,23 +161,23 @@ const Home = () => {
       </section>
 
       {/* Categories */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-16 lg:py-20 px-4">
         <div className="max-w-6xl mx-auto">
 
-          <h2 className="text-center text-3xl font-bold text-nova-text mb-12">
+          <h2 className="text-center text-2xl sm:text-3xl font-bold text-nova-text mb-8 sm:mb-12">
             Shop by Category
           </h2>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
 
             {categories.map((cat, i) => (
               <Link
                 key={i}
                 to={`/products?category=${encodeURIComponent(cat.name)}`}
-                className={`p-5 rounded-2xl border ${cat.border} bg-gradient-to-br ${cat.color}`}
+                className={`p-4 sm:p-5 rounded-2xl border ${cat.border} bg-gradient-to-br ${cat.color} transition-transform active:scale-95`}
               >
-                <div className="text-3xl mb-2">{cat.icon}</div>
-                <p className="font-semibold text-nova-text">
+                <div className="text-2xl sm:text-3xl mb-2">{cat.icon}</div>
+                <p className="font-semibold text-nova-text text-sm sm:text-base">
                   {cat.name}
                 </p>
               </Link>
@@ -185,21 +188,21 @@ const Home = () => {
       </section>
 
       {/* Featured */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-16 lg:py-20 px-4">
         <div className="max-w-6xl mx-auto">
 
-          <h2 className="text-3xl font-bold text-nova-text mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-nova-text mb-6 sm:mb-8">
             Featured Products
           </h2>
 
           {loading ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {[...Array(6)].map((_, i) => (
-                <div key={i} className="nova-card h-60 animate-pulse" />
+                <div key={i} className="nova-card h-44 sm:h-60 animate-pulse" />
               ))}
             </div>
           ) : featuredProducts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
               {featuredProducts.map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}

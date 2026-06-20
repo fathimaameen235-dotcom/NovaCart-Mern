@@ -21,6 +21,11 @@ const BANKS = [
   "Punjab National Bank",
 ];
 
+// Inline style applied to every text input so the typed value is always
+// readable regardless of what background color the shared `.nova-input`
+// class applies (fixes "invisible text" when the input bg is light).
+const inputTextStyle = { color: "#10131c", caretColor: "#10131c" };
+
 const Checkout = () => {
   const { cartItems, cartTotal, clearCart } = useCart();
   const { user } = useAuth();
@@ -28,6 +33,7 @@ const Checkout = () => {
 
   const [loading, setLoading]             = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("card");
+  const [step, setStep]                   = useState(1); // mobile step: 1=shipping, 2=payment
 
   const [shipping, setShipping] = useState({
     firstName: user?.name?.split(" ")[0] || "",
@@ -86,7 +92,6 @@ const Checkout = () => {
     return true;
   };
 
-  // Step 1 — create order in DB
   const createOrderInDB = async () => {
     const orderItems = cartItems.map((item) => ({
       product:  item._id,
@@ -95,18 +100,15 @@ const Checkout = () => {
       price:    item.price,
       quantity: item.quantity,
     }));
-
     const { data } = await API.post("/orders", {
       items:           orderItems,
       shippingAddress: shipping,
       paymentMethod,
       totalAmount:     cartTotal + (paymentMethod === "cod" ? 2 : 0),
     });
-
     return data.order;
   };
 
-  // COD flow
   const handleCOD = async () => {
     const order = await createOrderInDB();
     clearCart();
@@ -118,20 +120,11 @@ const Checkout = () => {
     return order;
   };
 
-  // Online payment — fake flow, no Razorpay modal
   const handleOnlinePayment = async () => {
-    // 1. Create order in DB
     const order = await createOrderInDB();
-
-    // 2. Tell backend to create a fake payment order
     await API.post("/payments/create-order", { orderId: order._id });
-
-    // 3. Simulate a 1.5s "processing" delay
     await new Promise((r) => setTimeout(r, 1500));
-
-    // 4. Verify (mark as paid) directly — no gateway needed
     await API.post("/payments/verify", { orderId: order._id });
-
     clearCart();
     toast.success("🎉 Payment successful! Order confirmed.", {
       duration: 5000,
@@ -143,7 +136,6 @@ const Checkout = () => {
   const handleOrder = async (e) => {
     e.preventDefault();
     if (!validate()) return;
-
     try {
       setLoading(true);
       if (paymentMethod === "cod") {
@@ -161,8 +153,8 @@ const Checkout = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen bg-nova-bg pt-24 flex flex-col items-center justify-center text-center px-4">
-        <h2 className="font-display font-bold text-3xl text-nova-text mb-4">No items to checkout</h2>
+      <div className="min-h-screen bg-nova-bg pt-20 flex flex-col items-center justify-center text-center px-4">
+        <h2 className="font-display font-bold text-2xl sm:text-3xl text-nova-text mb-4">No items to checkout</h2>
         <Link to="/products" className="nova-btn-primary px-8 py-3 rounded-xl text-base">Browse Products</Link>
       </div>
     );
@@ -170,72 +162,114 @@ const Checkout = () => {
 
   const codFee = paymentMethod === "cod" ? 2 : 0;
 
+  /* shared input class */
+  const inputCls = "nova-input w-full px-3 sm:px-4 py-2.5 sm:py-3 rounded-xl text-sm";
+
   return (
-    <div className="min-h-screen bg-nova-bg pt-24 pb-16 px-4">
+    <div className="min-h-screen bg-nova-bg pt-16 sm:pt-20 pb-24 sm:pb-20 px-4">
       <div className="max-w-5xl mx-auto">
-        <h1 className="font-display font-bold text-4xl text-nova-text mb-8">Checkout</h1>
+        <div className="pt-4 sm:pt-6 mb-6 sm:mb-8">
+          <h1 className="font-display font-bold text-2xl sm:text-4xl text-nova-text">Checkout</h1>
 
-        <form onSubmit={handleOrder}>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Mobile step indicator */}
+          <div className="flex items-center gap-3 mt-3 lg:hidden">
+            {[{ n: 1, l: "Shipping" }, { n: 2, l: "Payment" }].map(({ n, l }) => (
+              <div key={n} className="flex items-center gap-1.5">
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold ${step >= n ? "bg-nova-accent text-white" : "bg-nova-border text-nova-muted"}`}>{n}</div>
+                <span className={`text-xs font-body ${step >= n ? "text-nova-text" : "text-nova-muted"}`}>{l}</span>
+                {n < 2 && <svg className="w-3 h-3 text-nova-border" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>}
+              </div>
+            ))}
+          </div>
+        </div>
 
-            {/* LEFT */}
-            <div className="lg:col-span-2 space-y-6">
+        <form id="checkout-form" onSubmit={handleOrder}>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 sm:gap-8">
 
-              {/* SHIPPING */}
-              <div className="nova-card p-6">
-                <h2 className="font-display font-semibold text-xl text-nova-text mb-5">Shipping Information</h2>
-                <div className="grid grid-cols-2 gap-4">
+            {/* LEFT — Forms */}
+            <div className="lg:col-span-2 space-y-4 sm:space-y-6">
+
+              {/* SHIPPING — always visible on desktop, step 1 on mobile */}
+              <div className={`nova-card p-4 sm:p-6 ${step !== 1 ? "hidden lg:block" : ""}`}>
+                <div className="flex items-center justify-between mb-4 sm:mb-5">
+                  <h2 className="font-display font-semibold text-lg sm:text-xl text-nova-text">Shipping Information</h2>
+                  <span className="text-xs text-nova-muted font-body bg-nova-surface border border-nova-border px-2 py-0.5 rounded-full">Step 1</span>
+                </div>
+                <div className="grid grid-cols-2 gap-3 sm:gap-4">
                   <div>
-                    <label className="block text-xs text-nova-muted mb-2">First Name</label>
+                    <label className="block text-xs text-nova-muted mb-1.5">First Name</label>
                     <input type="text" name="firstName" value={shipping.firstName} onChange={handleShippingChange}
-                      placeholder="John" autoComplete="given-name" className="nova-input w-full px-4 py-3 rounded-xl text-sm" />
+                      placeholder="John" autoComplete="given-name" className={inputCls} style={inputTextStyle} />
                   </div>
                   <div>
-                    <label className="block text-xs text-nova-muted mb-2">Last Name</label>
+                    <label className="block text-xs text-nova-muted mb-1.5">Last Name</label>
                     <input type="text" name="lastName" value={shipping.lastName} onChange={handleShippingChange}
-                      placeholder="Doe" autoComplete="family-name" className="nova-input w-full px-4 py-3 rounded-xl text-sm" />
+                      placeholder="Doe" autoComplete="family-name" className={inputCls} style={inputTextStyle} />
                   </div>
                   <div className="col-span-2">
-                    <label className="block text-xs text-nova-muted mb-2">Email</label>
+                    <label className="block text-xs text-nova-muted mb-1.5">Email</label>
                     <input type="email" name="email" value={shipping.email} onChange={handleShippingChange}
-                      placeholder="you@example.com" autoComplete="email" className="nova-input w-full px-4 py-3 rounded-xl text-sm" />
+                      placeholder="you@example.com" autoComplete="email" className={inputCls} style={inputTextStyle} />
                   </div>
                   <div className="col-span-2">
-                    <label className="block text-xs text-nova-muted mb-2">Address</label>
+                    <label className="block text-xs text-nova-muted mb-1.5">Address</label>
                     <input type="text" name="address" value={shipping.address} onChange={handleShippingChange}
-                      placeholder="123 Main Street" autoComplete="street-address" className="nova-input w-full px-4 py-3 rounded-xl text-sm" />
+                      placeholder="123 Main Street" autoComplete="street-address" className={inputCls} style={inputTextStyle} />
                   </div>
                   <div>
-                    <label className="block text-xs text-nova-muted mb-2">City</label>
+                    <label className="block text-xs text-nova-muted mb-1.5">City</label>
                     <input type="text" name="city" value={shipping.city} onChange={handleShippingChange}
-                      placeholder="Chennai" autoComplete="address-level2" className="nova-input w-full px-4 py-3 rounded-xl text-sm" />
+                      placeholder="Chennai" autoComplete="address-level2" className={inputCls} style={inputTextStyle} />
                   </div>
                   <div>
-                    <label className="block text-xs text-nova-muted mb-2">ZIP Code</label>
+                    <label className="block text-xs text-nova-muted mb-1.5">ZIP Code</label>
                     <input type="text" name="zip" value={shipping.zip} onChange={handleShippingChange}
-                      placeholder="600001" autoComplete="postal-code" className="nova-input w-full px-4 py-3 rounded-xl text-sm" />
+                      placeholder="600001" autoComplete="postal-code" className={inputCls} style={inputTextStyle} />
                   </div>
                   <div className="col-span-2">
-                    <label className="block text-xs text-nova-muted mb-2">Country</label>
+                    <label className="block text-xs text-nova-muted mb-1.5">Country</label>
                     <input type="text" name="country" value={shipping.country} onChange={handleShippingChange}
-                      placeholder="India" autoComplete="country-name" className="nova-input w-full px-4 py-3 rounded-xl text-sm" />
+                      placeholder="India" autoComplete="country-name" className={inputCls} style={inputTextStyle} />
                   </div>
                 </div>
+
+                {/* Mobile next button */}
+                <button
+                  type="button"
+                  onClick={() => setStep(2)}
+                  className="lg:hidden nova-btn-primary w-full py-3 rounded-xl text-sm font-semibold mt-4"
+                >
+                  Continue to Payment →
+                </button>
               </div>
 
-              {/* PAYMENT */}
-              <div className="nova-card p-6">
-                <h2 className="font-display font-semibold text-xl text-nova-text mb-5">Payment Method</h2>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+              {/* PAYMENT — always visible on desktop, step 2 on mobile */}
+              <div className={`nova-card p-4 sm:p-6 ${step !== 2 ? "hidden lg:block" : ""}`}>
+                <div className="flex items-center justify-between mb-4 sm:mb-5">
+                  <h2 className="font-display font-semibold text-lg sm:text-xl text-nova-text">Payment Method</h2>
+                  <span className="text-xs text-nova-muted font-body bg-nova-surface border border-nova-border px-2 py-0.5 rounded-full">Step 2</span>
+                </div>
+
+                {/* Mobile back */}
+                <button
+                  type="button"
+                  onClick={() => setStep(1)}
+                  className="lg:hidden text-nova-muted text-xs flex items-center gap-1 mb-4 hover:text-nova-text transition-colors"
+                >
+                  ← Back to Shipping
+                </button>
+
+                {/* Payment method grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-4 sm:mb-6">
                   {PAYMENT_METHODS.map((method) => (
                     <button key={method.id} type="button" onClick={() => setPaymentMethod(method.id)}
-                      className={`p-4 rounded-xl border transition-all ${
+                      className={`p-3 sm:p-4 rounded-xl border transition-all active:scale-95 ${
                         paymentMethod === method.id
                           ? "border-nova-accent bg-nova-accent/10 text-nova-accent"
                           : "border-nova-border bg-nova-surface text-nova-muted"
                       }`}>
-                      <div className="text-2xl mb-2">{method.icon}</div>
-                      <div className="text-xs">{method.label}</div>
+                      <div className="text-xl sm:text-2xl mb-1 sm:mb-2">{method.icon}</div>
+                      <div className="text-[10px] sm:text-xs leading-snug">{method.label}</div>
                     </button>
                   ))}
                 </div>
@@ -248,30 +282,30 @@ const Checkout = () => {
                 )}
 
                 {paymentMethod === "card" && (
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <input type="text" name="cardName" value={card.cardName} onChange={handleCardChange}
-                      placeholder="Name on Card" autoComplete="cc-name" className="nova-input w-full px-4 py-3 rounded-xl text-sm" />
+                      placeholder="Name on Card" autoComplete="cc-name" className={inputCls} style={inputTextStyle} />
                     <input type="text" name="cardNumber" value={card.cardNumber} onChange={handleCardChange}
-                      placeholder="4242 4242 4242 4242" autoComplete="cc-number" className="nova-input w-full px-4 py-3 rounded-xl text-sm font-mono tracking-widest" />
-                    <div className="grid grid-cols-2 gap-4">
+                      placeholder="4242 4242 4242 4242" autoComplete="cc-number" className={`${inputCls} font-mono tracking-widest`} style={inputTextStyle} />
+                    <div className="grid grid-cols-2 gap-3">
                       <input type="text" name="expiry" value={card.expiry} onChange={handleCardChange}
-                        placeholder="MM/YY" autoComplete="cc-exp" className="nova-input w-full px-4 py-3 rounded-xl text-sm" />
+                        placeholder="MM/YY" autoComplete="cc-exp" className={inputCls} style={inputTextStyle} />
                       <input type="password" name="cvv" value={card.cvv} onChange={handleCardChange}
-                        placeholder="CVV" autoComplete="cc-csc" className="nova-input w-full px-4 py-3 rounded-xl text-sm" />
+                        placeholder="CVV" autoComplete="cc-csc" className={inputCls} style={inputTextStyle} />
                     </div>
                   </div>
                 )}
 
                 {paymentMethod === "upi" && (
                   <input type="text" value={upi.upiId} onChange={(e) => setUpi({ upiId: e.target.value })}
-                    placeholder="yourname@upi" className="nova-input w-full px-4 py-3 rounded-xl text-sm" />
+                    placeholder="yourname@upi" className={inputCls} style={inputTextStyle} />
                 )}
 
                 {paymentMethod === "netbanking" && (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                     {BANKS.map((b) => (
                       <button key={b} type="button" onClick={() => setBank({ selectedBank: b })}
-                        className={`p-3 rounded-xl border text-left ${
+                        className={`p-3 rounded-xl border text-left text-sm transition-all ${
                           bank.selectedBank === b
                             ? "border-nova-accent bg-nova-accent/10 text-nova-accent"
                             : "border-nova-border bg-nova-surface text-nova-muted"
@@ -284,67 +318,65 @@ const Checkout = () => {
 
                 {paymentMethod === "cod" && (
                   <div className="p-4 rounded-xl bg-nova-surface border border-nova-border">
-                    <p className="text-nova-text font-semibold mb-2">Cash on Delivery</p>
-                    <p className="text-sm text-nova-muted">Pay cash after delivery. ₹2 COD fee applies.</p>
+                    <p className="text-nova-text font-semibold mb-1 text-sm">Cash on Delivery</p>
+                    <p className="text-xs sm:text-sm text-nova-muted">Pay cash after delivery. ₹2 COD fee applies.</p>
                   </div>
                 )}
               </div>
             </div>
 
             {/* RIGHT — Order Summary */}
-            <div>
-              <div className="nova-card p-6 sticky top-24">
-                <h2 className="font-display font-bold text-xl text-nova-text mb-5">Order Summary</h2>
-                <div className="space-y-4 mb-6">
+            <div className="lg:col-span-1">
+              <div className="nova-card p-4 sm:p-6 lg:sticky lg:top-20">
+                <h2 className="font-display font-bold text-lg sm:text-xl text-nova-text mb-4 sm:mb-5">Order Summary</h2>
+
+                {/* Items — scrollable if many */}
+                <div className="space-y-3 mb-4 sm:mb-6 max-h-52 overflow-y-auto pr-1">
                   {cartItems.map((item) => (
-                    <div key={item._id} className="flex items-center gap-3">
+                    <div key={item._id} className="flex items-center gap-2 sm:gap-3">
                       <img src={item.image} alt={item.title}
-                        className="w-14 h-14 rounded-lg object-cover border border-nova-border" />
-                      <div className="flex-1">
-                        <p className="text-sm text-nova-text font-semibold truncate">{item.title}</p>
-                        <p className="text-xs text-nova-muted">Qty: {item.quantity}</p>
+                        className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg object-cover border border-nova-border flex-shrink-0" />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs sm:text-sm text-nova-text font-semibold truncate">{item.title}</p>
+                        <p className="text-[10px] sm:text-xs text-nova-muted">Qty: {item.quantity}</p>
                       </div>
-                      <p className="text-sm text-nova-text font-mono">${(item.price * item.quantity).toFixed(2)}</p>
+                      <p className="text-xs sm:text-sm text-nova-text font-mono flex-shrink-0">${(item.price * item.quantity).toFixed(2)}</p>
                     </div>
                   ))}
                 </div>
 
-                <div className="border-t border-nova-border pt-4 space-y-2 mb-5">
-                  <div className="flex justify-between">
+                <div className="border-t border-nova-border pt-3 sm:pt-4 space-y-2 mb-4 sm:mb-5">
+                  <div className="flex justify-between text-sm">
                     <span className="text-nova-muted">Subtotal</span>
                     <span className="text-nova-text font-mono">${cartTotal.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between text-sm">
                     <span className="text-nova-muted">Shipping</span>
                     <span className="text-emerald-400">Free</span>
                   </div>
                   {paymentMethod === "cod" && (
-                    <div className="flex justify-between">
+                    <div className="flex justify-between text-sm">
                       <span className="text-nova-muted">COD Fee</span>
                       <span className="text-amber-400">$2.00</span>
                     </div>
                   )}
-                  <div className="flex justify-between border-t border-nova-border pt-3 font-bold text-lg">
+                  <div className="flex justify-between border-t border-nova-border pt-2 sm:pt-3 font-bold">
                     <span className="text-nova-text">Total</span>
-                    <span className="text-nova-text">${(cartTotal + codFee).toFixed(2)}</span>
+                    <span className="text-nova-text text-lg sm:text-xl">${(cartTotal + codFee).toFixed(2)}</span>
                   </div>
                 </div>
 
                 <button type="submit" disabled={loading}
-                  className="nova-btn-primary w-full py-3.5 rounded-xl text-base disabled:opacity-60 flex items-center justify-center gap-2">
+                  className="nova-btn-primary w-full py-3 sm:py-3.5 rounded-xl text-sm sm:text-base disabled:opacity-60 flex items-center justify-center gap-2 font-semibold">
                   {loading ? (
                     <>
                       <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                       <span>Processing...</span>
                     </>
-                  ) : paymentMethod === "cod" ? (
-                    "Place Order"
-                  ) : (
-                    "Pay Now"
-                  )}
+                  ) : paymentMethod === "cod" ? "Place Order" : "Pay Now"}
                 </button>
 
-                <Link to="/cart" className="block text-center text-sm text-nova-muted hover:text-nova-text mt-4">
+                <Link to="/cart" className="block text-center text-xs sm:text-sm text-nova-muted hover:text-nova-text mt-3 transition-colors">
                   ← Back to Cart
                 </Link>
               </div>
@@ -352,6 +384,28 @@ const Checkout = () => {
 
           </div>
         </form>
+
+        {/* Mobile sticky submit */}
+        {step === 2 && (
+          <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-nova-card/95 backdrop-blur-lg border-t border-nova-border px-4 py-3 z-40">
+            <div className="flex items-center gap-3 max-w-lg mx-auto">
+              <div className="flex-1">
+                <p className="text-nova-muted text-xs">Total</p>
+                <p className="font-bold text-nova-text">${(cartTotal + codFee).toFixed(2)}</p>
+              </div>
+              <button
+                type="submit"
+                form="checkout-form"
+                disabled={loading}
+                className="nova-btn-primary px-6 py-3 rounded-xl text-sm font-semibold disabled:opacity-60 flex items-center gap-2"
+              >
+                {loading ? (
+                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : paymentMethod === "cod" ? "Place Order" : "Pay Now →"}
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

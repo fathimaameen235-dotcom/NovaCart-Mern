@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import toast from "react-hot-toast";
@@ -29,23 +29,33 @@ const NAV_ITEMS = [
     icon: <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>,
   },
   {
-    label: "Add Product", path: "/admin/add-product", // ✅ fixed
+    label: "Add Product", path: "/admin/add-product",
     icon: <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M12 12v4M10 14h4"/></svg>,
   },
 ];
 
-const SIDEBAR_W   = 220;
-const COLLAPSED_W = 64;
-const TOPBAR_H    = 60;
+const TOPBAR_H = 60;
 
 const AdminLayout = ({ children }) => {
   const { adminUser, adminLogout } = useAuth();
-  const location  = useLocation();
-  const navigate  = useNavigate();
-  const [collapsed, setCollapsed]   = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // collapsed = desktop icon-only mode (lg and up)
+  const [collapsed, setCollapsed] = useState(false);
+  // mobileOpen = slide-in drawer on mobile/tablet
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const sidebarW = collapsed ? COLLAPSED_W : SIDEBAR_W;
+  // Close mobile drawer whenever route changes
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scroll while mobile drawer is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   const handleLogout = () => {
     adminLogout();
@@ -56,169 +66,168 @@ const AdminLayout = ({ children }) => {
   const isActive = (item) =>
     item.exact ? location.pathname === item.path : location.pathname.startsWith(item.path);
 
-  const initials  = (adminUser?.name || "A")[0].toUpperCase();
-  const pageLabel = NAV_ITEMS.find(i => isActive(i))?.label || "Admin";
+  const initials = (adminUser?.name || "A")[0].toUpperCase();
+  const pageLabel = NAV_ITEMS.find((i) => isActive(i))?.label || "Admin";
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#060812", fontFamily: "'DM Sans',sans-serif", position: "relative" }}>
+    <div className="min-h-screen flex bg-[#060812] font-['DM_Sans',sans-serif] relative">
 
+      {/* Mobile/tablet overlay */}
       {mobileOpen && (
-        <div onClick={() => setMobileOpen(false)}
-          style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.65)", zIndex: 98 }} />
+        <div
+          onClick={() => setMobileOpen(false)}
+          className="fixed inset-0 bg-black/65 z-[98] lg:hidden"
+        />
       )}
 
-      {/* ── Sidebar ── */}
-      <aside style={{
-        position: "fixed", top: 0, left: 0, height: "100vh", zIndex: 99,
-        width: sidebarW,
-        background: "#090b13",
-        borderRight: "1px solid #1a1d2e",
-        display: "flex", flexDirection: "column",
-        transition: "width 0.22s ease",
-        overflow: "hidden",
-      }}>
-
+      {/* ── Sidebar ──
+          - Mobile/Tablet (< lg): fixed drawer, slides in/out via translate-x, always full width (220px) when open
+          - Desktop (lg+): static, can collapse to icon-only width
+      */}
+      <aside
+        className={`
+          fixed top-0 left-0 h-screen z-[99] flex flex-col overflow-hidden
+          bg-[#090b13] border-r border-[#1a1d2e]
+          transition-transform duration-200 ease-in-out
+          w-[240px]
+          ${mobileOpen ? "translate-x-0" : "-translate-x-full"}
+          lg:translate-x-0 lg:transition-[width] lg:duration-200
+          ${collapsed ? "lg:w-[64px]" : "lg:w-[220px]"}
+        `}
+      >
         {/* Logo */}
-        <div style={{
-          height: TOPBAR_H, display: "flex", alignItems: "center",
-          padding: "0 16px", gap: 10, flexShrink: 0,
-          borderBottom: "1px solid #1a1d2e",
-        }}>
-          <div style={{
-            width: 30, height: 30, borderRadius: 8, flexShrink: 0,
-            background: "linear-gradient(135deg,#7c5cfc,#3b82f6)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-          }}>
-            <span style={{ color: "#fff", fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: 13 }}>N</span>
+        <div
+          className="flex items-center gap-2.5 px-4 flex-shrink-0 border-b border-[#1a1d2e]"
+          style={{ height: TOPBAR_H }}
+        >
+          <div className="w-[30px] h-[30px] rounded-lg flex-shrink-0 bg-gradient-to-br from-[#7c5cfc] to-[#3b82f6] flex items-center justify-center">
+            <span className="text-white font-['Syne',sans-serif] font-bold text-[13px]">N</span>
           </div>
+
           {!collapsed && (
-            <span style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: 17, color: "#eef2ff", whiteSpace: "nowrap" }}>
-              Nova<span style={{ color: "#7c5cfc" }}>Cart</span>
+            <span className="font-['Syne',sans-serif] font-bold text-[17px] text-[#eef2ff] whitespace-nowrap">
+              Nova<span className="text-[#7c5cfc]">Cart</span>
             </span>
           )}
-          <button onClick={() => setCollapsed(c => !c)} style={{
-            marginLeft: "auto", background: "none", border: "none", cursor: "pointer",
-            color: "#525878", padding: 4, borderRadius: 6, display: "flex", flexShrink: 0,
-          }}>
+
+          {/* Collapse toggle — desktop only */}
+          <button
+            onClick={() => setCollapsed((c) => !c)}
+            className="ml-auto hidden lg:flex bg-transparent border-none cursor-pointer text-[#525878] p-1 rounded-md flex-shrink-0"
+          >
             <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-              {collapsed ? <path d="M9 18l6-6-6-6"/> : <path d="M15 18l-6-6 6-6"/>}
+              {collapsed ? <path d="M9 18l6-6-6-6" /> : <path d="M15 18l-6-6 6-6" />}
+            </svg>
+          </button>
+
+          {/* Close drawer — mobile/tablet only */}
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="ml-auto lg:hidden bg-transparent border-none cursor-pointer text-[#525878] p-1 rounded-md flex-shrink-0"
+            aria-label="Close menu"
+          >
+            <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
         </div>
 
         {/* Nav */}
-        <nav style={{ flex: 1, padding: "10px 8px", overflowY: "auto", overflowX: "hidden" }}>
-          {NAV_ITEMS.map(item => {
+        <nav className="flex-1 px-2 py-2.5 overflow-y-auto overflow-x-hidden">
+          {NAV_ITEMS.map((item) => {
             const active = isActive(item);
             return (
-              <Link key={item.path} to={item.path}
-                onClick={() => setMobileOpen(false)}
+              <Link
+                key={item.path}
+                to={item.path}
                 title={collapsed ? item.label : undefined}
-                style={{
-                  display: "flex", alignItems: "center",
-                  gap: 10, padding: collapsed ? "10px 0" : "9px 12px",
-                  justifyContent: collapsed ? "center" : "flex-start",
-                  borderRadius: 10, marginBottom: 2, textDecoration: "none",
-                  color: active ? "#a78bfa" : "#525878",
-                  background: active ? "rgba(124,92,252,0.12)" : "transparent",
-                  border: `1px solid ${active ? "rgba(124,92,252,0.2)" : "transparent"}`,
-                  fontWeight: active ? 600 : 400, fontSize: "0.875rem",
-                  whiteSpace: "nowrap", transition: "all 0.15s",
-                }}>
-                <span style={{ flexShrink: 0 }}>{item.icon}</span>
-                {!collapsed && <span>{item.label}</span>}
+                className={`
+                  flex items-center gap-2.5 rounded-[10px] mb-0.5 no-underline
+                  text-sm whitespace-nowrap transition-all
+                  px-3 py-2.5
+                  ${collapsed ? "lg:justify-center lg:px-0 lg:py-2.5" : ""}
+                  ${active
+                    ? "text-[#a78bfa] bg-[rgba(124,92,252,0.12)] border border-[rgba(124,92,252,0.2)] font-semibold"
+                    : "text-[#525878] bg-transparent border border-transparent font-normal"}
+                `}
+              >
+                <span className="flex-shrink-0">{item.icon}</span>
+                <span className={collapsed ? "lg:hidden" : ""}>{item.label}</span>
               </Link>
             );
           })}
         </nav>
 
         {/* User info */}
-        <div style={{
-          padding: collapsed ? "12px 0" : "12px 14px",
-          borderTop: "1px solid #1a1d2e",
-          display: "flex", alignItems: "center",
-          gap: 10, justifyContent: collapsed ? "center" : "flex-start",
-        }}>
-          <div style={{
-            width: 30, height: 30, borderRadius: "50%", flexShrink: 0,
-            background: "linear-gradient(135deg,#7c5cfc,#3b82f6)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            color: "#fff", fontWeight: 700, fontSize: 12,
-          }}>
+        <div
+          className={`flex items-center gap-2.5 border-t border-[#1a1d2e] px-3.5 py-3 ${
+            collapsed ? "lg:justify-center lg:px-0" : ""
+          }`}
+        >
+          <div className="w-[30px] h-[30px] rounded-full flex-shrink-0 bg-gradient-to-br from-[#7c5cfc] to-[#3b82f6] flex items-center justify-center text-white font-bold text-xs">
             {initials}
           </div>
-          {!collapsed && (
-            <div style={{ minWidth: 0 }}>
-              <div style={{ color: "#eef2ff", fontSize: "0.8rem", fontWeight: 500, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                {adminUser?.name || "Admin"}
-              </div>
-              <div style={{ color: "#525878", fontSize: "0.7rem" }}>Administrator</div>
+          <div className={`min-w-0 ${collapsed ? "lg:hidden" : ""}`}>
+            <div className="text-[#eef2ff] text-[0.8rem] font-medium overflow-hidden text-ellipsis whitespace-nowrap">
+              {adminUser?.name || "Admin"}
             </div>
-          )}
+            <div className="text-[#525878] text-[0.7rem]">Administrator</div>
+          </div>
         </div>
       </aside>
 
       {/* ── Main ── */}
-      <div style={{
-        marginLeft: sidebarW,
-        flex: 1,
-        minWidth: 0,
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "100vh",
-        transition: "margin-left 0.22s ease",
-      }}>
-
+      <div
+        className={`
+          flex-1 min-w-0 flex flex-col min-h-screen
+          transition-[margin-left] duration-200 ease-in-out
+          ml-0
+          ${collapsed ? "lg:ml-[64px]" : "lg:ml-[220px]"}
+        `}
+      >
         {/* Topbar */}
-        <header style={{
-          position: "sticky", top: 0, zIndex: 50,
-          height: TOPBAR_H,
-          background: "rgba(6,8,18,0.9)",
-          backdropFilter: "blur(12px)",
-          borderBottom: "1px solid #1a1d2e",
-          display: "flex", alignItems: "center",
-          padding: "0 24px", gap: 12, flexShrink: 0,
-        }}>
-          <button onClick={() => setMobileOpen(o => !o)}
-            style={{ background: "none", border: "none", color: "#525878", cursor: "pointer", display: "none" }}>
-            <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path d="M4 6h16M4 12h16M4 18h16"/>
+        <header
+          className="sticky top-0 z-50 flex items-center gap-3 px-4 sm:px-6 border-b border-[#1a1d2e] bg-[rgba(6,8,18,0.9)] backdrop-blur-md flex-shrink-0"
+          style={{ height: TOPBAR_H }}
+        >
+          {/* Hamburger — mobile/tablet only */}
+          <button
+            onClick={() => setMobileOpen((o) => !o)}
+            className="lg:hidden bg-transparent border-none text-[#525878] cursor-pointer flex items-center justify-center p-1 -ml-1"
+            aria-label="Open menu"
+          >
+            <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
 
-          <span style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, color: "#eef2ff", fontSize: "0.95rem" }}>
+          <span className="font-['Syne',sans-serif] font-semibold text-[#eef2ff] text-[0.95rem] truncate">
             {pageLabel}
           </span>
 
-          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 12 }}>
-            <span style={{
-              fontSize: "0.7rem", fontFamily: "monospace", padding: "2px 9px",
-              borderRadius: 6, background: "rgba(124,92,252,0.12)",
-              color: "#a78bfa", border: "1px solid rgba(124,92,252,0.25)",
-            }}>ADMIN</span>
+          <div className="ml-auto flex items-center gap-2 sm:gap-3">
+            <span className="hidden sm:inline-block text-[0.7rem] font-mono px-2.5 py-0.5 rounded-md bg-[rgba(124,92,252,0.12)] text-[#a78bfa] border border-[rgba(124,92,252,0.25)]">
+              ADMIN
+            </span>
 
-            <div style={{
-              width: 32, height: 32, borderRadius: "50%",
-              background: "linear-gradient(135deg,#7c5cfc,#3b82f6)",
-              display: "flex", alignItems: "center", justifyContent: "center",
-              color: "#fff", fontWeight: 700, fontSize: 13,
-            }}>{initials}</div>
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#7c5cfc] to-[#3b82f6] flex items-center justify-center text-white font-bold text-[13px] flex-shrink-0">
+              {initials}
+            </div>
 
-            <span style={{ color: "#c8cde8", fontSize: "0.875rem" }}>
+            <span className="hidden sm:inline text-[#c8cde8] text-sm">
               {adminUser?.name?.split(" ")[0] || "Admin"}
             </span>
 
-            <button onClick={handleLogout} style={{
-              background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.2)",
-              color: "#f87171", borderRadius: 8, padding: "5px 14px",
-              fontSize: "0.8rem", cursor: "pointer", fontFamily: "'DM Sans',sans-serif",
-            }}>
+            <button
+              onClick={handleLogout}
+              className="bg-[rgba(239,68,68,0.08)] border border-[rgba(239,68,68,0.2)] text-[#f87171] rounded-lg px-2.5 sm:px-3.5 py-1.5 text-xs sm:text-[0.8rem] cursor-pointer font-['DM_Sans',sans-serif] whitespace-nowrap"
+            >
               Logout
             </button>
           </div>
         </header>
 
-        <main style={{ flex: 1 }}>
+        <main className="flex-1 min-w-0 overflow-x-hidden">
           {children}
         </main>
       </div>

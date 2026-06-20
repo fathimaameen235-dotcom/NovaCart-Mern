@@ -48,154 +48,110 @@ const AdminLogin = () => {
     }
   };
 
-  const inputBase = {
-    width: "100%",
-    padding: "11px 14px",
-    background: "rgba(8,10,16,0.8)",
-    border: "1px solid #1c2030",
-    borderRadius: "10px",
-    color: "#eef2ff",
-    fontSize: "13.5px",
-    fontFamily: "'Inter', sans-serif",
-    outline: "none",
-    transition: "border-color 0.2s, box-shadow 0.2s",
-  };
-
-  const focusOn = (e) => {
-    e.target.style.borderColor = "#7c5cfc";
-    e.target.style.boxShadow = "0 0 0 3px rgba(124,92,252,0.12)";
-  };
-  const focusOff = (e) => {
-    e.target.style.borderColor = "#1c2030";
-    e.target.style.boxShadow = "none";
-  };
+  const inputClass =
+    "w-full px-3.5 py-2.5 bg-[rgba(8,10,16,0.8)] border border-[#1c2030] rounded-[10px] text-[#eef2ff] text-[13.5px] font-['Inter',sans-serif] outline-none transition-[border-color,box-shadow] focus:border-[#7c5cfc] focus:shadow-[0_0_0_3px_rgba(124,92,252,0.12)]";
 
   return (
-    <div style={{
-      minHeight: "100vh",
-      background: "#080a10",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      padding: "24px 16px",
-      fontFamily: "'Inter', sans-serif",
-    }}>
-      <div style={{
-        width: "100%",
-        maxWidth: "860px",
-        display: "flex",
-        borderRadius: "16px",
-        overflow: "hidden",
-        border: "1px solid #1e2235",
-        boxShadow: "0 24px 64px rgba(0,0,0,0.5)",
-      }}>
+    <div className="min-h-screen bg-[#080a10] flex items-center justify-center px-4 py-6 sm:px-6 font-['Inter',sans-serif]">
+      <div className="w-full max-w-[860px] flex flex-col md:flex-row rounded-2xl overflow-hidden border border-[#1e2235] shadow-[0_24px_64px_rgba(0,0,0,0.5)]">
 
-        {/* ── LEFT PANEL ── */}
-        <div style={{
-          width: "42%",
-          background: "#0d0f1a",
-          padding: "48px 40px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          position: "relative",
-          overflow: "hidden",
-        }}>
+        {/* ── LEFT PANEL — hidden on mobile, shown from md up ── */}
+        <div className="hidden md:flex md:w-[42%] bg-[#0d0f1a] p-8 lg:p-10 flex-col justify-between relative overflow-hidden">
           {/* Glow blobs */}
-          <div style={{ position:"absolute", top:"-60px", right:"-60px", width:"200px", height:"200px", background:"rgba(124,92,252,0.12)", borderRadius:"50%", filter:"blur(50px)", pointerEvents:"none" }} />
-          <div style={{ position:"absolute", bottom:"-40px", left:"-40px", width:"160px", height:"160px", background:"rgba(59,130,246,0.08)", borderRadius:"50%", filter:"blur(40px)", pointerEvents:"none" }} />
+          <div className="absolute -top-[60px] -right-[60px] w-[200px] h-[200px] bg-[rgba(124,92,252,0.12)] rounded-full blur-[50px] pointer-events-none" />
+          <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[rgba(59,130,246,0.08)] rounded-full blur-[40px] pointer-events-none" />
 
-          <div style={{ position: "relative", zIndex: 1 }}>
+          <div className="relative z-10">
             {/* Logo */}
-            <Link to="/" style={{ display:"flex", alignItems:"center", gap:"10px", textDecoration:"none" }}>
-              <div style={{
-                width:"38px", height:"38px", borderRadius:"10px",
-                background:"linear-gradient(135deg,#7c5cfc,#3b82f6)",
-                display:"flex", alignItems:"center", justifyContent:"center",
-                fontWeight:"700", color:"#fff", fontSize:"16px",
-              }}>N</div>
-              <span style={{ fontSize:"20px", fontWeight:"700", color:"#eef2ff" }}>
-                Nova<span style={{ color:"#7c5cfc" }}>Cart</span>
+            <Link to="/" className="flex items-center gap-2.5 no-underline">
+              <div className="w-[38px] h-[38px] rounded-[10px] bg-gradient-to-br from-[#7c5cfc] to-[#3b82f6] flex items-center justify-center font-bold text-white text-base flex-shrink-0">
+                N
+              </div>
+              <span className="text-xl font-bold text-[#eef2ff]">
+                Nova<span className="text-[#7c5cfc]">Cart</span>
               </span>
             </Link>
 
             {/* Badge */}
-            <div style={{
-              display:"inline-flex", alignItems:"center", gap:"6px",
-              padding:"5px 12px", borderRadius:"6px", marginTop:"28px",
-              background:"rgba(124,92,252,0.1)", border:"1px solid rgba(124,92,252,0.25)",
-              color:"#a78bfa", fontSize:"10px", fontWeight:"600", letterSpacing:"0.6px",
-            }}>
-              <span style={{ width:"6px", height:"6px", borderRadius:"50%", background:"#7c5cfc", display:"inline-block" }} />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md mt-7 bg-[rgba(124,92,252,0.1)] border border-[rgba(124,92,252,0.25)] text-[#a78bfa] text-[10px] font-semibold tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#7c5cfc] inline-block" />
               ADMIN PORTAL
             </div>
 
-            <h2 style={{ color:"#eef2ff", fontSize:"26px", fontWeight:"700", lineHeight:"1.3", marginTop:"16px" }}>
+            <h2 className="text-[#eef2ff] text-[26px] font-bold leading-tight mt-4">
               Manage your store<br />with confidence
             </h2>
-            <p style={{ color:"#6b7280", fontSize:"13px", marginTop:"10px", lineHeight:"1.7" }}>
+            <p className="text-[#6b7280] text-[13px] mt-2.5 leading-[1.7]">
               Secure access to NovaCart's admin panel. Control products, orders, and users all in one place.
             </p>
 
-            <ul style={{ listStyle:"none", marginTop:"24px", display:"flex", flexDirection:"column", gap:"10px" }}>
+            <ul className="list-none mt-6 flex flex-col gap-2.5">
               {["Role-based access control", "Real-time order management", "Secure JWT authentication"].map((f) => (
-                <li key={f} style={{ display:"flex", alignItems:"center", gap:"10px", color:"#9ca3af", fontSize:"12.5px" }}>
-                  <span style={{ width:"6px", height:"6px", borderRadius:"50%", background:"#7c5cfc", flexShrink:0 }} />
+                <li key={f} className="flex items-center gap-2.5 text-[#9ca3af] text-[12.5px]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#7c5cfc] flex-shrink-0" />
                   {f}
                 </li>
               ))}
             </ul>
           </div>
 
-          <p style={{ color:"#374151", fontSize:"11px", position:"relative", zIndex:1 }}>
-            © 2025 NovaCart. All rights reserved.
+          <p className="text-[#374151] text-[11px] relative z-10">
+            © {new Date().getFullYear()} NovaCart. All rights reserved.
           </p>
         </div>
 
         {/* ── RIGHT PANEL ── */}
-        <div style={{
-          flex: 1,
-          background: "#080a10",
-          padding: "48px 40px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}>
-          <div style={{ marginBottom: "28px" }}>
-            <h2 style={{ color:"#eef2ff", fontSize:"24px", fontWeight:"700" }}>Welcome back</h2>
-            <p style={{ color:"#6b7280", fontSize:"13px", marginTop:"4px" }}>Sign in to your admin account</p>
+        <div className="flex-1 bg-[#080a10] p-6 sm:p-8 md:p-10 flex flex-col justify-center">
+
+          {/* Mobile-only compact brand header */}
+          <Link to="/" className="md:hidden flex items-center gap-2.5 no-underline mb-6">
+            <div className="w-9 h-9 rounded-[10px] bg-gradient-to-br from-[#7c5cfc] to-[#3b82f6] flex items-center justify-center font-bold text-white text-sm flex-shrink-0">
+              N
+            </div>
+            <span className="text-lg font-bold text-[#eef2ff]">
+              Nova<span className="text-[#7c5cfc]">Cart</span>
+            </span>
+          </Link>
+
+          <div className="mb-6 sm:mb-7">
+            <h2 className="text-[#eef2ff] text-xl sm:text-2xl font-bold">Welcome back</h2>
+            <p className="text-[#6b7280] text-[13px] mt-1">Sign in to your admin account</p>
           </div>
 
           <form onSubmit={handleSubmit}>
             {/* Email */}
-            <div style={{ marginBottom:"14px" }}>
-              <label style={{ display:"block", color:"#9ca3af", fontSize:"12px", fontWeight:"500", marginBottom:"6px" }}>
+            <div className="mb-3.5">
+              <label className="block text-[#9ca3af] text-xs font-medium mb-1.5">
                 Email address
               </label>
               <input
-                type="email" name="email" value={form.email}
-                onChange={handleChange} placeholder="admin@novacart.com"
-                style={inputBase} onFocus={focusOn} onBlur={focusOff}
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="admin@novacart.com"
+                className={inputClass}
               />
             </div>
 
             {/* Password */}
-            <div style={{ marginBottom:"14px" }}>
-              <label style={{ display:"block", color:"#9ca3af", fontSize:"12px", fontWeight:"500", marginBottom:"6px" }}>
+            <div className="mb-3.5">
+              <label className="block text-[#9ca3af] text-xs font-medium mb-1.5">
                 Password
               </label>
-              <div style={{ position:"relative" }}>
+              <div className="relative">
                 <input
                   type={showPassword ? "text" : "password"}
-                  name="password" value={form.password}
-                  onChange={handleChange} placeholder="Enter your password"
-                  style={{ ...inputBase, paddingRight:"44px" }}
-                  onFocus={focusOn} onBlur={focusOff}
+                  name="password"
+                  value={form.password}
+                  onChange={handleChange}
+                  placeholder="Enter your password"
+                  className={`${inputClass} pr-11`}
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword((p) => !p)}
-                  style={{ position:"absolute", right:"12px", top:"50%", transform:"translateY(-50%)", background:"none", border:"none", color:"#6b7280", cursor:"pointer", display:"flex", alignItems:"center" }}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 bg-transparent border-none text-[#6b7280] cursor-pointer flex items-center"
                 >
                   <EyeIcon open={showPassword} />
                 </button>
@@ -204,30 +160,28 @@ const AdminLogin = () => {
 
             {/* Submit */}
             <button
-              type="submit" disabled={loading}
-              style={{
-                width:"100%", padding:"12px",
-                background: loading ? "rgba(124,92,252,0.5)" : "linear-gradient(135deg,#7c5cfc,#5b3fd4)",
-                border:"none", borderRadius:"10px",
-                color:"#fff", fontSize:"14px", fontWeight:"600",
-                fontFamily:"'Inter', sans-serif", cursor: loading ? "not-allowed" : "pointer",
-                marginTop:"4px", transition:"opacity 0.2s",
-              }}
+              type="submit"
+              disabled={loading}
+              className={`w-full py-3 rounded-[10px] border-none text-white text-sm font-semibold font-['Inter',sans-serif] mt-1 transition-opacity ${
+                loading
+                  ? "bg-[rgba(124,92,252,0.5)] cursor-not-allowed"
+                  : "bg-gradient-to-br from-[#7c5cfc] to-[#5b3fd4] cursor-pointer"
+              }`}
             >
               {loading ? "Signing in…" : "Sign in as Admin"}
             </button>
           </form>
 
           {/* Divider */}
-          <div style={{ display:"flex", alignItems:"center", gap:"12px", margin:"20px 0" }}>
-            <div style={{ flex:1, height:"1px", background:"#1c2030" }} />
-            <span style={{ color:"#374151", fontSize:"12px" }}>OR</span>
-            <div style={{ flex:1, height:"1px", background:"#1c2030" }} />
+          <div className="flex items-center gap-3 my-5">
+            <div className="flex-1 h-px bg-[#1c2030]" />
+            <span className="text-[#374151] text-xs">OR</span>
+            <div className="flex-1 h-px bg-[#1c2030]" />
           </div>
 
-          <p style={{ textAlign:"center", color:"#6b7280", fontSize:"12.5px" }}>
+          <p className="text-center text-[#6b7280] text-[12.5px]">
             No admin account?{" "}
-            <Link to="/admin/register" style={{ color:"#7c5cfc", textDecoration:"none" }}>Create one</Link>
+            <Link to="/admin/register" className="text-[#7c5cfc] no-underline">Create one</Link>
           </p>
         </div>
 

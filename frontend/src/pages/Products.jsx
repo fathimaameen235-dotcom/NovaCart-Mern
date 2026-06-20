@@ -99,12 +99,12 @@ const FilterChip = ({ label, onRemove }) => (
       width: 16, height: 16, borderRadius: "50%", border: "none",
       background: "rgba(124,92,252,0.2)", color: T.accentTx,
       cursor: "pointer", display: "inline-flex", alignItems: "center",
-      justifyContent: "center", fontSize: 11, padding: 0,
+      justifyContent: "center", fontSize: 11, padding: 0, flexShrink: 0,
     }}>×</button>
   </span>
 );
 
-/* ── Sidebar section wrapper ─────────────────────── */
+/* ── Sidebar section wrapper (desktop) ───────────── */
 const SideSection = ({ title, children }) => (
   <div style={{
     background: T.surface, border: `1.5px solid ${T.border}`,
@@ -115,6 +115,19 @@ const SideSection = ({ title, children }) => (
       color: T.muted, fontSize: "0.65rem",
       letterSpacing: "0.1em", textTransform: "uppercase",
       margin: "0 6px 12px",
+    }}>{title}</p>
+    {children}
+  </div>
+);
+
+/* ── Mobile filter sheet section wrapper ─────────── */
+const SheetSection = ({ title, children }) => (
+  <div style={{ marginBottom: 22 }}>
+    <p style={{
+      fontFamily: "'Syne', sans-serif", fontWeight: 700,
+      color: T.text, fontSize: "0.8rem",
+      letterSpacing: "0.04em", textTransform: "uppercase",
+      margin: "0 0 12px",
     }}>{title}</p>
     {children}
   </div>
@@ -136,6 +149,10 @@ const Products = () => {
   const [inStockOnly, setInStockOnly]     = useState(false);
   const [gridView, setGridView]           = useState(true);
 
+  /* Mobile sheet state */
+  const [filterSheetOpen, setFilterSheetOpen] = useState(false);
+  const [sortSheetOpen, setSortSheetOpen]     = useState(false);
+
   /* Subcategory list derived from selected main category */
   const subCatOptions = category !== "All" ? (CATEGORIES_WITH_SUBS[category] || []) : [];
 
@@ -146,6 +163,12 @@ const Products = () => {
     if (c)  setCategory(c);
     if (sc) setSubCategory(sc);
   }, [searchParams]);
+
+  /* Lock body scroll while any sheet is open */
+  useEffect(() => {
+    document.body.style.overflow = (filterSheetOpen || sortSheetOpen) ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [filterSheetOpen, sortSheetOpen]);
 
   /* Fetch */
   const fetchProducts = useCallback(async () => {
@@ -206,38 +229,163 @@ const Products = () => {
   };
 
   const hasFilters = activeSearch || category !== "All" || subCategory || priceRange !== null || minRating || inStockOnly;
+  const activeFilterCount =
+    (category !== "All" ? 1 : 0) +
+    (subCategory ? 1 : 0) +
+    (priceRange !== null ? 1 : 0) +
+    (minRating ? 1 : 0) +
+    (inStockOnly ? 1 : 0);
 
   /* ── Category icon lookup ─────────────────────── */
   const catIcon = CATEGORIES.find(c => c.name === category)?.icon || "ti-category";
+  const currentSortLabel = SORT_OPTIONS.find(o => o.value === sort)?.label || "Newest First";
+
+  /* Shared filter-body content used inside the mobile sheet (mirrors desktop sidebar) */
+  const FilterSheetBody = () => (
+    <>
+      <SheetSection title="Categories">
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          {CATEGORIES.map(({ name, icon }) => {
+            const active = category === name;
+            return (
+              <button key={name} onClick={() => handleCat(name)} style={{
+                display: "inline-flex", alignItems: "center", gap: 6,
+                padding: "8px 14px", borderRadius: 9999,
+                fontSize: "0.8rem", fontFamily: "'DM Sans', sans-serif",
+                border: `1px solid ${active ? T.accentRg : T.border}`,
+                cursor: "pointer",
+                background: active ? T.accentLo : T.surface,
+                color: active ? T.accentTx : T.muted,
+                fontWeight: active ? 600 : 400,
+              }}>
+                <i className={`ti ${icon}`} style={{ fontSize: 13 }} />
+                {name}
+              </button>
+            );
+          })}
+        </div>
+      </SheetSection>
+
+      {subCatOptions.length > 0 && (
+        <SheetSection title={`Sub Category — ${category}`}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            {subCatOptions.map((sub) => {
+              const active = subCategory === sub;
+              return (
+                <button key={sub} onClick={() => handleSubCat(sub)} style={{
+                  padding: "8px 14px", borderRadius: 9999,
+                  fontSize: "0.8rem", fontFamily: "'DM Sans', sans-serif",
+                  border: `1px solid ${active ? T.successRg : T.border}`,
+                  cursor: "pointer",
+                  background: active ? T.successLo : T.surface,
+                  color: active ? T.successTx : T.muted,
+                  fontWeight: active ? 600 : 400,
+                }}>
+                  {sub}
+                </button>
+              );
+            })}
+          </div>
+        </SheetSection>
+      )}
+
+      <SheetSection title="Price Range">
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          {PRICE_RANGES.map((r, i) => (
+            <label key={i} style={{
+              display: "flex", alignItems: "center", gap: 10,
+              cursor: "pointer", fontSize: "0.9rem",
+              color: priceRange === i ? T.accentTx : T.text,
+              fontFamily: "'DM Sans', sans-serif",
+              padding: "10px 12px", borderRadius: 10,
+              background: priceRange === i ? T.accentLo : T.surface,
+              border: `1px solid ${priceRange === i ? T.accentRg : T.border}`,
+            }}>
+              <input
+                type="radio" name="price-mobile"
+                checked={priceRange === i}
+                onChange={() => setPriceRange(priceRange === i ? null : i)}
+                style={{ accentColor: T.accent, width: 17, height: 17, flexShrink: 0 }}
+              />
+              {r.label}
+            </label>
+          ))}
+        </div>
+      </SheetSection>
+
+      <SheetSection title="Customer Rating">
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          {[{ val: 4.5, label: "4.5+ ★" }, { val: 4, label: "4+ ★" }, { val: 3, label: "3+ ★" }].map(r => (
+            <label key={r.val} style={{
+              display: "flex", alignItems: "center", gap: 10, cursor: "pointer",
+              fontSize: "0.9rem", color: minRating === r.val ? T.accentTx : T.text,
+              fontFamily: "'DM Sans', sans-serif",
+              padding: "10px 12px", borderRadius: 10,
+              background: minRating === r.val ? T.accentLo : T.surface,
+              border: `1px solid ${minRating === r.val ? T.accentRg : T.border}`,
+            }}>
+              <input
+                type="checkbox" checked={minRating === r.val}
+                onChange={() => setMinRating(minRating === r.val ? null : r.val)}
+                style={{ accentColor: T.accent, width: 17, height: 17, flexShrink: 0 }}
+              />
+              <span style={{ color: "#f5a623" }}>{"★".repeat(Math.floor(r.val))}</span>
+              {r.label}
+            </label>
+          ))}
+        </div>
+      </SheetSection>
+
+      <SheetSection title="Availability">
+        <label style={{ display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer" }}>
+          <span style={{ fontSize: "0.9rem", color: T.text, fontFamily: "'DM Sans', sans-serif" }}>In stock only</span>
+          <div
+            onClick={() => setInStockOnly(!inStockOnly)}
+            style={{
+              width: 42, height: 24, borderRadius: 999, position: "relative", cursor: "pointer",
+              background: inStockOnly ? T.accent : T.border, transition: "background 0.2s", flexShrink: 0,
+            }}
+          >
+            <div style={{
+              position: "absolute", top: 3,
+              left: inStockOnly ? "auto" : 3, right: inStockOnly ? 3 : "auto",
+              width: 18, height: 18, background: "#fff", borderRadius: "50%",
+              transition: "left 0.2s, right 0.2s",
+            }} />
+          </div>
+        </label>
+      </SheetSection>
+    </>
+  );
 
   return (
     <div style={{
-      minHeight: "100vh", paddingTop: 88, paddingBottom: 80,
+      minHeight: "100vh", paddingTop: 80, paddingBottom: 90,
       background: `radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124,92,252,0.06) 0%, transparent 65%), ${T.bg}`,
     }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 20px" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 16px" }} className="products-px">
 
         {/* ── Top bar ─────────────────────────────── */}
         <div style={{
           display: "flex", alignItems: "center", justifyContent: "space-between",
-          padding: "14px 0 22px", borderBottom: `1px solid ${T.border}`, marginBottom: 22,
-          flexWrap: "wrap", gap: 12,
+          padding: "14px 0 18px", borderBottom: `1px solid ${T.border}`, marginBottom: 18,
+          flexWrap: "wrap", gap: 10,
         }}>
-          <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 10, flexWrap: "wrap" }}>
             <h1 style={{
               fontFamily: "'Syne', sans-serif", fontWeight: 700,
-              fontSize: "clamp(1.5rem,4vw,2.2rem)", color: T.text,
+              fontSize: "clamp(1.35rem,4vw,2.2rem)", color: T.text,
               margin: 0, letterSpacing: "-0.02em",
             }}>All Products</h1>
             {!loading && (
-              <span style={{ fontSize: "0.85rem", color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>
+              <span style={{ fontSize: "0.8rem", color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>
                 {products.length} result{products.length !== 1 ? "s" : ""}
               </span>
             )}
           </div>
 
-          {/* Sort */}
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          {/* Sort — desktop/tablet only (mobile uses bottom bar) */}
+          <div style={{ alignItems: "center", gap: 8 }} className="desktop-sort">
             <span style={{ color: T.muted, fontSize: "0.8rem", fontFamily: "'DM Sans', sans-serif" }}>Sort by</span>
             <select
               value={sort}
@@ -261,7 +409,7 @@ const Products = () => {
         <div style={{
           background: `linear-gradient(135deg, ${T.surface}, #0a0c14)`,
           border: `1.5px solid ${T.border}`, borderRadius: 14,
-          padding: "16px 20px", marginBottom: 16,
+          padding: "14px 16px", marginBottom: 14,
           display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap",
         }}>
           <form onSubmit={handleSearch} style={{ display: "flex", gap: 10, flex: "1 1 260px" }}>
@@ -300,21 +448,19 @@ const Products = () => {
               background: "linear-gradient(135deg, #7c5cfc, #5b8def)",
               color: "#fff", fontFamily: "'Syne', sans-serif",
               fontWeight: 600, fontSize: "0.875rem", border: "none", cursor: "pointer",
-            }}>Search</button>
+            }} className="search-btn-label">Search</button>
           </form>
         </div>
 
-        {/* ── Category + SubCategory dropdowns bar ── */}
+        {/* ── Category + SubCategory dropdowns bar (tablet/desktop only) ── */}
         <div style={{
           display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap",
           marginBottom: 16,
-        }}>
-          {/* Category label */}
+        }} className="desktop-cat-bar">
           <span style={{ fontSize: "0.8rem", color: T.muted, fontFamily: "'DM Sans', sans-serif", whiteSpace: "nowrap" }}>
             Browse by
           </span>
 
-          {/* Category dropdown */}
           <div style={{ position: "relative" }}>
             {category !== "All" && (
               <i
@@ -341,10 +487,8 @@ const Products = () => {
             </select>
           </div>
 
-          {/* SubCategory dropdown — only when subs exist */}
           {subCatOptions.length > 0 && (
             <>
-              {/* Separator chevron */}
               <svg width="14" height="14" fill="none" stroke={T.muted} strokeWidth="2" viewBox="0 0 24 24" style={{ flexShrink: 0 }}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
               </svg>
@@ -381,7 +525,6 @@ const Products = () => {
             </>
           )}
 
-          {/* Result count pill — spacer filler on the right */}
           {!loading && (category !== "All" || subCategory) && (
             <span style={{
               marginLeft: "auto",
@@ -417,10 +560,9 @@ const Products = () => {
         {/* ── Body ────────────────────────────────── */}
         <div style={{ display: "flex", gap: 24, alignItems: "flex-start" }}>
 
-          {/* ── Sidebar (desktop) ────────────────── */}
+          {/* ── Sidebar (desktop only, lg+) ────────── */}
           <aside style={{ width: 215, flexShrink: 0, display: "none" }} className="lg-sidebar">
 
-            {/* Categories */}
             <SideSection title="Categories">
               <nav style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                 {CATEGORIES.map(({ name, icon }) => {
@@ -444,7 +586,6 @@ const Products = () => {
               </nav>
             </SideSection>
 
-            {/* Sub Categories */}
             {subCatOptions.length > 0 && (
               <SideSection title="Sub Category">
                 <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -474,7 +615,6 @@ const Products = () => {
               </SideSection>
             )}
 
-            {/* Price range */}
             <SideSection title="Price Range">
               <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
                 <input type="number" placeholder="Min ₹" style={{
@@ -508,7 +648,6 @@ const Products = () => {
               </div>
             </SideSection>
 
-            {/* Rating */}
             <SideSection title="Customer Rating">
               {[{ val: 4.5, label: "4.5+ ★" }, { val: 4, label: "4+ ★" }, { val: 3, label: "3+ ★" }].map(r => (
                 <label key={r.val} style={{
@@ -527,7 +666,6 @@ const Products = () => {
               ))}
             </SideSection>
 
-            {/* Availability */}
             <SideSection title="Availability">
               <label style={{ display: "flex", alignItems: "center", justifyContent: "space-between", cursor: "pointer" }}>
                 <span style={{ fontSize: "0.84rem", color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>In stock only</span>
@@ -553,7 +691,6 @@ const Products = () => {
           {/* ── Main content ─────────────────────── */}
           <div style={{ flex: 1, minWidth: 0 }}>
 
-            {/* Results row */}
             {!loading && products.length > 0 && (
               <div style={{
                 display: "flex", alignItems: "center", justifyContent: "space-between",
@@ -582,21 +719,19 @@ const Products = () => {
               </div>
             )}
 
-            {/* Loading skeletons */}
             {loading ? (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(200px,1fr))", gap: 16 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(160px,1fr))", gap: 14 }} className="product-grid">
                 {Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)}
               </div>
 
-            /* Empty state */
             ) : products.length === 0 ? (
               <div style={{
-                textAlign: "center", padding: "80px 24px",
+                textAlign: "center", padding: "60px 20px",
                 border: `1.5px solid ${T.border}`, borderRadius: 16,
                 background: `linear-gradient(160deg, ${T.surface}, ${T.bg})`,
               }}>
-                <div style={{ fontSize: 48, marginBottom: 16, opacity: 0.6 }}>🔍</div>
-                <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: "1.2rem", color: T.text, margin: "0 0 8px" }}>
+                <div style={{ fontSize: 44, marginBottom: 16, opacity: 0.6 }}>🔍</div>
+                <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: "1.1rem", color: T.text, margin: "0 0 8px" }}>
                   No products found
                 </h3>
                 <p style={{ color: T.muted, fontSize: "0.875rem", margin: "0 0 24px", fontFamily: "'DM Sans', sans-serif" }}>
@@ -610,15 +745,14 @@ const Products = () => {
                 }}>Clear all filters</button>
               </div>
 
-            /* Product grid */
             ) : (
               <div style={{
                 display: "grid",
                 gridTemplateColumns: gridView
-                  ? "repeat(auto-fill,minmax(200px,1fr))"
+                  ? "repeat(auto-fill,minmax(160px,1fr))"
                   : "1fr",
-                gap: 16,
-              }}>
+                gap: 14,
+              }} className={gridView ? "product-grid" : ""}>
                 {products.map((product, i) => (
                   <div key={product._id} className="animate-slide-up"
                     style={{ animationDelay: `${Math.min(i * 0.04, 0.28)}s` }}>
@@ -630,6 +764,154 @@ const Products = () => {
           </div>
         </div>
       </div>
+
+      {/* ── Mobile sticky Filter | Sort bar (Flipkart/Amazon style) ── */}
+      <div className="mobile-bottom-bar" style={{
+        position: "fixed", left: 0, right: 0, bottom: 0, zIndex: 60,
+        display: "none",
+        background: "#0a0c14",
+        borderTop: `1px solid ${T.border}`,
+        boxShadow: "0 -4px 16px rgba(0,0,0,0.35)",
+      }}>
+        <div style={{ display: "flex" }}>
+          <button
+            onClick={() => setSortSheetOpen(true)}
+            style={{
+              flex: 1, display: "flex", alignItems: "center", justifyContent: "center",
+              gap: 7, padding: "14px 10px", background: "transparent", border: "none",
+              color: T.text, fontSize: "0.85rem", fontFamily: "'DM Sans', sans-serif",
+              fontWeight: 500,
+            }}
+          >
+            <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M6 12h12M10 17h4" />
+            </svg>
+            Sort
+          </button>
+          <div style={{ width: 1, background: T.border }} />
+          <button
+            onClick={() => setFilterSheetOpen(true)}
+            style={{
+              flex: 1, display: "flex", alignItems: "center", justifyContent: "center",
+              gap: 7, padding: "14px 10px", background: "transparent", border: "none",
+              color: activeFilterCount > 0 ? T.accentTx : T.text,
+              fontSize: "0.85rem", fontFamily: "'DM Sans', sans-serif",
+              fontWeight: 500, position: "relative",
+            }}
+          >
+            <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 4h18l-7 9v6l-4 2v-8L3 4z" />
+            </svg>
+            Filter
+            {activeFilterCount > 0 && (
+              <span style={{
+                background: T.accent, color: "#fff", fontSize: "0.65rem", fontWeight: 700,
+                borderRadius: 9999, minWidth: 16, height: 16, display: "inline-flex",
+                alignItems: "center", justifyContent: "center", padding: "0 4px",
+              }}>{activeFilterCount}</span>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* ── Mobile Sort bottom sheet ── */}
+      {sortSheetOpen && (
+        <>
+          <div onClick={() => setSortSheetOpen(false)} style={{
+            position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", zIndex: 70,
+          }} className="mobile-only-overlay" />
+          <div style={{
+            position: "fixed", left: 0, right: 0, bottom: 0, zIndex: 71,
+            background: T.bg, borderTop: `1px solid ${T.border}`,
+            borderTopLeftRadius: 20, borderTopRightRadius: 20,
+            maxHeight: "70vh", overflowY: "auto",
+            padding: "10px 18px 24px",
+          }} className="mobile-only-sheet">
+            <div style={{ width: 40, height: 4, borderRadius: 2, background: T.border, margin: "6px auto 16px" }} />
+            <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: T.text, fontSize: "1rem", marginBottom: 14 }}>
+              Sort By
+            </h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              {SORT_OPTIONS.map(o => (
+                <button key={o.value}
+                  onClick={() => { setSort(o.value); setSortSheetOpen(false); }}
+                  style={{
+                    textAlign: "left", padding: "13px 14px", borderRadius: 12,
+                    fontSize: "0.9rem", fontFamily: "'DM Sans', sans-serif",
+                    border: `1px solid ${sort === o.value ? T.accentRg : "transparent"}`,
+                    background: sort === o.value ? T.accentLo : "transparent",
+                    color: sort === o.value ? T.accentTx : T.text,
+                    fontWeight: sort === o.value ? 600 : 400,
+                    cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between",
+                  }}
+                >
+                  {o.label}
+                  {sort === o.value && (
+                    <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* ── Mobile Filter bottom sheet ── */}
+      {filterSheetOpen && (
+        <>
+          <div onClick={() => setFilterSheetOpen(false)} style={{
+            position: "fixed", inset: 0, background: "rgba(0,0,0,0.6)", zIndex: 70,
+          }} className="mobile-only-overlay" />
+          <div style={{
+            position: "fixed", left: 0, right: 0, bottom: 0, zIndex: 71,
+            background: T.bg, borderTop: `1px solid ${T.border}`,
+            borderTopLeftRadius: 20, borderTopRightRadius: 20,
+            maxHeight: "85vh", display: "flex", flexDirection: "column",
+          }} className="mobile-only-sheet">
+            <div style={{ width: 40, height: 4, borderRadius: 2, background: T.border, margin: "10px auto 4px", flexShrink: 0 }} />
+
+            <div style={{
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              padding: "10px 18px 14px", borderBottom: `1px solid ${T.border}`, flexShrink: 0,
+            }}>
+              <h3 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, color: T.text, fontSize: "1rem", margin: 0 }}>
+                Filters
+              </h3>
+              <button onClick={() => setFilterSheetOpen(false)} style={{
+                background: "transparent", border: "none", color: T.muted,
+                fontSize: 20, cursor: "pointer", padding: 4, lineHeight: 1,
+              }}>×</button>
+            </div>
+
+            <div style={{ flex: 1, overflowY: "auto", padding: "18px 18px 0" }}>
+              <FilterSheetBody />
+            </div>
+
+            <div style={{
+              display: "flex", gap: 10, padding: "14px 18px",
+              borderTop: `1px solid ${T.border}`, flexShrink: 0,
+              background: T.bg,
+            }}>
+              <button onClick={() => { clearAll(); }} style={{
+                flex: 1, padding: "13px", borderRadius: 12,
+                background: "transparent", border: `1.5px solid ${T.border}`,
+                color: T.text, fontFamily: "'DM Sans', sans-serif",
+                fontSize: "0.9rem", fontWeight: 600, cursor: "pointer",
+              }}>Clear All</button>
+              <button onClick={() => setFilterSheetOpen(false)} style={{
+                flex: 2, padding: "13px", borderRadius: 12,
+                background: "linear-gradient(135deg, #7c5cfc, #5b8def)",
+                border: "none", color: "#fff", fontFamily: "'Syne', sans-serif",
+                fontSize: "0.9rem", fontWeight: 700, cursor: "pointer",
+              }}>
+                Show {products.length} Product{products.length !== 1 ? "s" : ""}
+              </button>
+            </div>
+          </div>
+        </>
+      )}
 
       <style>{`
         @media (min-width: 1024px) {
@@ -650,6 +932,36 @@ const Products = () => {
         }
         .animate-slide-up { animation: animate-slide-up 0.35s ease forwards; }
         select:focus { border-color: ${T.accent} !important; box-shadow: 0 0 0 3px ${T.accentLo}; }
+
+        /* Desktop-only controls, hidden on mobile */
+        .desktop-sort { display: none; }
+        .desktop-cat-bar { display: none; }
+        @media (min-width: 768px) {
+          .desktop-sort { display: flex !important; }
+          .desktop-cat-bar { display: flex !important; }
+        }
+
+        /* Mobile sticky bottom bar — shown only below md, hidden once lg sidebar takes over */
+        @media (max-width: 767px) {
+          .mobile-bottom-bar { display: block !important; }
+          body { padding-bottom: 0; }
+        }
+
+        /* Product grid: tighter columns on very small phones */
+        @media (max-width: 420px) {
+          .product-grid { grid-template-columns: repeat(2,1fr) !important; gap: 10px !important; }
+        }
+
+        /* Reduce horizontal page padding slightly on small phones */
+        @media (max-width: 380px) {
+          .products-px { padding-left: 12px !important; padding-right: 12px !important; }
+        }
+
+        @keyframes sheet-slide-up {
+          from { transform: translateY(100%); }
+          to   { transform: translateY(0); }
+        }
+        .mobile-only-sheet { animation: sheet-slide-up 0.25s ease-out; }
       `}</style>
     </div>
   );

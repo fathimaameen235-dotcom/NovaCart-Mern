@@ -9,24 +9,18 @@ import API from "../api/axios";
 const COLORS = ["#7c5cfc", "#3b82f6", "#4ade80", "#facc15", "#f87171", "#c084fc"];
 
 const s = {
-  page:      { minHeight: "100vh", background: "#060812", padding: "32px 24px 40px", fontFamily: "'DM Sans',sans-serif" },
-  container: { maxWidth: 1280, margin: "0 auto" },
-  heading:   { fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.75rem", color: "#eef2ff", marginBottom: 4 },
-  sub:       { color: "#525878", fontSize: "0.875rem", marginBottom: 32 },
-  statsGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(200px,1fr))", gap: 16, marginBottom: 28 },
-  card:      { background: "linear-gradient(145deg,#0d0f1a,#080a10)", border: "1px solid #1a1d2e", borderRadius: 16, padding: "22px 20px" },
-  cardVal:   (color) => ({ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.9rem", color, marginBottom: 4 }),
-  cardLbl:   { color: "#525878", fontSize: "0.8rem" },
-  cardChange:(pos) => ({ fontSize: "0.75rem", color: pos ? "#4ade80" : "#f87171", marginTop: 4 }),
-  chartGrid: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 },
-  chartCard: { background: "linear-gradient(145deg,#0d0f1a,#080a10)", border: "1px solid #1a1d2e", borderRadius: 16, padding: "20px 20px 16px" },
-  chartTitle:{ fontFamily: "'Syne',sans-serif", fontWeight: 600, color: "#eef2ff", fontSize: "0.95rem", marginBottom: 20 },
-  fullChart: { background: "linear-gradient(145deg,#0d0f1a,#080a10)", border: "1px solid #1a1d2e", borderRadius: 16, padding: "20px", marginBottom: 20 },
+  heading:   { fontFamily: "'Syne',sans-serif", fontWeight: 700, color: "#eef2ff" },
+  sub:       { color: "#525878", fontSize: "0.875rem" },
+  card:      { background: "linear-gradient(145deg,#0d0f1a,#080a10)", border: "1px solid #1a1d2e", borderRadius: 16 },
+  cardVal:   (color) => ({ fontFamily: "'Syne',sans-serif", fontWeight: 700, color }),
+  cardLbl:   { color: "#525878", fontSize: "0.78rem" },
+  chartCard: { background: "linear-gradient(145deg,#0d0f1a,#080a10)", border: "1px solid #1a1d2e", borderRadius: 16 },
+  chartTitle:{ fontFamily: "'Syne',sans-serif", fontWeight: 600, color: "#eef2ff", fontSize: "0.9rem" },
   tooltipStyle: { background: "#0f1120", border: "1px solid #1a1d2e", borderRadius: 8, fontFamily: "'DM Sans',sans-serif", fontSize: "0.8rem" },
-  empty:     { textAlign: "center", padding: "64px 0", color: "#525878" },
+  empty:     { textAlign: "center", padding: "48px 0", color: "#525878", fontSize: "0.875rem" },
   table:     { width: "100%", borderCollapse: "collapse" },
-  th:        { padding: "12px 16px", textAlign: "left", fontSize: "0.72rem", fontWeight: 600, color: "#525878", textTransform: "uppercase", letterSpacing: "0.05em", borderBottom: "1px solid #1a1d2e" },
-  td:        { padding: "12px 16px", fontSize: "0.85rem", color: "#c8cde8", borderBottom: "1px solid #0f1120" },
+  th:        { padding: "10px 12px", textAlign: "left", fontSize: "0.68rem", fontWeight: 600, color: "#525878", textTransform: "uppercase", letterSpacing: "0.05em", borderBottom: "1px solid #1a1d2e" },
+  td:        { padding: "10px 12px", fontSize: "0.82rem", color: "#c8cde8", borderBottom: "1px solid #0f1120" },
 };
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -109,8 +103,6 @@ const AdminAnalytics = () => {
       Revenue: dayOrders.reduce((s, o) => s + (o.totalAmount || 0), 0),
     });
   }
-  // Sparse — show every 3rd label
-  const sparseOrders = ordersByDay.filter((_, i) => i % 3 === 0 || i === ordersByDay.length - 1 || ordersByDay.length <= 10);
 
   // --- Order status breakdown ---
   const statusData = ["pending","processing","shipped","delivered","cancelled"].map(st => ({
@@ -152,161 +144,175 @@ const AdminAnalytics = () => {
     });
   }
 
-  if (loading) return <div style={s.page}><div style={s.empty}>Loading analytics…</div></div>;
+  if (loading) {
+    return (
+      <AdminLayout>
+        <div className="min-h-screen bg-[#060812] px-4 sm:px-6 pt-8 pb-10">
+          <div style={s.empty}>Loading analytics…</div>
+        </div>
+      </AdminLayout>
+    );
+  }
 
   return (
     <AdminLayout>
-    <div style={s.page}>
-      <div style={s.container}>
-        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 24, flexWrap: "wrap", gap: 12 }}>
-          <div>
-            <h1 style={s.heading}>Analytics Dashboard</h1>
-            <p style={s.sub}>Platform overview & insights</p>
+      <div className="min-h-screen bg-[#060812] px-3 sm:px-6 pt-6 sm:pt-8 pb-10 font-['DM_Sans',sans-serif]">
+        <div className="max-w-[1280px] mx-auto">
+
+          {/* Header */}
+          <div className="flex items-end justify-between flex-wrap gap-3 mb-6">
+            <div>
+              <h1 style={s.heading} className="text-xl sm:text-[1.75rem] mb-1">Analytics Dashboard</h1>
+              <p style={s.sub}>Platform overview &amp; insights</p>
+            </div>
+            <div className="flex gap-2">
+              {[7, 30, 90].map(r => (
+                <button key={r} onClick={() => setRange(r)} style={{
+                  border: range === r ? "1px solid #7c5cfc" : "1px solid #1a1d2e",
+                  background: range === r ? "rgba(124,92,252,0.15)" : "#0d0f1a",
+                  color: range === r ? "#a78bfa" : "#525878",
+                }} className="px-3 py-1.5 rounded-lg text-xs sm:text-[0.8rem] cursor-pointer">
+                  {r}d
+                </button>
+              ))}
+            </div>
           </div>
-          <div style={{ display: "flex", gap: 8 }}>
-            {[7, 30, 90].map(r => (
-              <button key={r} onClick={() => setRange(r)} style={{
-                padding: "6px 14px", borderRadius: 8, fontSize: "0.8rem", cursor: "pointer",
-                border: range === r ? "1px solid #7c5cfc" : "1px solid #1a1d2e",
-                background: range === r ? "rgba(124,92,252,0.15)" : "#0d0f1a",
-                color: range === r ? "#a78bfa" : "#525878",
-              }}>
-                {r}d
-              </button>
+
+          {/* KPI Cards — 2 cols mobile, 4 cols tablet, fits naturally on desktop */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-7">
+            {[
+              { label: "Total Revenue", value: `₹${totalRevenue.toFixed(0)}`, color: "#a78bfa" },
+              { label: "Total Orders", value: data.orders.length, color: "#60a5fa" },
+              { label: "Total Users", value: data.users.length, color: "#4ade80" },
+              { label: "Avg Order Value", value: `₹${avgOrderVal.toFixed(0)}`, color: "#facc15" },
+              { label: "Delivered", value: delivered, color: "#4ade80" },
+              { label: "Pending", value: pending, color: "#facc15" },
+              { label: "Products", value: data.products.length, color: "#c084fc" },
+              { label: "Avg Rating", value: avgRating, color: "#fb923c" },
+            ].map(({ label, value, color }) => (
+              <div key={label} style={s.card} className="px-3.5 sm:px-5 py-4 sm:py-[22px]">
+                <div style={s.cardVal(color)} className="text-lg sm:text-[1.9rem] mb-1 truncate">{value}</div>
+                <div style={s.cardLbl}>{label}</div>
+              </div>
             ))}
           </div>
-        </div>
 
-        {/* KPI Cards */}
-        <div style={s.statsGrid}>
-          {[
-            { label: "Total Revenue", value: `₹${totalRevenue.toFixed(0)}`, color: "#a78bfa" },
-            { label: "Total Orders", value: data.orders.length, color: "#60a5fa" },
-            { label: "Total Users", value: data.users.length, color: "#4ade80" },
-            { label: "Avg Order Value", value: `₹${avgOrderVal.toFixed(0)}`, color: "#facc15" },
-            { label: "Delivered", value: delivered, color: "#4ade80" },
-            { label: "Pending", value: pending, color: "#facc15" },
-            { label: "Products", value: data.products.length, color: "#c084fc" },
-            { label: "Avg Rating", value: avgRating, color: "#fb923c" },
-          ].map(({ label, value, color }) => (
-            <div key={label} style={s.card}>
-              <div style={s.cardVal(color)}>{value}</div>
-              <div style={s.cardLbl}>{label}</div>
-            </div>
-          ))}
-        </div>
-
-        {/* Orders + Revenue over time */}
-        <div style={s.fullChart}>
-          <p style={s.chartTitle}>Orders & Revenue ({range}d)</p>
-          <ResponsiveContainer width="100%" height={240}>
-            <LineChart data={ordersByDay} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#1a1d2e" />
-              <XAxis dataKey="date" tick={{ fill: "#525878", fontSize: 11 }} tickLine={false} axisLine={false}
-                interval={Math.floor(ordersByDay.length / 7)} />
-              <YAxis yAxisId="left" tick={{ fill: "#525878", fontSize: 11 }} tickLine={false} axisLine={false} />
-              <YAxis yAxisId="right" orientation="right" tick={{ fill: "#525878", fontSize: 11 }} tickLine={false} axisLine={false} />
-              <Tooltip content={<CustomTooltip />} />
-              <Legend wrapperStyle={{ fontSize: "0.8rem", color: "#525878" }} />
-              <Line yAxisId="left" type="monotone" dataKey="Orders" stroke="#7c5cfc" strokeWidth={2} dot={false} />
-              <Line yAxisId="right" type="monotone" dataKey="Revenue" stroke="#4ade80" strokeWidth={2} dot={false} />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-
-        {/* Two-column charts */}
-        <div style={s.chartGrid}>
-          {/* Order Status Pie */}
-          <div style={s.chartCard}>
-            <p style={s.chartTitle}>Order Status Breakdown</p>
-            {statusData.length ? (
-              <ResponsiveContainer width="100%" height={200}>
-                <PieChart>
-                  <Pie data={statusData} cx="50%" cy="50%" outerRadius={70} dataKey="value" label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                    labelLine={false} fontSize={11}>
-                    {statusData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
-                  </Pie>
-                  <Tooltip contentStyle={s.tooltipStyle} />
-                </PieChart>
-              </ResponsiveContainer>
-            ) : <div style={s.empty}>No orders yet</div>}
-          </div>
-
-          {/* Payment Method Bar */}
-          <div style={s.chartCard}>
-            <p style={s.chartTitle}>Payment Methods</p>
-            {paymentData.length ? (
-              <ResponsiveContainer width="100%" height={200}>
-                <BarChart data={paymentData} margin={{ top: 4, right: 8, left: -20, bottom: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#1a1d2e" />
-                  <XAxis dataKey="name" tick={{ fill: "#525878", fontSize: 11 }} tickLine={false} axisLine={false} />
-                  <YAxis tick={{ fill: "#525878", fontSize: 11 }} tickLine={false} axisLine={false} />
-                  <Tooltip contentStyle={s.tooltipStyle} />
-                  <Bar dataKey="value" radius={[4,4,0,0]}>
-                    {paymentData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
-                  </Bar>
-                </BarChart>
-              </ResponsiveContainer>
-            ) : <div style={s.empty}>No payment data</div>}
-          </div>
-        </div>
-
-        <div style={s.chartGrid}>
-          {/* Top Products */}
-          <div style={s.chartCard}>
-            <p style={s.chartTitle}>Top Products (by units sold)</p>
-            {topProducts.length ? (
-              <table style={s.table}>
-                <thead>
-                  <tr>
-                    <th style={s.th}>#</th>
-                    <th style={s.th}>Product</th>
-                    <th style={s.th}>Units</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {topProducts.map((p, i) => (
-                    <tr key={i}>
-                      <td style={{ ...s.td, color: COLORS[i], fontWeight: 700 }}>{i + 1}</td>
-                      <td style={s.td}>{p.name}</td>
-                      <td style={{ ...s.td, color: "#a78bfa", fontWeight: 600 }}>{p.units}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            ) : <div style={s.empty}>No sales data</div>}
-          </div>
-
-          {/* Rating Distribution */}
-          <div style={s.chartCard}>
-            <p style={s.chartTitle}>Rating Distribution</p>
-            <ResponsiveContainer width="100%" height={200}>
-              <BarChart data={ratingDist} margin={{ top: 4, right: 8, left: -20, bottom: 0 }}>
+          {/* Orders + Revenue over time */}
+          <div style={s.chartCard} className="p-4 sm:p-5 mb-5">
+            <p style={s.chartTitle} className="mb-4 sm:mb-5">Orders &amp; Revenue ({range}d)</p>
+            <ResponsiveContainer width="100%" height={220}>
+              <LineChart data={ordersByDay} margin={{ top: 4, right: 4, left: -16, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#1a1d2e" />
-                <XAxis dataKey="rating" tick={{ fill: "#525878", fontSize: 11 }} tickLine={false} axisLine={false} />
-                <YAxis tick={{ fill: "#525878", fontSize: 11 }} tickLine={false} axisLine={false} allowDecimals={false} />
-                <Tooltip contentStyle={s.tooltipStyle} />
-                <Bar dataKey="Count" fill="#facc15" radius={[4,4,0,0]} />
-              </BarChart>
+                <XAxis dataKey="date" tick={{ fill: "#525878", fontSize: 10 }} tickLine={false} axisLine={false}
+                  interval={Math.floor(ordersByDay.length / 5)} />
+                <YAxis yAxisId="left" tick={{ fill: "#525878", fontSize: 10 }} tickLine={false} axisLine={false} width={32} />
+                <YAxis yAxisId="right" orientation="right" tick={{ fill: "#525878", fontSize: 10 }} tickLine={false} axisLine={false} width={32} />
+                <Tooltip content={<CustomTooltip />} />
+                <Legend wrapperStyle={{ fontSize: "0.75rem", color: "#525878" }} />
+                <Line yAxisId="left" type="monotone" dataKey="Orders" stroke="#7c5cfc" strokeWidth={2} dot={false} />
+                <Line yAxisId="right" type="monotone" dataKey="Revenue" stroke="#4ade80" strokeWidth={2} dot={false} />
+              </LineChart>
             </ResponsiveContainer>
           </div>
-        </div>
 
-        {/* User Growth */}
-        <div style={s.fullChart}>
-          <p style={s.chartTitle}>Cumulative User Growth (30d)</p>
-          <ResponsiveContainer width="100%" height={200}>
-            <LineChart data={usersByDay} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#1a1d2e" />
-              <XAxis dataKey="date" tick={{ fill: "#525878", fontSize: 11 }} tickLine={false} axisLine={false} interval={6} />
-              <YAxis tick={{ fill: "#525878", fontSize: 11 }} tickLine={false} axisLine={false} allowDecimals={false} />
-              <Tooltip contentStyle={s.tooltipStyle} />
-              <Line type="monotone" dataKey="Users" stroke="#4ade80" strokeWidth={2} dot={false} />
-            </LineChart>
-          </ResponsiveContainer>
+          {/* Order Status + Payment Methods — stacked on mobile, 2-col on lg+ */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
+            {/* Order Status Pie */}
+            <div style={s.chartCard} className="p-4 sm:p-5">
+              <p style={s.chartTitle} className="mb-4 sm:mb-5">Order Status Breakdown</p>
+              {statusData.length ? (
+                <ResponsiveContainer width="100%" height={220}>
+                  <PieChart>
+                    <Pie data={statusData} cx="50%" cy="50%" outerRadius={70} dataKey="value"
+                      label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                      labelLine={false} fontSize={11}>
+                      {statusData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
+                    </Pie>
+                    <Tooltip contentStyle={s.tooltipStyle} />
+                  </PieChart>
+                </ResponsiveContainer>
+              ) : <div style={s.empty}>No orders yet</div>}
+            </div>
+
+            {/* Payment Method Bar */}
+            <div style={s.chartCard} className="p-4 sm:p-5">
+              <p style={s.chartTitle} className="mb-4 sm:mb-5">Payment Methods</p>
+              {paymentData.length ? (
+                <ResponsiveContainer width="100%" height={220}>
+                  <BarChart data={paymentData} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#1a1d2e" />
+                    <XAxis dataKey="name" tick={{ fill: "#525878", fontSize: 10 }} tickLine={false} axisLine={false} />
+                    <YAxis tick={{ fill: "#525878", fontSize: 10 }} tickLine={false} axisLine={false} />
+                    <Tooltip contentStyle={s.tooltipStyle} />
+                    <Bar dataKey="value" radius={[4,4,0,0]}>
+                      {paymentData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
+                    </Bar>
+                  </BarChart>
+                </ResponsiveContainer>
+              ) : <div style={s.empty}>No payment data</div>}
+            </div>
+          </div>
+
+          {/* Top Products + Rating Distribution — stacked on mobile, 2-col on lg+ */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-5">
+            {/* Top Products */}
+            <div style={s.chartCard} className="p-4 sm:p-5">
+              <p style={s.chartTitle} className="mb-4 sm:mb-5">Top Products (by units sold)</p>
+              {topProducts.length ? (
+                <div className="overflow-x-auto">
+                  <table style={s.table}>
+                    <thead>
+                      <tr>
+                        <th style={s.th}>#</th>
+                        <th style={s.th}>Product</th>
+                        <th style={s.th}>Units</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {topProducts.map((p, i) => (
+                        <tr key={i}>
+                          <td style={{ ...s.td, color: COLORS[i], fontWeight: 700 }}>{i + 1}</td>
+                          <td style={{ ...s.td, maxWidth: 180, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{p.name}</td>
+                          <td style={{ ...s.td, color: "#a78bfa", fontWeight: 600 }}>{p.units}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              ) : <div style={s.empty}>No sales data</div>}
+            </div>
+
+            {/* Rating Distribution */}
+            <div style={s.chartCard} className="p-4 sm:p-5">
+              <p style={s.chartTitle} className="mb-4 sm:mb-5">Rating Distribution</p>
+              <ResponsiveContainer width="100%" height={220}>
+                <BarChart data={ratingDist} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+                  <CartesianGrid strokeDasharray="3 3" stroke="#1a1d2e" />
+                  <XAxis dataKey="rating" tick={{ fill: "#525878", fontSize: 10 }} tickLine={false} axisLine={false} />
+                  <YAxis tick={{ fill: "#525878", fontSize: 10 }} tickLine={false} axisLine={false} allowDecimals={false} />
+                  <Tooltip contentStyle={s.tooltipStyle} />
+                  <Bar dataKey="Count" fill="#facc15" radius={[4,4,0,0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+
+          {/* User Growth */}
+          <div style={s.chartCard} className="p-4 sm:p-5">
+            <p style={s.chartTitle} className="mb-4 sm:mb-5">Cumulative User Growth (30d)</p>
+            <ResponsiveContainer width="100%" height={200}>
+              <LineChart data={usersByDay} margin={{ top: 4, right: 4, left: -16, bottom: 0 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#1a1d2e" />
+                <XAxis dataKey="date" tick={{ fill: "#525878", fontSize: 10 }} tickLine={false} axisLine={false} interval={6} />
+                <YAxis tick={{ fill: "#525878", fontSize: 10 }} tickLine={false} axisLine={false} allowDecimals={false} width={32} />
+                <Tooltip contentStyle={s.tooltipStyle} />
+                <Line type="monotone" dataKey="Users" stroke="#4ade80" strokeWidth={2} dot={false} />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+
         </div>
       </div>
-    </div>
     </AdminLayout>
   );
 };

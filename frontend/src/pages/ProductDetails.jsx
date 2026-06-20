@@ -27,8 +27,7 @@ const T = {
   warnTx:   "#fbbf24",
 };
 
-/* ── Star display ───────────────────────────────────── */
-const StarDisplay = ({ rating = 0, size = 17 }) => (
+const StarDisplay = ({ rating = 0, size = 16 }) => (
   <div style={{ display: "flex", gap: 2 }}>
     {[1, 2, 3, 4, 5].map(s => (
       <svg key={s} width={size} height={size} viewBox="0 0 20 20"
@@ -39,7 +38,6 @@ const StarDisplay = ({ rating = 0, size = 17 }) => (
   </div>
 );
 
-/* ── Pill badge ─────────────────────────────────────── */
 const Pill = ({ children, color = "accent" }) => {
   const map = {
     accent:  { bg: T.accentLo,  border: T.accentRg,  text: T.accentTx },
@@ -50,7 +48,7 @@ const Pill = ({ children, color = "accent" }) => {
   return (
     <span style={{
       display: "inline-flex", alignItems: "center", gap: 4,
-      padding: "4px 13px", borderRadius: 9999, fontSize: 12,
+      padding: "3px 10px", borderRadius: 9999, fontSize: 11,
       fontWeight: 600, letterSpacing: "0.03em",
       background: c.bg, border: `1px solid ${c.border}`, color: c.text,
       fontFamily: "'DM Sans', sans-serif",
@@ -60,22 +58,20 @@ const Pill = ({ children, color = "accent" }) => {
   );
 };
 
-/* ── Feature card ───────────────────────────────────── */
 const FeatureCard = ({ icon, title, sub }) => (
   <div style={{
     background: T.surface, border: `1.5px solid ${T.border}`,
-    borderRadius: 12, padding: "13px 14px",
-    display: "flex", alignItems: "center", gap: 10,
+    borderRadius: 10, padding: "10px 12px",
+    display: "flex", alignItems: "center", gap: 8,
   }}>
-    <span style={{ fontSize: 22 }}>{icon}</span>
-    <div>
-      <p style={{ fontSize: 13, fontWeight: 600, color: T.text, fontFamily: "'DM Sans', sans-serif", margin: 0 }}>{title}</p>
-      <p style={{ fontSize: 11, color: T.muted, fontFamily: "'DM Sans', sans-serif", margin: 0 }}>{sub}</p>
+    <span style={{ fontSize: 18, flexShrink: 0 }}>{icon}</span>
+    <div style={{ minWidth: 0 }}>
+      <p style={{ fontSize: 12, fontWeight: 600, color: T.text, fontFamily: "'DM Sans', sans-serif", margin: 0 }}>{title}</p>
+      <p style={{ fontSize: 10, color: T.muted, fontFamily: "'DM Sans', sans-serif", margin: 0 }}>{sub}</p>
     </div>
   </div>
 );
 
-/* ── Related Product Card ───────────────────────────── */
 const RelatedCard = ({ product }) => {
   const navigate = useNavigate();
   const img = product.images?.[0] || product.image;
@@ -87,7 +83,7 @@ const RelatedCard = ({ product }) => {
       style={{
         background: T.surface,
         border: `1.5px solid ${T.border}`,
-        borderRadius: 16,
+        borderRadius: 14,
         overflow: "hidden",
         flexShrink: 0,
         width: "100%",
@@ -105,93 +101,55 @@ const RelatedCard = ({ product }) => {
         e.currentTarget.style.transform = "translateY(0)";
       }}
     >
-      {/* Image */}
-      <div style={{
-        aspectRatio: "4/3", background: "#131825",
-        overflow: "hidden", position: "relative",
-      }}>
+      <div style={{ aspectRatio: "4/3", background: "#131825", overflow: "hidden", position: "relative" }}>
         {img ? (
-          <img
-            src={img}
-            alt={product.title}
-            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.4s ease" }}
+          <img src={img} alt={product.title}
+            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", transition: "transform 0.4s" }}
             onMouseEnter={e => e.target.style.transform = "scale(1.06)"}
             onMouseLeave={e => e.target.style.transform = "scale(1)"}
           />
         ) : (
           <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <span style={{ fontSize: 40, opacity: 0.3 }}>📦</span>
+            <span style={{ fontSize: 36, opacity: 0.3 }}>📦</span>
           </div>
         )}
-        {/* Price badge overlay */}
         <div style={{
-          position: "absolute", bottom: 10, right: 10,
+          position: "absolute", bottom: 8, right: 8,
           background: "rgba(8,10,16,0.85)", backdropFilter: "blur(6px)",
-          border: `1px solid ${T.border}`, borderRadius: 8,
-          padding: "4px 10px",
+          border: `1px solid ${T.border}`, borderRadius: 6, padding: "3px 8px",
         }}>
-          <span style={{ fontSize: 13, fontWeight: 800, color: T.text, fontFamily: "'Syne', sans-serif" }}>
+          <span style={{ fontSize: 12, fontWeight: 800, color: T.text, fontFamily: "'Syne', sans-serif" }}>
             ${product.price}
           </span>
         </div>
       </div>
-
-      {/* Info */}
-      <div style={{ padding: "14px 14px 16px", display: "flex", flexDirection: "column", gap: 8, flex: 1 }}>
-        {/* Category */}
-        <span style={{
-          fontSize: 10, color: T.muted, fontFamily: "'DM Sans', sans-serif",
-          textTransform: "uppercase", letterSpacing: "0.08em",
-        }}>
+      <div style={{ padding: "12px 12px 14px", display: "flex", flexDirection: "column", gap: 6, flex: 1 }}>
+        <span style={{ fontSize: 9, color: T.muted, fontFamily: "'DM Sans', sans-serif", textTransform: "uppercase", letterSpacing: "0.08em" }}>
           {product.subCategory || product.category}
         </span>
-
-        {/* Title */}
-        <p style={{
-          fontSize: 14, fontWeight: 600, color: T.text,
-          fontFamily: "'DM Sans', sans-serif", margin: 0,
-          lineHeight: 1.4,
-          display: "-webkit-box", WebkitLineClamp: 2,
-          WebkitBoxOrient: "vertical", overflow: "hidden",
-        }}>
+        <p style={{ fontSize: 13, fontWeight: 600, color: T.text, fontFamily: "'DM Sans', sans-serif", margin: 0, lineHeight: 1.4, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
           {product.title}
         </p>
-
-        {/* Rating */}
-        <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-          <StarDisplay rating={rating} size={13} />
-          <span style={{ fontSize: 12, color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+          <StarDisplay rating={rating} size={11} />
+          <span style={{ fontSize: 11, color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>
             {rating.toFixed(1)} ({reviews})
           </span>
         </div>
-
-        {/* Price row + button */}
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: 8 }}>
-          <div>
-            <span style={{ fontSize: 16, fontWeight: 800, color: T.text, fontFamily: "'Syne', sans-serif" }}>
-              ${product.price}
-            </span>
-            <span style={{
-              fontSize: 11, color: T.muted, textDecoration: "line-through",
-              marginLeft: 5, fontFamily: "'DM Sans', sans-serif",
-            }}>
-              ${(product.price * 1.25).toFixed(0)}
-            </span>
-          </div>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "auto", paddingTop: 6 }}>
+          <span style={{ fontSize: 15, fontWeight: 800, color: T.text, fontFamily: "'Syne', sans-serif" }}>
+            ${product.price}
+          </span>
           <button
             onClick={() => navigate(`/products/${product._id}`)}
             style={{
-              padding: "7px 14px", borderRadius: 9,
+              padding: "6px 12px", borderRadius: 8,
               background: T.accentLo, border: `1px solid ${T.accentRg}`,
-              color: T.accentTx, fontSize: 12, fontWeight: 600,
+              color: T.accentTx, fontSize: 11, fontWeight: 600,
               fontFamily: "'DM Sans', sans-serif", cursor: "pointer",
-              transition: "background 0.18s",
-              whiteSpace: "nowrap",
             }}
-            onMouseEnter={e => e.currentTarget.style.background = "rgba(124,92,252,0.22)"}
-            onMouseLeave={e => e.currentTarget.style.background = T.accentLo}
           >
-            View Details
+            View
           </button>
         </div>
       </div>
@@ -199,79 +157,52 @@ const RelatedCard = ({ product }) => {
   );
 };
 
-/* ── Related Section ────────────────────────────────── */
 const RelatedSection = ({ related, relatedSource, product }) => {
   if (!related.length) return null;
-
   const label = relatedSource === "subcategory"
     ? `More in "${product.subCategory}"`
     : `More in "${product.category}"`;
 
   return (
-    <div style={{ marginTop: 56 }}>
-      {/* Header */}
-      <div style={{
-        display: "flex", alignItems: "center",
-        justifyContent: "space-between", marginBottom: 22, flexWrap: "wrap", gap: 10,
-      }}>
+    <div style={{ marginTop: 48 }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20, flexWrap: "wrap", gap: 10 }}>
         <div>
-          <h2 style={{
-            fontFamily: "'Syne', sans-serif", fontWeight: 700,
-            fontSize: "clamp(1.2rem, 2.5vw, 1.5rem)", color: T.text, margin: "0 0 4px",
-          }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: "clamp(1.1rem, 2.5vw, 1.4rem)", color: T.text, margin: "0 0 4px" }}>
             You May Also Like
           </h2>
-          <p style={{ fontSize: 13, color: T.muted, fontFamily: "'DM Sans', sans-serif", margin: 0 }}>
+          <p style={{ fontSize: 12, color: T.muted, fontFamily: "'DM Sans', sans-serif", margin: 0 }}>
             {label} · {related.length} product{related.length !== 1 ? "s" : ""}
           </p>
         </div>
         <Link
           to={`/products?category=${encodeURIComponent(product.category)}`}
           style={{
-            display: "inline-flex", alignItems: "center", gap: 6,
-            padding: "8px 16px", borderRadius: 10,
+            display: "inline-flex", alignItems: "center", gap: 4,
+            padding: "7px 14px", borderRadius: 9,
             background: T.accentLo, border: `1px solid ${T.accentRg}`,
-            color: T.accentTx, fontSize: 13, fontWeight: 600,
+            color: T.accentTx, fontSize: 12, fontWeight: 600,
             fontFamily: "'DM Sans', sans-serif", textDecoration: "none",
-            transition: "background 0.18s",
           }}
-          onMouseEnter={e => e.currentTarget.style.background = "rgba(124,92,252,0.2)"}
-          onMouseLeave={e => e.currentTarget.style.background = T.accentLo}
         >
           View All →
         </Link>
       </div>
 
-      {/* Desktop grid / Mobile horizontal scroll */}
-      <>
-        {/* Desktop grid — hidden on mobile via CSS */}
-        <div className="related-grid" style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-          gap: 18,
-        }}>
-          {related.map(p => <RelatedCard key={p._id} product={p} />)}
-        </div>
+      {/* Desktop grid */}
+      <div className="related-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: 16 }}>
+        {related.map(p => <RelatedCard key={p._id} product={p} />)}
+      </div>
 
-        {/* Mobile slider — hidden on desktop via CSS */}
-        <div className="related-slider" style={{
-          display: "none",
-          overflowX: "auto",
-          gap: 14,
-          paddingBottom: 12,
-          scrollbarWidth: "none",
-          WebkitOverflowScrolling: "touch",
-        }}>
-          {related.map(p => (
-            <div key={p._id} style={{ minWidth: 200, maxWidth: 200 }}>
-              <RelatedCard product={p} />
-            </div>
-          ))}
-        </div>
-      </>
+      {/* Mobile slider */}
+      <div className="related-slider" style={{ display: "none", overflowX: "auto", gap: 12, paddingBottom: 10, scrollbarWidth: "none", WebkitOverflowScrolling: "touch" }}>
+        {related.map(p => (
+          <div key={p._id} style={{ minWidth: 175, maxWidth: 175 }}>
+            <RelatedCard product={p} />
+          </div>
+        ))}
+      </div>
 
-      {/* Divider line at bottom */}
-      <div style={{ marginTop: 40, height: 1, background: T.border }} />
+      <div style={{ marginTop: 36, height: 1, background: T.border }} />
     </div>
   );
 };
@@ -284,7 +215,7 @@ const ProductDetails = () => {
 
   const [product, setProduct]             = useState(null);
   const [related, setRelated]             = useState([]);
-  const [relatedSource, setRelatedSource] = useState("category"); // "subcategory" | "category"
+  const [relatedSource, setRelatedSource] = useState("category");
   const [loading, setLoading]             = useState(true);
   const [quantity, setQuantity]           = useState(1);
   const [selectedImage, setSelectedImage] = useState("");
@@ -298,10 +229,7 @@ const ProductDetails = () => {
       setProduct(p);
       setSelectedImage(p.images?.[0] || p.image);
 
-      /* ── Related: subcategory first, fallback to category ── */
       let relatedList = [];
-
-      // 1️⃣ Try subcategory match first
       if (p.subCategory) {
         try {
           const { data: subData } = await API.get(
@@ -309,15 +237,10 @@ const ProductDetails = () => {
           );
           const subList = Array.isArray(subData) ? subData : subData?.products || [];
           relatedList = subList.filter(x => x._id !== id).slice(0, 8);
-          if (relatedList.length >= 2) {
-            setRelatedSource("subcategory");
-          }
-        } catch {
-          // subCategory fetch failed — fall through
-        }
+          if (relatedList.length >= 2) setRelatedSource("subcategory");
+        } catch { /* fall through */ }
       }
 
-      // 2️⃣ Fallback to same category
       if (relatedList.length < 2) {
         const { data: catData } = await API.get(
           `/products?category=${encodeURIComponent(p.category)}`
@@ -357,10 +280,9 @@ const ProductDetails = () => {
     toast.success("Link copied!");
   };
 
-  /* ── Loading ─────────────────────────────────────── */
   if (loading) return (
     <div style={{ minHeight: "100vh", background: T.bg, display: "flex", alignItems: "center", justifyContent: "center", paddingTop: 88 }}>
-      <div style={{ width: 40, height: 40, border: `2px solid ${T.accent}`, borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
+      <div style={{ width: 36, height: 36, border: `2px solid ${T.accent}`, borderTopColor: "transparent", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
       <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
     </div>
   );
@@ -370,11 +292,11 @@ const ProductDetails = () => {
   const images = product.images?.length ? product.images : [product.image].filter(Boolean);
 
   return (
-    <div style={{ minHeight: "100vh", background: T.bg, paddingTop: 88, paddingBottom: 80, paddingLeft: 16, paddingRight: 16 }}>
-      <div style={{ maxWidth: 1280, margin: "0 auto" }}>
+    <div style={{ minHeight: "100vh", background: T.bg, paddingTop: 64, paddingBottom: 60 }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 16px" }}>
 
-        {/* ── Breadcrumb ─────────────────────────────── */}
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 24, fontSize: 13, color: T.muted, fontFamily: "'DM Sans', sans-serif", flexWrap: "wrap" }}>
+        {/* Breadcrumb */}
+        <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 20, marginTop: 16, fontSize: 12, color: T.muted, fontFamily: "'DM Sans', sans-serif", flexWrap: "wrap" }}>
           <Link to="/" style={{ color: T.accent, textDecoration: "none" }}>Home</Link>
           <span>›</span>
           <Link to="/products" style={{ color: T.accent, textDecoration: "none" }}>Products</Link>
@@ -387,41 +309,39 @@ const ProductDetails = () => {
             </>
           )}
           <span>›</span>
-          <span style={{ color: T.muted }}>{product.title}</span>
+          <span style={{ color: T.muted, maxWidth: 150, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{product.title}</span>
         </div>
 
-        {/* ── Main grid ──────────────────────────────── */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: 36, alignItems: "start" }}>
+        {/* Main grid — stacks on mobile */}
+        <div className="product-detail-grid" style={{ display: "grid", gridTemplateColumns: "1fr", gap: 24 }}>
 
           {/* LEFT – Image gallery */}
           <div>
-            <div style={{ borderRadius: 20, overflow: "hidden", border: `1.5px solid ${T.border}`, background: T.surface, position: "relative", marginBottom: 14 }}>
+            <div style={{ borderRadius: 16, overflow: "hidden", border: `1.5px solid ${T.border}`, background: T.surface, position: "relative", marginBottom: 12 }}>
               <img
                 src={selectedImage}
                 alt={product.title}
-                style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", transition: "transform 0.5s ease", display: "block" }}
-                onMouseEnter={e => e.target.style.transform = "scale(1.04)"}
-                onMouseLeave={e => e.target.style.transform = "scale(1)"}
+                style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", display: "block" }}
               />
               <button
                 onClick={() => setWishlist(!wishlist)}
                 aria-label="Toggle wishlist"
-                style={{ position: "absolute", top: 14, right: 14, background: T.surface, border: `1.5px solid ${T.border}`, borderRadius: "50%", width: 38, height: 38, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}
+                style={{ position: "absolute", top: 12, right: 12, background: T.surface, border: `1.5px solid ${T.border}`, borderRadius: "50%", width: 36, height: 36, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}
               >
-                <svg width="17" height="17" fill={wishlist ? "#ef4444" : "none"} stroke={wishlist ? "#ef4444" : T.muted} strokeWidth="2" viewBox="0 0 24 24">
+                <svg width="16" height="16" fill={wishlist ? "#ef4444" : "none"} stroke={wishlist ? "#ef4444" : T.muted} strokeWidth="2" viewBox="0 0 24 24">
                   <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                 </svg>
               </button>
-              <div style={{ position: "absolute", top: 14, left: 14, background: T.accent, color: "#fff", fontSize: 11, fontWeight: 700, padding: "4px 10px", borderRadius: 6, letterSpacing: "0.04em", fontFamily: "'DM Sans', sans-serif" }}>
+              <div style={{ position: "absolute", top: 12, left: 12, background: T.accent, color: "#fff", fontSize: 10, fontWeight: 700, padding: "3px 8px", borderRadius: 5, fontFamily: "'DM Sans', sans-serif" }}>
                 20% OFF
               </div>
             </div>
 
             {images.length > 1 && (
-              <div style={{ display: "grid", gridTemplateColumns: `repeat(${Math.min(images.length, 5)}, 1fr)`, gap: 10 }}>
+              <div style={{ display: "grid", gridTemplateColumns: `repeat(${Math.min(images.length, 5)}, 1fr)`, gap: 8 }}>
                 {images.map((img, i) => (
-                  <div key={i} onClick={() => setSelectedImage(img)} style={{ borderRadius: 10, overflow: "hidden", cursor: "pointer", border: `2px solid ${selectedImage === img ? T.accent : T.border}`, transition: "border-color 0.18s" }}>
-                    <img src={img} alt="" style={{ width: "100%", height: 76, objectFit: "cover", display: "block" }} />
+                  <div key={i} onClick={() => setSelectedImage(img)} style={{ borderRadius: 8, overflow: "hidden", cursor: "pointer", border: `2px solid ${selectedImage === img ? T.accent : T.border}`, transition: "border-color 0.18s" }}>
+                    <img src={img} alt="" style={{ width: "100%", height: 60, objectFit: "cover", display: "block" }} />
                   </div>
                 ))}
               </div>
@@ -429,135 +349,133 @@ const ProductDetails = () => {
           </div>
 
           {/* RIGHT – Product info */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
 
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
               <Pill color="accent">{product.category}</Pill>
               {product.subCategory && <Pill color="accent">{product.subCategory}</Pill>}
               {stock > 0 ? <Pill color="success">✓ In Stock</Pill> : <Pill color="warn">Out of Stock</Pill>}
             </div>
 
-            <h1 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "clamp(1.4rem, 3vw, 2rem)", color: T.text, lineHeight: 1.2, letterSpacing: "-0.02em", margin: 0 }}>
+            <h1 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800, fontSize: "clamp(1.3rem, 4vw, 2rem)", color: T.text, lineHeight: 1.2, letterSpacing: "-0.02em", margin: 0 }}>
               {product.title}
             </h1>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
               <StarDisplay rating={product.averageRating || product.rating} />
               <span style={{ fontSize: 14, fontWeight: 700, color: T.text, fontFamily: "'DM Sans', sans-serif" }}>
                 {(product.averageRating || product.rating || 0).toFixed(1)}
               </span>
-              <span style={{ fontSize: 13, color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>
+              <span style={{ fontSize: 12, color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>
                 · {product.numReviews || product.reviewCount || 0} reviews
               </span>
             </div>
 
-            <div style={{ background: T.surface, border: `1.5px solid ${T.border}`, borderRadius: 14, padding: "16px 18px", display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
+            {/* Price card */}
+            <div style={{ background: T.surface, border: `1.5px solid ${T.border}`, borderRadius: 12, padding: "14px 16px", display: "flex", alignItems: "center", gap: 16, flexWrap: "wrap" }}>
               <div>
-                <p style={{ fontSize: 11, color: T.muted, marginBottom: 2, letterSpacing: "0.06em", textTransform: "uppercase", fontFamily: "'DM Sans', sans-serif" }}>Price</p>
-                <span style={{ fontSize: 32, fontWeight: 800, color: T.text, fontFamily: "'Syne', sans-serif" }}>${product.price}</span>
+                <p style={{ fontSize: 10, color: T.muted, marginBottom: 2, letterSpacing: "0.06em", textTransform: "uppercase", fontFamily: "'DM Sans', sans-serif" }}>Price</p>
+                <span style={{ fontSize: 28, fontWeight: 800, color: T.text, fontFamily: "'Syne', sans-serif" }}>${product.price}</span>
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
-                <span style={{ fontSize: 13, color: T.muted, textDecoration: "line-through", fontFamily: "'DM Sans', sans-serif" }}>${mrp}</span>
-                <span style={{ fontSize: 13, color: T.successTx, fontWeight: 700, fontFamily: "'DM Sans', sans-serif" }}>You save ${saving}</span>
+              <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <span style={{ fontSize: 12, color: T.muted, textDecoration: "line-through", fontFamily: "'DM Sans', sans-serif" }}>${mrp}</span>
+                <span style={{ fontSize: 12, color: T.successTx, fontWeight: 700, fontFamily: "'DM Sans', sans-serif" }}>You save ${saving}</span>
               </div>
               <Pill color="success">20% OFF</Pill>
             </div>
 
-            <p style={{ color: T.sub, fontSize: 14, lineHeight: 1.75, fontFamily: "'DM Sans', sans-serif", margin: 0 }}>{product.description}</p>
+            <p style={{ color: T.sub, fontSize: 13, lineHeight: 1.75, fontFamily: "'DM Sans', sans-serif", margin: 0 }}>{product.description}</p>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-              <FeatureCard icon="🚚" title="Free Delivery"   sub="Ships in 2-3 days" />
-              <FeatureCard icon="🔒" title="Secure Payment"  sub="100% protected" />
-              <FeatureCard icon="🔄" title="Easy Returns"    sub="7-day return policy" />
+            {/* Feature cards — 2-col grid */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+              <FeatureCard icon="🚚" title="Free Delivery" sub="Ships in 2-3 days" />
+              <FeatureCard icon="🔒" title="Secure Payment" sub="100% protected" />
+              <FeatureCard icon="🔄" title="Easy Returns" sub="7-day policy" />
               <FeatureCard icon="🛡️" title="1 Year Warranty" sub="Brand certified" />
             </div>
 
+            {/* Stock bar */}
             {stock > 0 && stock < 20 && (
               <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <div style={{ flex: 1, height: 5, background: T.border, borderRadius: 99, overflow: "hidden" }}>
+                <div style={{ flex: 1, height: 4, background: T.border, borderRadius: 99, overflow: "hidden" }}>
                   <div style={{ width: `${stockPct}%`, height: "100%", background: T.warn, borderRadius: 99 }} />
                 </div>
-                <span style={{ fontSize: 12, color: T.warnTx, fontWeight: 600, fontFamily: "'DM Sans', sans-serif", whiteSpace: "nowrap" }}>Only {stock} left!</span>
+                <span style={{ fontSize: 11, color: T.warnTx, fontWeight: 600, fontFamily: "'DM Sans', sans-serif", whiteSpace: "nowrap" }}>Only {stock} left!</span>
               </div>
             )}
 
-            <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
-              <span style={{ fontSize: 14, color: T.sub, fontWeight: 500, fontFamily: "'DM Sans', sans-serif" }}>Quantity</span>
-              <div style={{ display: "flex", alignItems: "center", border: `1.5px solid ${T.border}`, borderRadius: 11, background: T.surface, overflow: "hidden" }}>
-                <button onClick={() => setQuantity(q => Math.max(1, q - 1))} style={{ background: "transparent", border: "none", color: T.text, fontSize: 20, width: 40, height: 40, cursor: "pointer", fontFamily: "inherit" }}
-                  onMouseEnter={e => e.target.style.background = T.accentLo}
-                  onMouseLeave={e => e.target.style.background = "transparent"}>−</button>
-                <span style={{ padding: "0 22px", fontSize: 15, fontWeight: 700, color: T.text, fontFamily: "'DM Sans', sans-serif", minWidth: 50, textAlign: "center" }}>{quantity}</span>
-                <button onClick={() => setQuantity(q => Math.min(stock, q + 1))} style={{ background: "transparent", border: "none", color: T.text, fontSize: 20, width: 40, height: 40, cursor: "pointer", fontFamily: "inherit" }}
-                  onMouseEnter={e => e.target.style.background = T.accentLo}
-                  onMouseLeave={e => e.target.style.background = "transparent"}>+</button>
+            {/* Quantity */}
+            <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+              <span style={{ fontSize: 13, color: T.sub, fontWeight: 500, fontFamily: "'DM Sans', sans-serif" }}>Qty</span>
+              <div style={{ display: "flex", alignItems: "center", border: `1.5px solid ${T.border}`, borderRadius: 10, background: T.surface, overflow: "hidden" }}>
+                <button onClick={() => setQuantity(q => Math.max(1, q - 1))} style={{ background: "transparent", border: "none", color: T.text, fontSize: 20, width: 38, height: 38, cursor: "pointer" }}>−</button>
+                <span style={{ padding: "0 18px", fontSize: 14, fontWeight: 700, color: T.text, fontFamily: "'DM Sans', sans-serif", minWidth: 44, textAlign: "center" }}>{quantity}</span>
+                <button onClick={() => setQuantity(q => Math.min(stock, q + 1))} style={{ background: "transparent", border: "none", color: T.text, fontSize: 20, width: 38, height: 38, cursor: "pointer" }}>+</button>
               </div>
-              {stock > 0 && <span style={{ fontSize: 12, color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>Max {stock} per order</span>}
+              {stock > 0 && <span style={{ fontSize: 11, color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>Max {stock}</span>}
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+            {/* Action buttons */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
               <button
                 onClick={handleAddToCart} disabled={stock === 0}
-                style={{ padding: "15px", borderRadius: 11, background: stock > 0 ? "linear-gradient(135deg, #7c5cfc, #5b8def)" : T.border, color: "#fff", fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 15, border: "none", cursor: stock > 0 ? "pointer" : "not-allowed", opacity: stock > 0 ? 1 : 0.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, transition: "opacity 0.18s" }}
-                onMouseEnter={e => stock > 0 && (e.currentTarget.style.opacity = "0.88")}
-                onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+                style={{ padding: "14px", borderRadius: 10, background: stock > 0 ? "linear-gradient(135deg, #7c5cfc, #5b8def)" : T.border, color: "#fff", fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 14, border: "none", cursor: stock > 0 ? "pointer" : "not-allowed", opacity: stock > 0 ? 1 : 0.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}
               >🛒 Add to Cart</button>
               <button
                 onClick={handleBuyNow} disabled={stock === 0}
-                style={{ padding: "15px", borderRadius: 11, background: "transparent", color: T.text, fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: 15, border: `1.5px solid ${T.accent}`, cursor: stock > 0 ? "pointer" : "not-allowed", opacity: stock > 0 ? 1 : 0.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 8, transition: "background 0.18s" }}
-                onMouseEnter={e => stock > 0 && (e.currentTarget.style.background = T.accentLo)}
-                onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+                style={{ padding: "14px", borderRadius: 10, background: "transparent", color: T.text, fontFamily: "'Syne', sans-serif", fontWeight: 600, fontSize: 14, border: `1.5px solid ${T.accent}`, cursor: stock > 0 ? "pointer" : "not-allowed", opacity: stock > 0 ? 1 : 0.5, display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}
               >⚡ Buy Now</button>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: 10, paddingTop: 6, borderTop: `1px solid ${T.border}`, flexWrap: "wrap" }}>
-              <span style={{ fontSize: 12, color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>Share:</span>
-              <button onClick={handleShare} style={{ background: "transparent", border: `1px solid ${T.border}`, borderRadius: 8, padding: "6px 12px", color: T.muted, cursor: "pointer", fontSize: 12, fontFamily: "'DM Sans', sans-serif" }}>
+            {/* Share */}
+            <div style={{ display: "flex", alignItems: "center", gap: 8, paddingTop: 8, borderTop: `1px solid ${T.border}`, flexWrap: "wrap" }}>
+              <span style={{ fontSize: 11, color: T.muted, fontFamily: "'DM Sans', sans-serif" }}>Share:</span>
+              <button onClick={handleShare} style={{ background: "transparent", border: `1px solid ${T.border}`, borderRadius: 7, padding: "5px 10px", color: T.muted, cursor: "pointer", fontSize: 11, fontFamily: "'DM Sans', sans-serif" }}>
                 🔗 Copy link
               </button>
             </div>
           </div>
         </div>
 
-        {/* ── Specs strip ───────────────────────────── */}
+        {/* Specs */}
         {product.specs && Object.keys(product.specs).length > 0 && (
-          <div style={{ marginTop: 36, background: T.surface, border: `1.5px solid ${T.border}`, borderRadius: 14, padding: "18px 24px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: 16 }}>
+          <div style={{ marginTop: 28, background: T.surface, border: `1.5px solid ${T.border}`, borderRadius: 12, padding: "16px 20px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(100px, 1fr))", gap: 14 }}>
             {Object.entries(product.specs).map(([key, val]) => (
               <div key={key} style={{ textAlign: "center" }}>
-                <p style={{ fontSize: 13, fontWeight: 700, color: T.text, fontFamily: "'DM Sans', sans-serif", margin: "0 0 2px" }}>{val}</p>
-                <p style={{ fontSize: 11, color: T.muted, fontFamily: "'DM Sans', sans-serif", margin: 0, textTransform: "capitalize" }}>{key}</p>
+                <p style={{ fontSize: 12, fontWeight: 700, color: T.text, fontFamily: "'DM Sans', sans-serif", margin: "0 0 2px" }}>{val}</p>
+                <p style={{ fontSize: 10, color: T.muted, fontFamily: "'DM Sans', sans-serif", margin: 0, textTransform: "capitalize" }}>{key}</p>
               </div>
             ))}
           </div>
         )}
 
-        {/* ── Reviews ───────────────────────────────── */}
-        <div style={{ marginTop: 48, background: T.surface, border: `1.5px solid ${T.border}`, borderRadius: 16, padding: 28 }}>
-          <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: "1.3rem", color: T.text, margin: "0 0 20px" }}>
+        {/* Reviews */}
+        <div style={{ marginTop: 40, background: T.surface, border: `1.5px solid ${T.border}`, borderRadius: 14, padding: "20px 20px" }}>
+          <h2 style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: "1.2rem", color: T.text, margin: "0 0 16px" }}>
             Customer Reviews
           </h2>
           <ReviewSection productId={id} />
         </div>
 
-        {/* ── Related Products ──────────────────────── */}
-        <RelatedSection
-          related={related}
-          relatedSource={relatedSource}
-          product={product}
-        />
+        {/* Related */}
+        <RelatedSection related={related} relatedSource={relatedSource} product={product} />
 
       </div>
 
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
         .related-slider::-webkit-scrollbar { display: none; }
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
           .related-grid   { display: none !important; }
           .related-slider { display: flex !important; }
         }
-        @media (min-width: 769px) {
+        @media (min-width: 641px) {
+          .product-detail-grid { grid-template-columns: 1fr 1fr !important; }
           .related-grid   { display: grid !important; }
           .related-slider { display: none !important; }
+        }
+        @media (min-width: 1024px) {
+          .product-detail-grid { grid-template-columns: 5fr 6fr !important; gap: 36px !important; }
         }
       `}</style>
     </div>

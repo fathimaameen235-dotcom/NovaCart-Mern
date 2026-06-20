@@ -12,26 +12,28 @@ const Stars = ({ rating }) => (
 );
 
 const s = {
-  page:      { minHeight: "100vh", background: "#060812", padding: "32px 24px 40px", fontFamily: "'DM Sans',sans-serif" },
+  page:      { minHeight: "100vh", background: "#060812", padding: "24px 14px 40px", fontFamily: "'DM Sans',sans-serif" },
   container: { maxWidth: 1100, margin: "0 auto" },
-  heading:   { fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.75rem", color: "#eef2ff", marginBottom: 4 },
-  sub:       { color: "#525878", fontSize: "0.875rem", marginBottom: 28 },
-  statsGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(160px,1fr))", gap: 16, marginBottom: 28 },
-  card:      { background: "linear-gradient(145deg,#0d0f1a,#080a10)", border: "1px solid #1a1d2e", borderRadius: 16, padding: "18px 20px" },
+  heading:   { fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.5rem", color: "#eef2ff", marginBottom: 4 },
+  sub:       { color: "#525878", fontSize: "0.875rem", marginBottom: 24 },
+  statsGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(130px,1fr))", gap: 12, marginBottom: 24 },
+  card:      { background: "linear-gradient(145deg,#0d0f1a,#080a10)", border: "1px solid #1a1d2e", borderRadius: 16, padding: "16px 18px" },
   filterRow: { display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap", alignItems: "center" },
   filterBtn: (active) => ({
     padding: "6px 14px", borderRadius: 8, fontSize: "0.8rem", fontWeight: 500, cursor: "pointer",
     border: active ? "1px solid #7c5cfc" : "1px solid #1a1d2e",
     background: active ? "rgba(124,92,252,0.15)" : "#0d0f1a",
     color: active ? "#a78bfa" : "#525878",
+    whiteSpace: "nowrap",
   }),
-  input:     { background: "#0d0f1a", border: "1px solid #1a1d2e", color: "#eef2ff", borderRadius: 10, padding: "9px 16px", fontSize: "0.875rem", outline: "none", flex: 1, maxWidth: 320 },
-  table:     { width: "100%", borderCollapse: "collapse", background: "linear-gradient(145deg,#0d0f1a,#080a10)", border: "1px solid #1a1d2e", borderRadius: 16, overflow: "hidden" },
-  th:        { padding: "14px 16px", textAlign: "left", fontSize: "0.75rem", fontWeight: 600, color: "#525878", textTransform: "uppercase", letterSpacing: "0.05em", borderBottom: "1px solid #1a1d2e", background: "#0a0c14" },
+  input:     { background: "#0d0f1a", border: "1px solid #1a1d2e", color: "#eef2ff", borderRadius: 10, padding: "9px 16px", fontSize: "0.875rem", outline: "none", flex: 1, minWidth: 0, width: "100%", boxSizing: "border-box" },
+  tableWrap: { width: "100%", overflowX: "auto", borderRadius: 16, border: "1px solid #1a1d2e", WebkitOverflowScrolling: "touch" },
+  table:     { width: "100%", minWidth: 760, borderCollapse: "collapse", background: "linear-gradient(145deg,#0d0f1a,#080a10)" },
+  th:        { padding: "14px 16px", textAlign: "left", fontSize: "0.75rem", fontWeight: 600, color: "#525878", textTransform: "uppercase", letterSpacing: "0.05em", borderBottom: "1px solid #1a1d2e", background: "#0a0c14", whiteSpace: "nowrap" },
   td:        { padding: "14px 16px", fontSize: "0.875rem", color: "#c8cde8", borderBottom: "1px solid #0f1120" },
-  deleteBtn: { background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.25)", color: "#f87171", borderRadius: 6, padding: "4px 12px", fontSize: "0.75rem", cursor: "pointer" },
-  modal:     { position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 999, padding: 24 },
-  modalBox:  { background: "#0d0f1a", border: "1px solid #1a1d2e", borderRadius: 16, width: "100%", maxWidth: 420, padding: 28 },
+  deleteBtn: { background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.25)", color: "#f87171", borderRadius: 6, padding: "4px 12px", fontSize: "0.75rem", cursor: "pointer", whiteSpace: "nowrap" },
+  modal:     { position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 999, padding: 16 },
+  modalBox:  { background: "#0d0f1a", border: "1px solid #1a1d2e", borderRadius: 16, width: "100%", maxWidth: 420, padding: 24, boxSizing: "border-box" },
   empty:     { textAlign: "center", padding: "64px 0", color: "#525878" },
 };
 
@@ -110,20 +112,20 @@ const AdminReviews = () => {
 
           <div style={s.statsGrid}>
             <div style={s.card}>
-              <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.75rem", color: "#facc15", marginBottom: 4 }}>
+              <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.5rem", color: "#facc15", marginBottom: 4 }}>
                 {avgRating} ★
               </div>
               <div style={{ color: "#525878", fontSize: "0.8rem" }}>Average Rating</div>
             </div>
             <div style={s.card}>
-              <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.75rem", color: "#a78bfa", marginBottom: 4 }}>
+              <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.5rem", color: "#a78bfa", marginBottom: 4 }}>
                 {reviews.length}
               </div>
               <div style={{ color: "#525878", fontSize: "0.8rem" }}>Total Reviews</div>
             </div>
             {[5,4,3].map(r => (
               <div key={r} style={s.card}>
-                <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.75rem", color: r >= 4 ? "#4ade80" : r === 3 ? "#facc15" : "#f87171", marginBottom: 4 }}>
+                <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.5rem", color: r >= 4 ? "#4ade80" : r === 3 ? "#facc15" : "#f87171", marginBottom: 4 }}>
                   {ratingCounts[r] || 0}
                 </div>
                 <div style={{ color: "#525878", fontSize: "0.8rem" }}>{r} Star Reviews</div>
@@ -131,22 +133,24 @@ const AdminReviews = () => {
             ))}
           </div>
 
-          <div style={{ ...s.filterRow, marginBottom: 20 }}>
-            <input
-              style={s.input}
-              placeholder="Search reviews, users, products…"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-            />
-            <select
-              value={sort}
-              onChange={e => setSort(e.target.value)}
-              style={{ background: "#0d0f1a", border: "1px solid #1a1d2e", color: "#c8cde8", borderRadius: 8, padding: "8px 12px", fontSize: "0.8rem", cursor: "pointer" }}
-            >
-              {SORT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
-            </select>
+          <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 20 }}>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              <input
+                style={s.input}
+                placeholder="Search reviews, users, products…"
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+              />
+              <select
+                value={sort}
+                onChange={e => setSort(e.target.value)}
+                style={{ background: "#0d0f1a", border: "1px solid #1a1d2e", color: "#c8cde8", borderRadius: 8, padding: "8px 12px", fontSize: "0.8rem", cursor: "pointer" }}
+              >
+                {SORT_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+              </select>
+            </div>
           </div>
-          <div style={s.filterRow}>
+          <div style={{ ...s.filterRow, overflowX: "auto", paddingBottom: 2, WebkitOverflowScrolling: "touch", flexWrap: "nowrap" }}>
             <button style={s.filterBtn(ratingFilter === "all")} onClick={() => setRatingFilter("all")}>
               All ({reviews.length})
             </button>
@@ -162,46 +166,48 @@ const AdminReviews = () => {
           ) : filtered.length === 0 ? (
             <div style={s.empty}>No reviews found.</div>
           ) : (
-            <table style={s.table}>
-              <thead>
-                <tr>
-                  {["User", "Product", "Rating", "Comment", "Date", "Actions"].map(h => (
-                    <th key={h} style={s.th}>{h}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {filtered.map(review => (
-                  <tr key={review._id}>
-                    <td style={s.td}>
-                      <div style={{ color: "#eef2ff", fontWeight: 500, whiteSpace: "nowrap" }}>
-                        {review.userId?.name || "—"}
-                      </div>
-                      <div style={{ color: "#525878", fontSize: "0.72rem" }}>{review.userId?.email || ""}</div>
-                    </td>
-                    <td style={s.td}>
-                      <div style={{ color: "#c8cde8", maxWidth: 160, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                        {review.productId?.title || review.productId || "—"}
-                      </div>
-                    </td>
-                    <td style={s.td}><Stars rating={review.rating} /></td>
-                    <td style={s.td}>
-                      <div style={{ maxWidth: 280, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", color: "#9ca3af", fontSize: "0.85rem" }}>
-                        {review.comment}
-                      </div>
-                    </td>
-                    <td style={{ ...s.td, color: "#525878", fontSize: "0.75rem", whiteSpace: "nowrap" }}>
-                      {new Date(review.createdAt).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })}
-                    </td>
-                    <td style={s.td}>
-                      <button style={s.deleteBtn} onClick={() => setConfirmDelete(review)}>
-                        Delete
-                      </button>
-                    </td>
+            <div style={{ ...s.tableWrap, marginTop: 20 }}>
+              <table style={s.table}>
+                <thead>
+                  <tr>
+                    {["User", "Product", "Rating", "Comment", "Date", "Actions"].map(h => (
+                      <th key={h} style={s.th}>{h}</th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {filtered.map(review => (
+                    <tr key={review._id}>
+                      <td style={s.td}>
+                        <div style={{ color: "#eef2ff", fontWeight: 500, whiteSpace: "nowrap" }}>
+                          {review.userId?.name || "—"}
+                        </div>
+                        <div style={{ color: "#525878", fontSize: "0.72rem" }}>{review.userId?.email || ""}</div>
+                      </td>
+                      <td style={s.td}>
+                        <div style={{ color: "#c8cde8", maxWidth: 160, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                          {review.productId?.title || review.productId || "—"}
+                        </div>
+                      </td>
+                      <td style={s.td}><Stars rating={review.rating} /></td>
+                      <td style={s.td}>
+                        <div style={{ maxWidth: 280, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", color: "#9ca3af", fontSize: "0.85rem" }}>
+                          {review.comment}
+                        </div>
+                      </td>
+                      <td style={{ ...s.td, color: "#525878", fontSize: "0.75rem", whiteSpace: "nowrap" }}>
+                        {new Date(review.createdAt).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })}
+                      </td>
+                      <td style={s.td}>
+                        <button style={s.deleteBtn} onClick={() => setConfirmDelete(review)}>
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </div>
       </div>
@@ -209,29 +215,29 @@ const AdminReviews = () => {
       {confirmDelete && (
         <div style={s.modal} onClick={() => setConfirmDelete(null)}>
           <div style={s.modalBox} onClick={e => e.stopPropagation()}>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, color: "#eef2ff", marginBottom: 12 }}>
+            <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, color: "#eef2ff", marginBottom: 12, fontSize: "1.05rem" }}>
               Delete Review?
             </h2>
             <div style={{ background: "#0a0c14", border: "1px solid #1a1d2e", borderRadius: 10, padding: 14, marginBottom: 16 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8, flexWrap: "wrap", gap: 6 }}>
                 <span style={{ color: "#eef2ff", fontWeight: 500 }}>{confirmDelete.userId?.name}</span>
                 <Stars rating={confirmDelete.rating} />
               </div>
-              <p style={{ color: "#9ca3af", fontSize: "0.85rem", margin: 0 }}>{confirmDelete.comment}</p>
+              <p style={{ color: "#9ca3af", fontSize: "0.85rem", margin: 0, wordBreak: "break-word" }}>{confirmDelete.comment}</p>
             </div>
             <p style={{ color: "#525878", fontSize: "0.8rem", marginBottom: 20 }}>
               This action cannot be undone.
             </p>
-            <div style={{ display: "flex", gap: 12 }}>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <button
                 onClick={() => handleDelete(confirmDelete._id)}
-                style={{ flex: 1, padding: "10px", borderRadius: 10, background: "rgba(239,68,68,0.15)", border: "1px solid rgba(239,68,68,0.3)", color: "#f87171", fontWeight: 600, cursor: "pointer" }}
+                style={{ flex: "1 1 120px", padding: "10px", borderRadius: 10, background: "rgba(239,68,68,0.15)", border: "1px solid rgba(239,68,68,0.3)", color: "#f87171", fontWeight: 600, cursor: "pointer" }}
               >
                 Delete
               </button>
               <button
                 onClick={() => setConfirmDelete(null)}
-                style={{ flex: 1, padding: "10px", borderRadius: 10, background: "#1a1d2e", border: "1px solid #1a1d2e", color: "#c8cde8", cursor: "pointer" }}
+                style={{ flex: "1 1 120px", padding: "10px", borderRadius: 10, background: "#1a1d2e", border: "1px solid #1a1d2e", color: "#c8cde8", cursor: "pointer" }}
               >
                 Cancel
               </button>

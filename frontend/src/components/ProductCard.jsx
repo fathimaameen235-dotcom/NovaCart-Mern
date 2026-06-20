@@ -8,7 +8,7 @@ const StarRating = ({ rating }) => (
     {[1, 2, 3, 4, 5].map((star) => (
       <svg
         key={star}
-        className={`w-3 h-3 ${star <= Math.round(rating) ? "text-amber-400" : "text-nova-border"}`}
+        className={`w-3 h-3 flex-shrink-0 ${star <= Math.round(rating) ? "text-amber-400" : "text-nova-border"}`}
         fill="currentColor"
         viewBox="0 0 20 20"
       >
@@ -62,33 +62,36 @@ const ProductCard = ({ product }) => {
   const catStyle = categoryColors[product.category] || "text-nova-accent bg-nova-accent/10";
 
   return (
-    <Link to={`/products/${product._id}`} className="group block">
-      <div className="nova-card overflow-hidden h-full flex flex-col">
+    <Link to={`/products/${product._id}`} className="group block h-full">
+      <div className="nova-card overflow-hidden h-full flex flex-col hover:border-nova-accent/30 transition-all duration-300 hover:shadow-lg hover:shadow-nova-accent/5 hover:-translate-y-0.5">
+
         {/* Image */}
-        <div className="relative overflow-hidden aspect-[4/3] bg-nova-surface">
+        <div className="relative overflow-hidden aspect-[4/3] bg-nova-surface flex-shrink-0">
           <img
             src={imageUrl}
             alt={product.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
             onError={(e) => {
               e.target.src =
                 "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&h=450&fit=crop";
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-nova-bg/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-t from-nova-bg/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-          {/* Wishlist heart */}
+          {/* Wishlist */}
           <button
             onClick={handleWishlist}
-            className="absolute top-3 left-3 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 z-10"
+            aria-label={wishlisted ? "Remove from wishlist" : "Add to wishlist"}
+            className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 z-10 active:scale-90"
             style={{
-              background: wishlisted ? "rgba(248,113,113,0.2)" : "rgba(0,0,0,0.4)",
+              background: wishlisted ? "rgba(248,113,113,0.2)" : "rgba(0,0,0,0.45)",
               border: wishlisted ? "1px solid rgba(248,113,113,0.5)" : "1px solid rgba(255,255,255,0.1)",
               backdropFilter: "blur(4px)",
             }}
           >
             <svg
-              className="w-4 h-4 transition-all"
+              className="w-4 h-4"
               fill={wishlisted ? "#f87171" : "none"}
               stroke={wishlisted ? "#f87171" : "white"}
               strokeWidth={2}
@@ -98,59 +101,76 @@ const ProductCard = ({ product }) => {
             </svg>
           </button>
 
+          {/* Stock badges */}
           {product.stock <= 5 && product.stock > 0 && (
-            <div className="absolute top-3 right-3 px-2 py-1 bg-amber-500/20 border border-amber-500/30 rounded-full text-amber-400 text-xs font-mono">
+            <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 px-2 py-0.5 bg-amber-500/20 border border-amber-500/30 rounded-full text-amber-400 text-[10px] sm:text-xs font-mono">
               Only {product.stock} left
             </div>
           )}
           {product.stock === 0 && (
-            <div className="absolute top-3 right-3 px-2 py-1 bg-red-500/20 border border-red-500/30 rounded-full text-red-400 text-xs font-mono">
-              Out of Stock
+            <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 px-2 py-0.5 bg-red-500/20 border border-red-500/30 rounded-full text-red-400 text-[10px] sm:text-xs font-mono">
+              Sold Out
             </div>
           )}
         </div>
 
         {/* Content */}
-        <div className="p-4 flex flex-col gap-3 flex-1">
-          {/* Category + SubCategory */}
+        <div className="p-3 sm:p-4 flex flex-col gap-2 sm:gap-3 flex-1">
+          {/* Category tags */}
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className={`text-xs font-mono px-2 py-0.5 rounded-full w-fit ${catStyle}`}>
+            <span className={`text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded-full w-fit ${catStyle}`}>
               {product.category}
             </span>
             {product.subCategory && (
-              <span className="text-xs font-mono px-2 py-0.5 rounded-full w-fit text-nova-muted bg-nova-border/40">
+              <span className="text-[10px] sm:text-xs font-mono px-2 py-0.5 rounded-full w-fit text-nova-muted bg-nova-border/40">
                 {product.subCategory}
               </span>
             )}
           </div>
 
-          <h3 className="font-display font-semibold text-nova-text text-base leading-snug line-clamp-2 group-hover:text-nova-accent transition-colors duration-200">
+          {/* Title */}
+          <h3 className="font-display font-semibold text-nova-text text-sm sm:text-base leading-snug line-clamp-2 group-hover:text-nova-accent transition-colors duration-200">
             {product.title}
           </h3>
 
+          {/* Rating */}
           {product.reviewCount > 0 && (
             <div className="flex items-center gap-2">
               <StarRating rating={product.rating} />
-              <span className="text-nova-muted text-xs font-mono">
+              <span className="text-nova-muted text-[10px] sm:text-xs font-mono">
                 {product.rating} ({product.reviewCount})
               </span>
             </div>
           )}
 
+          {/* Price + CTA */}
           <div className="flex items-center justify-between mt-auto pt-2 border-t border-nova-border">
-            <span className="font-display font-bold text-xl text-nova-text">
-              ${product.price?.toFixed(2)}
-            </span>
+            <div>
+              <span className="font-display font-bold text-lg sm:text-xl text-nova-text">
+                ${product.price?.toFixed(2)}
+              </span>
+              <span className="text-nova-muted text-xs line-through ml-1.5 font-body">
+                ${(product.price * 1.25).toFixed(0)}
+              </span>
+            </div>
             <button
               onClick={handleAddToCart}
               disabled={product.stock === 0}
-              className={`px-3 py-2 rounded-lg text-sm font-display font-semibold transition-all duration-200 ${
+              aria-label={product.stock === 0 ? "Out of stock" : "Add to cart"}
+              className={`px-2.5 py-1.5 sm:px-3 sm:py-2 rounded-lg text-xs sm:text-sm font-display font-semibold transition-all duration-200 active:scale-95 flex-shrink-0 ${
                 product.stock === 0
                   ? "bg-nova-border text-nova-muted cursor-not-allowed"
                   : "nova-btn-primary"
               }`}
             >
-              {product.stock === 0 ? "Sold Out" : "Add to Cart"}
+              {product.stock === 0 ? "Sold Out" : (
+                <span className="flex items-center gap-1">
+                  <svg className="w-3.5 h-3.5 hidden sm:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                  </svg>
+                  Add
+                </span>
+              )}
             </button>
           </div>
         </div>

@@ -12,30 +12,33 @@ const STATUS_COLORS = {
 const METHOD_LABELS = { card: "Card", upi: "UPI", netbanking: "Net Banking", cod: "COD" };
 
 const s = {
-  page:      { minHeight: "100vh", background: "#060812", padding: "32px 24px 40px", fontFamily: "'DM Sans',sans-serif" },
+  page:      { minHeight: "100vh", background: "#060812", padding: "24px 14px 40px", fontFamily: "'DM Sans',sans-serif" },
   container: { maxWidth: 1200, margin: "0 auto" },
-  heading:   { fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.75rem", color: "#eef2ff", marginBottom: 4 },
-  sub:       { color: "#525878", fontSize: "0.875rem", marginBottom: 28 },
-  statsGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))", gap: 16, marginBottom: 28 },
-  card:      { background: "linear-gradient(145deg,#0d0f1a,#080a10)", border: "1px solid #1a1d2e", borderRadius: 16, padding: "20px" },
-  table:     { width: "100%", borderCollapse: "collapse", background: "linear-gradient(145deg,#0d0f1a,#080a10)", border: "1px solid #1a1d2e", borderRadius: 16, overflow: "hidden" },
-  th:        { padding: "14px 16px", textAlign: "left", fontSize: "0.75rem", fontWeight: 600, color: "#525878", textTransform: "uppercase", letterSpacing: "0.05em", borderBottom: "1px solid #1a1d2e", background: "#0a0c14" },
+  heading:   { fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.5rem", color: "#eef2ff", marginBottom: 4 },
+  sub:       { color: "#525878", fontSize: "0.875rem", marginBottom: 24 },
+  statsGrid: { display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: 12, marginBottom: 24 },
+  card:      { background: "linear-gradient(145deg,#0d0f1a,#080a10)", border: "1px solid #1a1d2e", borderRadius: 16, padding: "16px" },
+  tableWrap: { width: "100%", overflowX: "auto", borderRadius: 16, border: "1px solid #1a1d2e", WebkitOverflowScrolling: "touch" },
+  table:     { width: "100%", minWidth: 760, borderCollapse: "collapse", background: "linear-gradient(145deg,#0d0f1a,#080a10)" },
+  th:        { padding: "14px 16px", textAlign: "left", fontSize: "0.75rem", fontWeight: 600, color: "#525878", textTransform: "uppercase", letterSpacing: "0.05em", borderBottom: "1px solid #1a1d2e", background: "#0a0c14", whiteSpace: "nowrap" },
   td:        { padding: "14px 16px", fontSize: "0.875rem", color: "#c8cde8", borderBottom: "1px solid #0f1120" },
-  badge:     (s) => ({
+  badge:     (st) => ({
     display: "inline-flex", padding: "3px 10px", borderRadius: 6, fontSize: "0.72rem", fontWeight: 600,
-    background: STATUS_COLORS[s]?.bg || "#1a1d2e",
-    color: STATUS_COLORS[s]?.text || "#c8cde8",
-    border: `1px solid ${STATUS_COLORS[s]?.border || "#1a1d2e"}`,
+    background: STATUS_COLORS[st]?.bg || "#1a1d2e",
+    color: STATUS_COLORS[st]?.text || "#c8cde8",
+    border: `1px solid ${STATUS_COLORS[st]?.border || "#1a1d2e"}`,
+    whiteSpace: "nowrap",
   }),
-  filterRow: { display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" },
+  filterRow: { display: "flex", gap: 8, marginBottom: 0, flexWrap: "wrap" },
   filterBtn: (active) => ({
     padding: "6px 14px", borderRadius: 8, fontSize: "0.8rem", fontWeight: 500, cursor: "pointer",
     border: active ? "1px solid #7c5cfc" : "1px solid #1a1d2e",
     background: active ? "rgba(124,92,252,0.15)" : "#0d0f1a",
     color: active ? "#a78bfa" : "#525878",
+    whiteSpace: "nowrap",
   }),
   empty:     { textAlign: "center", padding: "64px 0", color: "#525878" },
-  input:     { background: "#0d0f1a", border: "1px solid #1a1d2e", color: "#eef2ff", borderRadius: 10, padding: "10px 16px", fontSize: "0.875rem", outline: "none", minWidth: 240 },
+  input:     { background: "#0d0f1a", border: "1px solid #1a1d2e", color: "#eef2ff", borderRadius: 10, padding: "10px 16px", fontSize: "0.875rem", outline: "none", width: "100%", boxSizing: "border-box" },
 };
 
 const AdminPayments = () => {
@@ -116,28 +119,28 @@ const AdminPayments = () => {
             { label: "Top Method", value: (METHOD_LABELS[topMethod] || topMethod).toUpperCase(), color: "#60a5fa" },
           ].map(({ label, value, color }) => (
             <div key={label} style={s.card}>
-              <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.5rem", color, marginBottom: 4 }}>{value}</div>
+              <div style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.3rem", color, marginBottom: 4, wordBreak: "break-word" }}>{value}</div>
               <div style={{ color: "#525878", fontSize: "0.8rem" }}>{label}</div>
             </div>
           ))}
         </div>
 
         {/* Filters */}
-        <div style={{ display: "flex", gap: 12, marginBottom: 20, flexWrap: "wrap", alignItems: "center" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 12, marginBottom: 20 }}>
           <input
             style={s.input}
             placeholder="Search transaction ID or user…"
             value={search}
             onChange={e => setSearch(e.target.value)}
           />
-          <div style={s.filterRow}>
+          <div style={{ ...s.filterRow, overflowX: "auto", paddingBottom: 2, WebkitOverflowScrolling: "touch" }}>
             {["all","success","pending","failed"].map(st => (
               <button key={st} style={s.filterBtn(statusFilter === st)} onClick={() => setStatusFilter(st)}>
                 {st.charAt(0).toUpperCase() + st.slice(1)}
               </button>
             ))}
           </div>
-          <div style={s.filterRow}>
+          <div style={{ ...s.filterRow, overflowX: "auto", paddingBottom: 2, WebkitOverflowScrolling: "touch" }}>
             {["all","card","upi","netbanking","cod"].map(m => (
               <button key={m} style={s.filterBtn(methodFilter === m)} onClick={() => setMethodFilter(m)}>
                 {m === "all" ? "All Methods" : METHOD_LABELS[m] || m}
@@ -151,43 +154,45 @@ const AdminPayments = () => {
         ) : filtered.length === 0 ? (
           <div style={s.empty}>No payments match filters.</div>
         ) : (
-          <table style={s.table}>
-            <thead>
-              <tr>
-                {["Transaction ID", "Customer", "Amount", "Method", "Status", "Date"].map(h => (
-                  <th key={h} style={s.th}>{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map(payment => (
-                <tr key={payment._id}>
-                  <td style={s.td}>
-                    <span style={{ fontFamily: "monospace", fontSize: "0.75rem", color: "#7c5cfc" }}>
-                      {payment.transactionId || `TXN${payment._id.slice(-10).toUpperCase()}`}
-                    </span>
-                  </td>
-                  <td style={s.td}>
-                    <div style={{ color: "#eef2ff", fontWeight: 500 }}>{payment.user?.name || "—"}</div>
-                    <div style={{ color: "#525878", fontSize: "0.75rem" }}>{payment.user?.email || ""}</div>
-                  </td>
-                  <td style={{ ...s.td }}>
-                    <span style={{ color: "#a78bfa", fontWeight: 600 }}>₹{payment.amount?.toFixed(2)}</span>
-                  </td>
-                  <td style={s.td}>
-                    <span style={{ background: "#13151f", border: "1px solid #1a1d2e", borderRadius: 6, padding: "3px 8px", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                      {METHOD_LABELS[payment.paymentMethod] || payment.paymentMethod}
-                    </span>
-                  </td>
-                  <td style={s.td}><span style={s.badge(payment.status)}>{payment.status}</span></td>
-                  <td style={{ ...s.td, color: "#525878", fontSize: "0.75rem" }}>
-                    {new Date(payment.createdAt).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })}
-                    <div>{new Date(payment.createdAt).toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}</div>
-                  </td>
+          <div style={s.tableWrap}>
+            <table style={s.table}>
+              <thead>
+                <tr>
+                  {["Transaction ID", "Customer", "Amount", "Method", "Status", "Date"].map(h => (
+                    <th key={h} style={s.th}>{h}</th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filtered.map(payment => (
+                  <tr key={payment._id}>
+                    <td style={s.td}>
+                      <span style={{ fontFamily: "monospace", fontSize: "0.75rem", color: "#7c5cfc" }}>
+                        {payment.transactionId || `TXN${payment._id.slice(-10).toUpperCase()}`}
+                      </span>
+                    </td>
+                    <td style={s.td}>
+                      <div style={{ color: "#eef2ff", fontWeight: 500 }}>{payment.user?.name || "—"}</div>
+                      <div style={{ color: "#525878", fontSize: "0.75rem" }}>{payment.user?.email || ""}</div>
+                    </td>
+                    <td style={{ ...s.td }}>
+                      <span style={{ color: "#a78bfa", fontWeight: 600 }}>₹{payment.amount?.toFixed(2)}</span>
+                    </td>
+                    <td style={s.td}>
+                      <span style={{ background: "#13151f", border: "1px solid #1a1d2e", borderRadius: 6, padding: "3px 8px", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em", whiteSpace: "nowrap" }}>
+                        {METHOD_LABELS[payment.paymentMethod] || payment.paymentMethod}
+                      </span>
+                    </td>
+                    <td style={s.td}><span style={s.badge(payment.status)}>{payment.status}</span></td>
+                    <td style={{ ...s.td, color: "#525878", fontSize: "0.75rem", whiteSpace: "nowrap" }}>
+                      {new Date(payment.createdAt).toLocaleDateString("en-IN", { day: "2-digit", month: "short", year: "numeric" })}
+                      <div>{new Date(payment.createdAt).toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" })}</div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </div>

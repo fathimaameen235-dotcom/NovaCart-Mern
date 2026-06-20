@@ -33,7 +33,7 @@ const StarRating = ({
         >
           <svg
             className={`transition-colors duration-150 ${
-              interactive ? "w-7 h-7" : "w-4 h-4"
+              interactive ? "w-7 h-7 sm:w-7 sm:h-7" : "w-4 h-4"
             } ${
               star <= (hover || rating)
                 ? "text-amber-400"
@@ -154,10 +154,10 @@ const ReviewSection = ({ productId }) => {
   };
 
   return (
-    <section className="space-y-8">
+    <section className="space-y-6 sm:space-y-8">
       {/* Header */}
       <div className="flex items-center gap-3">
-        <h2 className="font-display font-bold text-2xl text-nova-text">
+        <h2 className="font-display font-bold text-xl sm:text-2xl text-nova-text">
           Reviews
         </h2>
 
@@ -168,22 +168,15 @@ const ReviewSection = ({ productId }) => {
 
       {/* Review Form */}
       {user ? (
-        <div style={{
-          padding: "24px", borderRadius: 16,
-          background: "linear-gradient(145deg,#0f1219,#080a10)",
-          border: "1px solid #1a1d2e",
-        }}>
-          <h3 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: "1.05rem", color: "#eef2ff", marginBottom: 20 }}>
+        <div className="p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-[#0f1219] to-[#080a10] border border-[#1a1d2e]">
+          <h3 className="font-['Syne',sans-serif] font-semibold text-base sm:text-[1.05rem] text-[#eef2ff] mb-4 sm:mb-5">
             Write a Review
           </h3>
 
-          <form
-            onSubmit={handleSubmit}
-            style={{ display: "flex", flexDirection: "column", gap: 18 }}
-          >
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 sm:gap-[18px]">
             {/* Rating */}
             <div>
-              <p style={{ fontSize: "0.8rem", color: "#525878", marginBottom: 8, fontFamily: "'DM Sans',sans-serif" }}>
+              <p className="text-[0.8rem] text-[#525878] mb-2 font-['DM_Sans',sans-serif]">
                 Your Rating
               </p>
 
@@ -202,19 +195,10 @@ const ReviewSection = ({ productId }) => {
                 placeholder="Share your experience with this product…"
                 rows={4}
                 maxLength={500}
-                style={{
-                  width: "100%", padding: "12px 16px", borderRadius: 12,
-                  background: "#13161f", border: "1px solid #1a1d2e",
-                  color: "#eef2ff", fontSize: "0.875rem",
-                  fontFamily: "'DM Sans',sans-serif", resize: "vertical",
-                  outline: "none", lineHeight: 1.6,
-                  transition: "border-color 0.2s, box-shadow 0.2s",
-                }}
-                onFocus={e => { e.target.style.borderColor = "#7c5cfc"; e.target.style.boxShadow = "0 0 0 3px rgba(124,92,252,0.12)"; }}
-                onBlur={e  => { e.target.style.borderColor = "#1a1d2e"; e.target.style.boxShadow = "none"; }}
+                className="w-full px-3.5 sm:px-4 py-3 rounded-xl bg-[#13161f] border border-[#1a1d2e] text-[#eef2ff] text-sm font-['DM_Sans',sans-serif] resize-y outline-none leading-relaxed transition-[border-color,box-shadow] focus:border-[#7c5cfc] focus:shadow-[0_0_0_3px_rgba(124,92,252,0.12)]"
               />
 
-              <p style={{ fontSize: "0.72rem", textAlign: "right", marginTop: 4, color: "#525878", fontFamily: "monospace" }}>
+              <p className="text-[0.72rem] text-right mt-1 text-[#525878] font-mono">
                 {comment.length}/500
               </p>
             </div>
@@ -224,13 +208,11 @@ const ReviewSection = ({ productId }) => {
               <button
                 type="submit"
                 disabled={submitting}
-                style={{
-                  padding: "10px 24px", borderRadius: 12, border: "none", cursor: submitting ? "not-allowed" : "pointer",
-                  background: submitting ? "#1a1d2e" : "linear-gradient(135deg,#7c5cfc,#3b82f6)",
-                  color: submitting ? "#525878" : "#fff",
-                  fontFamily: "'Syne',sans-serif", fontWeight: 600, fontSize: "0.875rem",
-                  transition: "opacity 0.2s", opacity: submitting ? 0.6 : 1,
-                }}
+                className={`w-full sm:w-auto px-6 py-2.5 rounded-xl border-none font-['Syne',sans-serif] font-semibold text-sm transition-opacity ${
+                  submitting
+                    ? "bg-[#1a1d2e] text-[#525878] cursor-not-allowed opacity-60"
+                    : "bg-gradient-to-br from-[#7c5cfc] to-[#3b82f6] text-white cursor-pointer"
+                }`}
               >
                 {submitting ? "Submitting…" : "Submit Review"}
               </button>
@@ -238,8 +220,8 @@ const ReviewSection = ({ productId }) => {
           </form>
         </div>
       ) : (
-        <div className="p-6 rounded-2xl bg-nova-surface border border-nova-border text-center">
-          <p className="text-nova-muted mb-3">
+        <div className="p-5 sm:p-6 rounded-2xl bg-nova-surface border border-nova-border text-center">
+          <p className="text-nova-muted mb-3 text-sm sm:text-base">
             Sign in to leave a review
           </p>
 
@@ -258,7 +240,7 @@ const ReviewSection = ({ productId }) => {
           {[1, 2, 3].map((item) => (
             <div
               key={item}
-              className="p-5 rounded-2xl border border-nova-border"
+              className="p-4 sm:p-5 rounded-2xl border border-nova-border"
             >
               <div className="shimmer h-4 w-32 rounded mb-3" />
 
@@ -269,52 +251,42 @@ const ReviewSection = ({ productId }) => {
           ))}
         </div>
       ) : reviews.length === 0 ? (
-        <div className="py-12 text-center">
-          <p className="text-nova-muted">
+        <div className="py-10 sm:py-12 text-center">
+          <p className="text-nova-muted text-sm sm:text-base">
             No reviews yet. Be the first to review!
           </p>
         </div>
       ) : (
-        <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+        <div className="flex flex-col gap-3 sm:gap-3.5">
           {reviews.map((review) => (
             <article
               key={review._id}
-              style={{
-                padding: 20, borderRadius: 14,
-                background: "linear-gradient(145deg,#0f1219,#080a10)",
-                border: "1px solid #1a1d2e",
-                transition: "border-color 0.2s",
-              }}
-              onMouseEnter={e=>e.currentTarget.style.borderColor="rgba(124,92,252,0.25)"}
-              onMouseLeave={e=>e.currentTarget.style.borderColor="#1a1d2e"}
+              className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#0f1219] to-[#080a10] border border-[#1a1d2e] transition-colors hover:border-[rgba(124,92,252,0.25)]"
             >
-              <div style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
+              <div className="flex items-start gap-3 sm:gap-3.5">
                 {/* Avatar */}
                 <img
                   src={review.userId?.avatar || FALLBACK_AVATAR}
                   alt={review.userId?.name || "User"}
-                  style={{
-                    width: 40, height: 40, borderRadius: "50%",
-                    objectFit: "cover", border: "2px solid #1a1d2e", flexShrink: 0,
-                  }}
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-[#1a1d2e] flex-shrink-0"
                   onError={(e) => { e.target.onerror = null; e.target.src = FALLBACK_AVATAR; }}
                 />
 
                 {/* Review Content */}
-                <div style={{ flex: 1 }}>
-                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 6, marginBottom: 6 }}>
-                    <span style={{ fontFamily: "'Syne',sans-serif", fontWeight: 600, color: "#eef2ff", fontSize: "0.9rem" }}>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between flex-wrap gap-1.5 mb-1.5">
+                    <span className="font-['Syne',sans-serif] font-semibold text-[#eef2ff] text-sm">
                       {review.userId?.name || "Anonymous"}
                     </span>
 
-                    <span style={{ fontSize: "0.72rem", color: "#525878", fontFamily: "monospace" }}>
+                    <span className="text-[0.7rem] sm:text-[0.72rem] text-[#525878] font-mono">
                       {formatDate(review.createdAt)}
                     </span>
                   </div>
 
                   <StarRating rating={review.rating} />
 
-                  <p style={{ marginTop: 10, fontSize: "0.875rem", color: "#c7d2fe", lineHeight: 1.65 }}>
+                  <p className="mt-2.5 text-sm text-[#c7d2fe] leading-relaxed break-words">
                     {review.comment}
                   </p>
                 </div>

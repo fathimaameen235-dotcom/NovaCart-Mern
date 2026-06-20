@@ -73,28 +73,8 @@ const Register = () => {
     }
   };
 
-  const inputStyle = {
-    background: "rgba(8,10,16,0.7)",
-    border: "1px solid #1c2030",
-    color: "#eef2ff",
-    borderRadius: "12px",
-    width: "100%",
-    fontSize: "0.875rem",
-    padding: "12px 16px",
-    outline: "none",
-    fontFamily: "'DM Sans', sans-serif",
-    transition: "border-color 0.2s, box-shadow 0.2s",
-  };
-
-  const focusOn = (e) => {
-    e.target.style.borderColor = "#7c5cfc";
-    e.target.style.boxShadow = "0 0 0 3px rgba(124,92,252,0.12)";
-  };
-
-  const focusOff = (e) => {
-    e.target.style.borderColor = "#1c2030";
-    e.target.style.boxShadow = "none";
-  };
+  const inputClass =
+    "w-full bg-[rgba(8,10,16,0.7)] border border-[#1c2030] text-[#eef2ff] rounded-xl text-sm px-4 py-3 outline-none font-['DM_Sans',sans-serif] transition-[border-color,box-shadow] focus:border-[#7c5cfc] focus:shadow-[0_0_0_3px_rgba(124,92,252,0.12)]";
 
   const EyeIcon = ({ open }) =>
     open ? (
@@ -112,385 +92,173 @@ const Register = () => {
     );
 
   return (
-  <div
-    style={{
-      minHeight: "100vh",
-      background: "#080a10",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      padding: "24px 16px",
-      fontFamily: "'Inter', sans-serif",
-    }}
-  >
-    <div
-      style={{
-        width: "100%",
-        maxWidth: "860px",
-        display: "flex",
-        borderRadius: "16px",
-        overflow: "hidden",
-        border: "1px solid #1e2235",
-        boxShadow: "0 24px 64px rgba(0,0,0,0.5)",
-      }}
-    >
-      {/* LEFT PANEL */}
-      <div
-        style={{
-          width: "42%",
-          background: "#0d0f1a",
-          padding: "48px 40px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            top: "-60px",
-            left: "-60px",
-            width: "200px",
-            height: "200px",
-            background: "rgba(124,92,252,0.12)",
-            borderRadius: "50%",
-            filter: "blur(50px)",
-          }}
-        />
+    <div className="min-h-screen bg-[#080a10] flex items-center justify-center px-4 py-6 sm:px-6 font-['Inter',sans-serif]">
+      <div className="w-full max-w-[860px] flex flex-col md:flex-row rounded-2xl overflow-hidden border border-[#1e2235] shadow-[0_24px_64px_rgba(0,0,0,0.5)]">
 
-        <div
-          style={{
-            position: "absolute",
-            bottom: "-40px",
-            right: "-40px",
-            width: "160px",
-            height: "160px",
-            background: "rgba(59,130,246,0.08)",
-            borderRadius: "50%",
-            filter: "blur(40px)",
-          }}
-        />
+        {/* LEFT PANEL — hidden on mobile, shown from md (tablet) up */}
+        <div className="hidden md:flex md:w-[42%] bg-[#0d0f1a] p-8 lg:p-10 flex-col justify-between relative overflow-hidden">
 
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <Link
-            to="/"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              textDecoration: "none",
-            }}
-          >
-            <div
-              style={{
-                width: "38px",
-                height: "38px",
-                borderRadius: "10px",
-                background: "linear-gradient(135deg,#7c5cfc,#3b82f6)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#fff",
-                fontWeight: "700",
-              }}
-            >
-              N
+          <div className="absolute -top-[60px] -left-[60px] w-[200px] h-[200px] bg-[rgba(124,92,252,0.12)] rounded-full blur-[50px]" />
+          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[rgba(59,130,246,0.08)] rounded-full blur-[40px]" />
+
+          <div className="relative z-10">
+            <Link to="/" className="flex items-center gap-2.5 no-underline">
+              <div className="w-[38px] h-[38px] rounded-[10px] bg-gradient-to-br from-[#7c5cfc] to-[#3b82f6] flex items-center justify-center text-white font-bold flex-shrink-0">
+                N
+              </div>
+              <span className="text-xl font-bold text-[#eef2ff]">
+                Nova<span className="text-[#7c5cfc]">Cart</span>
+              </span>
+            </Link>
+
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md mt-7 bg-[rgba(124,92,252,0.1)] border border-[rgba(124,92,252,0.25)] text-[#a78bfa] text-[10px] font-semibold tracking-wider">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#7c5cfc]" />
+              SHOPPING PORTAL
             </div>
 
-            <span
-              style={{
-                fontSize: "20px",
-                fontWeight: "700",
-                color: "#eef2ff",
-              }}
-            >
-              Nova<span style={{ color: "#7c5cfc" }}>Cart</span>
+            <h2 className="text-[#eef2ff] text-[26px] font-bold leading-tight mt-4">
+              Create your shopping
+              <br />
+              account
+            </h2>
+
+            <p className="text-[#6b7280] text-[13px] mt-2.5 leading-[1.7]">
+              Join NovaCart today and explore thousands
+              of products with secure checkout and
+              exclusive offers.
+            </p>
+
+            <ul className="list-none mt-6 flex flex-col gap-2.5">
+              {[
+                "Secure shopping experience",
+                "Track orders anytime",
+                "Wishlist & exclusive deals",
+              ].map((item) => (
+                <li key={item} className="flex items-center gap-2.5 text-[#9ca3af] text-[12.5px]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#7c5cfc] flex-shrink-0" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <p className="text-[#374151] text-[11px] relative z-10">
+            © {new Date().getFullYear()} NovaCart. All rights reserved.
+          </p>
+        </div>
+
+        {/* RIGHT PANEL */}
+        <div className="flex-1 bg-[#080a10] p-6 sm:p-8 md:p-10 flex flex-col justify-center">
+
+          {/* Mobile-only compact brand header (shown when left panel is hidden) */}
+          <Link to="/" className="md:hidden flex items-center gap-2.5 no-underline mb-6">
+            <div className="w-9 h-9 rounded-[10px] bg-gradient-to-br from-[#7c5cfc] to-[#3b82f6] flex items-center justify-center text-white font-bold flex-shrink-0 text-sm">
+              N
+            </div>
+            <span className="text-lg font-bold text-[#eef2ff]">
+              Nova<span className="text-[#7c5cfc]">Cart</span>
             </span>
           </Link>
 
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "6px",
-              padding: "5px 12px",
-              borderRadius: "6px",
-              marginTop: "28px",
-              background: "rgba(124,92,252,0.1)",
-              border: "1px solid rgba(124,92,252,0.25)",
-              color: "#a78bfa",
-              fontSize: "10px",
-              fontWeight: "600",
-              letterSpacing: "0.6px",
-            }}
-          >
-            <span
-              style={{
-                width: "6px",
-                height: "6px",
-                borderRadius: "50%",
-                background: "#7c5cfc",
-              }}
-            />
-            SHOPPING PORTAL
-          </div>
-
-          <h2
-            style={{
-              color: "#eef2ff",
-              fontSize: "26px",
-              fontWeight: "700",
-              lineHeight: "1.3",
-              marginTop: "16px",
-            }}
-          >
-            Create your shopping
-            <br />
-            account
-          </h2>
-
-          <p
-            style={{
-              color: "#6b7280",
-              fontSize: "13px",
-              marginTop: "10px",
-              lineHeight: "1.7",
-            }}
-          >
-            Join NovaCart today and explore thousands
-            of products with secure checkout and
-            exclusive offers.
-          </p>
-
-          <ul
-            style={{
-              listStyle: "none",
-              marginTop: "24px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "10px",
-            }}
-          >
-            {[
-              "Secure shopping experience",
-              "Track orders anytime",
-              "Wishlist & exclusive deals",
-            ].map((item) => (
-              <li
-                key={item}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  color: "#9ca3af",
-                  fontSize: "12.5px",
-                }}
-              >
-                <span
-                  style={{
-                    width: "6px",
-                    height: "6px",
-                    borderRadius: "50%",
-                    background: "#7c5cfc",
-                  }}
-                />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <p style={{ color: "#374151", fontSize: "11px" }}>
-          © 2026 NovaCart. All rights reserved.
-        </p>
-      </div>
-
-      {/* RIGHT PANEL */}
-      <div
-        style={{
-          flex: 1,
-          background: "#080a10",
-          padding: "48px 40px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
-      >
-        <div style={{ marginBottom: "24px" }}>
-          <h2
-            style={{
-              color: "#eef2ff",
-              fontSize: "24px",
-              fontWeight: "700",
-            }}
-          >
-            Create Account
-          </h2>
-
-          <p
-            style={{
-              color: "#6b7280",
-              fontSize: "13px",
-              marginTop: "4px",
-            }}
-          >
-            Join NovaCart today
-          </p>
-        </div>
-
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="name"
-            value={form.name}
-            onChange={handleChange}
-            placeholder="John Doe"
-            style={{ ...inputStyle, marginBottom: "14px" }}
-            onFocus={focusOn}
-            onBlur={focusOff}
-          />
-
-          <input
-            type="email"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            placeholder="john@example.com"
-            style={{ ...inputStyle, marginBottom: "14px" }}
-            onFocus={focusOn}
-            onBlur={focusOff}
-          />
-
-          <div style={{ position: "relative", marginBottom: "14px" }}>
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              value={form.password}
-              onChange={handleChange}
-              placeholder="Minimum 6 characters"
-              style={{ ...inputStyle, paddingRight: "44px" }}
-              onFocus={focusOn}
-              onBlur={focusOff}
-            />
-
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              style={{
-                position: "absolute",
-                right: "12px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                background: "none",
-                border: "none",
-                color: "#6b7280",
-                cursor: "pointer",
-              }}
-            >
-              <EyeIcon open={showPassword} />
-            </button>
-          </div>
-
-          <div style={{ position: "relative" }}>
-            <input
-              type={showConfirm ? "text" : "password"}
-              name="confirm"
-              value={form.confirm}
-              onChange={handleChange}
-              placeholder="Confirm your password"
-              style={{ ...inputStyle, paddingRight: "44px" }}
-              onFocus={focusOn}
-              onBlur={focusOff}
-            />
-
-            <button
-              type="button"
-              onClick={() => setShowConfirm(!showConfirm)}
-              style={{
-                position: "absolute",
-                right: "12px",
-                top: "50%",
-                transform: "translateY(-50%)",
-                background: "none",
-                border: "none",
-                color: "#6b7280",
-                cursor: "pointer",
-              }}
-            >
-              <EyeIcon open={showConfirm} />
-            </button>
-          </div>
-
-          {form.confirm && form.password !== form.confirm && (
-            <p
-              style={{
-                color: "#f87171",
-                fontSize: "12px",
-                marginTop: "8px",
-              }}
-            >
-              Passwords don't match
+          <div className="mb-6">
+            <h2 className="text-[#eef2ff] text-xl sm:text-2xl font-bold">
+              Create Account
+            </h2>
+            <p className="text-[#6b7280] text-[13px] mt-1">
+              Join NovaCart today
             </p>
-          )}
+          </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            style={{
-              width: "100%",
-              padding: "12px",
-              marginTop: "16px",
-              background: loading
-                ? "rgba(124,92,252,0.5)"
-                : "linear-gradient(135deg,#7c5cfc,#5b3fd4)",
-              border: "none",
-              borderRadius: "10px",
-              color: "#fff",
-              fontWeight: "600",
-              cursor: loading ? "not-allowed" : "pointer",
-            }}
-          >
-            {loading ? "Creating account..." : "Create Account"}
-          </button>
-        </form>
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="name"
+              value={form.name}
+              onChange={handleChange}
+              placeholder="John Doe"
+              className={`${inputClass} mb-3.5`}
+            />
 
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            margin: "20px 0",
-          }}
-        >
-          <div style={{ flex: 1, height: "1px", background: "#1c2030" }} />
-          <span style={{ color: "#374151", fontSize: "12px" }}>OR</span>
-          <div style={{ flex: 1, height: "1px", background: "#1c2030" }} />
+            <input
+              type="email"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              placeholder="john@example.com"
+              className={`${inputClass} mb-3.5`}
+            />
+
+            <div className="relative mb-3.5">
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                value={form.password}
+                onChange={handleChange}
+                placeholder="Minimum 6 characters"
+                className={`${inputClass} pr-11`}
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-transparent border-none text-[#6b7280] cursor-pointer"
+              >
+                <EyeIcon open={showPassword} />
+              </button>
+            </div>
+
+            <div className="relative">
+              <input
+                type={showConfirm ? "text" : "password"}
+                name="confirm"
+                value={form.confirm}
+                onChange={handleChange}
+                placeholder="Confirm your password"
+                className={`${inputClass} pr-11`}
+              />
+              <button
+                type="button"
+                onClick={() => setShowConfirm(!showConfirm)}
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-transparent border-none text-[#6b7280] cursor-pointer"
+              >
+                <EyeIcon open={showConfirm} />
+              </button>
+            </div>
+
+            {form.confirm && form.password !== form.confirm && (
+              <p className="text-[#f87171] text-xs mt-2">
+                Passwords don't match
+              </p>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full py-3 mt-4 rounded-[10px] border-none text-white font-semibold transition-colors ${
+                loading
+                  ? "bg-[rgba(124,92,252,0.5)] cursor-not-allowed"
+                  : "bg-gradient-to-br from-[#7c5cfc] to-[#5b3fd4] cursor-pointer"
+              }`}
+            >
+              {loading ? "Creating account..." : "Create Account"}
+            </button>
+          </form>
+
+          <div className="flex items-center gap-3 my-5">
+            <div className="flex-1 h-px bg-[#1c2030]" />
+            <span className="text-[#374151] text-xs">OR</span>
+            <div className="flex-1 h-px bg-[#1c2030]" />
+          </div>
+
+          <p className="text-center text-[#6b7280] text-[12.5px]">
+            Already have an account?{" "}
+            <Link to="/login" className="text-[#7c5cfc] no-underline">
+              Sign in
+            </Link>
+          </p>
         </div>
-
-        <p
-          style={{
-            textAlign: "center",
-            color: "#6b7280",
-            fontSize: "12.5px",
-          }}
-        >
-          Already have an account?{" "}
-          <Link
-            to="/login"
-            style={{
-              color: "#7c5cfc",
-              textDecoration: "none",
-            }}
-          >
-            Sign in
-          </Link>
-        </p>
       </div>
     </div>
-  </div>
-);
+  );
 };
 
 export default Register;

@@ -14,34 +14,37 @@ const STATUS_COLORS = {
 const STATUSES = ["pending", "processing", "shipped", "delivered", "cancelled"];
 
 const s = {
-  page:       { minHeight: "100vh", background: "#060812", padding: "32px 24px 40px", fontFamily: "'DM Sans',sans-serif" },
+  page:       { minHeight: "100vh", background: "#060812", padding: "24px 14px 40px", fontFamily: "'DM Sans',sans-serif" },
   container:  { maxWidth: 1200, margin: "0 auto" },
-  heading:    { fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.75rem", color: "#eef2ff", marginBottom: 4 },
-  sub:        { color: "#525878", fontSize: "0.875rem", marginBottom: 32 },
-  filterRow:  { display: "flex", gap: 8, marginBottom: 24, flexWrap: "wrap" },
+  heading:    { fontFamily: "'Syne',sans-serif", fontWeight: 700, fontSize: "1.5rem", color: "#eef2ff", marginBottom: 4 },
+  sub:        { color: "#525878", fontSize: "0.875rem", marginBottom: 24 },
+  filterRow:  { display: "flex", gap: 8, marginBottom: 20, flexWrap: "wrap" },
   filterBtn:  (active) => ({
     padding: "6px 16px", borderRadius: 8, fontSize: "0.8rem", fontWeight: 500, cursor: "pointer",
     border: active ? "1px solid #7c5cfc" : "1px solid #1a1d2e",
     background: active ? "rgba(124,92,252,0.15)" : "#0d0f1a",
     color: active ? "#a78bfa" : "#525878", transition: "all 0.2s",
+    whiteSpace: "nowrap",
   }),
-  table:      { width: "100%", borderCollapse: "collapse", background: "linear-gradient(145deg,#0d0f1a,#080a10)", border: "1px solid #1a1d2e", borderRadius: 16, overflow: "hidden" },
-  th:         { padding: "14px 16px", textAlign: "left", fontSize: "0.75rem", fontWeight: 600, color: "#525878", textTransform: "uppercase", letterSpacing: "0.05em", borderBottom: "1px solid #1a1d2e", background: "#0a0c14" },
+  tableWrap:  { width: "100%", overflowX: "auto", borderRadius: 16, border: "1px solid #1a1d2e", WebkitOverflowScrolling: "touch" },
+  table:      { width: "100%", minWidth: 760, borderCollapse: "collapse", background: "linear-gradient(145deg,#0d0f1a,#080a10)" },
+  th:         { padding: "14px 16px", textAlign: "left", fontSize: "0.75rem", fontWeight: 600, color: "#525878", textTransform: "uppercase", letterSpacing: "0.05em", borderBottom: "1px solid #1a1d2e", background: "#0a0c14", whiteSpace: "nowrap" },
   td:         { padding: "14px 16px", fontSize: "0.875rem", color: "#c8cde8", borderBottom: "1px solid #0f1120" },
   badge:      (status) => ({
     display: "inline-flex", padding: "3px 10px", borderRadius: 6, fontSize: "0.75rem", fontWeight: 600,
     background: STATUS_COLORS[status]?.bg || "#1a1d2e",
     color: STATUS_COLORS[status]?.text || "#c8cde8",
     border: `1px solid ${STATUS_COLORS[status]?.border || "#1a1d2e"}`,
+    whiteSpace: "nowrap",
   }),
   select:     { background: "#0f1120", border: "1px solid #1a1d2e", color: "#c8cde8", borderRadius: 6, padding: "4px 8px", fontSize: "0.8rem", cursor: "pointer" },
-  modal:      { position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 999, padding: 24 },
-  modalBox:   { background: "#0d0f1a", border: "1px solid #1a1d2e", borderRadius: 16, width: "100%", maxWidth: 560, maxHeight: "85vh", overflowY: "auto", padding: 28 },
+  modal:      { position: "fixed", inset: 0, background: "rgba(0,0,0,0.7)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 999, padding: 16 },
+  modalBox:   { background: "#0d0f1a", border: "1px solid #1a1d2e", borderRadius: 16, width: "100%", maxWidth: 560, maxHeight: "88vh", overflowY: "auto", padding: 22, boxSizing: "border-box" },
   closeBtn:   { background: "none", border: "none", color: "#525878", fontSize: "1.25rem", cursor: "pointer", float: "right" },
   label:      { color: "#525878", fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 4 },
   value:      { color: "#eef2ff", fontSize: "0.875rem", marginBottom: 16 },
   itemRow:    { display: "flex", gap: 12, alignItems: "center", padding: "10px 0", borderBottom: "1px solid #1a1d2e" },
-  itemImg:    { width: 44, height: 44, borderRadius: 8, objectFit: "cover", background: "#1a1d2e" },
+  itemImg:    { width: 44, height: 44, borderRadius: 8, objectFit: "cover", background: "#1a1d2e", flexShrink: 0 },
   empty:      { textAlign: "center", padding: "64px 0", color: "#525878" },
 };
 
@@ -95,7 +98,7 @@ const AdminOrders = () => {
         <p style={s.sub}>{orders.length} total orders</p>
 
         {/* Filter tabs */}
-        <div style={s.filterRow}>
+        <div style={{ ...s.filterRow, overflowX: "auto", paddingBottom: 4, WebkitOverflowScrolling: "touch" }}>
           <button style={s.filterBtn(filter === "all")} onClick={() => setFilter("all")}>
             All ({orders.length})
           </button>
@@ -111,62 +114,64 @@ const AdminOrders = () => {
         ) : filtered.length === 0 ? (
           <div style={s.empty}>No orders found.</div>
         ) : (
-          <table style={s.table}>
-            <thead>
-              <tr>
-                {["Order ID", "Customer", "Items", "Total", "Payment", "Status", "Date", "Actions"].map(h => (
-                  <th key={h} style={s.th}>{h}</th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {filtered.map(order => (
-                <tr key={order._id} style={{ cursor: "pointer" }}>
-                  <td style={s.td}>
-                    <span style={{ fontFamily: "monospace", fontSize: "0.75rem", color: "#7c5cfc" }}>
-                      #{order._id.slice(-8).toUpperCase()}
-                    </span>
-                  </td>
-                  <td style={s.td}>
-                    <div style={{ color: "#eef2ff", fontWeight: 500 }}>{order.user?.name || "—"}</div>
-                    <div style={{ color: "#525878", fontSize: "0.75rem" }}>{order.user?.email || ""}</div>
-                  </td>
-                  <td style={s.td}>{order.items?.length || 0} items</td>
-                  <td style={s.td}>
-                    <span style={{ color: "#a78bfa", fontWeight: 600 }}>
-                      ₹{order.totalAmount?.toFixed(2)}
-                    </span>
-                  </td>
-                  <td style={s.td}>
-                    <span style={{ textTransform: "capitalize", color: "#c8cde8" }}>{order.paymentMethod}</span>
-                  </td>
-                  <td style={s.td}><span style={s.badge(order.status)}>{order.status}</span></td>
-                  <td style={s.td} style={{ ...s.td, color: "#525878", fontSize: "0.75rem" }}>
-                    {new Date(order.createdAt).toLocaleDateString()}
-                  </td>
-                  <td style={s.td}>
-                    <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                      <select
-                        style={s.select}
-                        value={order.status}
-                        disabled={updating === order._id}
-                        onChange={e => handleStatusChange(order._id, e.target.value)}
-                        onClick={e => e.stopPropagation()}
-                      >
-                        {STATUSES.map(st => <option key={st} value={st}>{st}</option>)}
-                      </select>
-                      <button
-                        onClick={() => setSelected(order)}
-                        style={{ background: "rgba(124,92,252,0.12)", border: "1px solid rgba(124,92,252,0.25)", color: "#a78bfa", borderRadius: 6, padding: "4px 10px", fontSize: "0.75rem", cursor: "pointer" }}
-                      >
-                        View
-                      </button>
-                    </div>
-                  </td>
+          <div style={s.tableWrap}>
+            <table style={s.table}>
+              <thead>
+                <tr>
+                  {["Order ID", "Customer", "Items", "Total", "Payment", "Status", "Date", "Actions"].map(h => (
+                    <th key={h} style={s.th}>{h}</th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {filtered.map(order => (
+                  <tr key={order._id} style={{ cursor: "pointer" }}>
+                    <td style={s.td}>
+                      <span style={{ fontFamily: "monospace", fontSize: "0.75rem", color: "#7c5cfc" }}>
+                        #{order._id.slice(-8).toUpperCase()}
+                      </span>
+                    </td>
+                    <td style={s.td}>
+                      <div style={{ color: "#eef2ff", fontWeight: 500 }}>{order.user?.name || "—"}</div>
+                      <div style={{ color: "#525878", fontSize: "0.75rem" }}>{order.user?.email || ""}</div>
+                    </td>
+                    <td style={s.td}>{order.items?.length || 0} items</td>
+                    <td style={s.td}>
+                      <span style={{ color: "#a78bfa", fontWeight: 600 }}>
+                        ₹{order.totalAmount?.toFixed(2)}
+                      </span>
+                    </td>
+                    <td style={s.td}>
+                      <span style={{ textTransform: "capitalize", color: "#c8cde8" }}>{order.paymentMethod}</span>
+                    </td>
+                    <td style={s.td}><span style={s.badge(order.status)}>{order.status}</span></td>
+                    <td style={{ ...s.td, color: "#525878", fontSize: "0.75rem", whiteSpace: "nowrap" }}>
+                      {new Date(order.createdAt).toLocaleDateString()}
+                    </td>
+                    <td style={s.td}>
+                      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+                        <select
+                          style={s.select}
+                          value={order.status}
+                          disabled={updating === order._id}
+                          onChange={e => handleStatusChange(order._id, e.target.value)}
+                          onClick={e => e.stopPropagation()}
+                        >
+                          {STATUSES.map(st => <option key={st} value={st}>{st}</option>)}
+                        </select>
+                        <button
+                          onClick={() => setSelected(order)}
+                          style={{ background: "rgba(124,92,252,0.12)", border: "1px solid rgba(124,92,252,0.25)", color: "#a78bfa", borderRadius: 6, padding: "4px 10px", fontSize: "0.75rem", cursor: "pointer", whiteSpace: "nowrap" }}
+                        >
+                          View
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
 
@@ -175,16 +180,16 @@ const AdminOrders = () => {
         <div style={s.modal} onClick={() => setSelected(null)}>
           <div style={s.modalBox} onClick={e => e.stopPropagation()}>
             <button style={s.closeBtn} onClick={() => setSelected(null)}>✕</button>
-            <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, color: "#eef2ff", marginBottom: 20 }}>
+            <h2 style={{ fontFamily: "'Syne',sans-serif", fontWeight: 700, color: "#eef2ff", marginBottom: 20, fontSize: "1.1rem" }}>
               Order #{selected._id.slice(-8).toUpperCase()}
             </h2>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 20 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(180px,1fr))", gap: 16, marginBottom: 20 }}>
               <div>
                 <div style={s.label}>Customer</div>
                 <div style={s.value}>{selected.user?.name}</div>
                 <div style={s.label}>Email</div>
-                <div style={s.value}>{selected.user?.email}</div>
+                <div style={{ ...s.value, wordBreak: "break-all" }}>{selected.user?.email}</div>
               </div>
               <div>
                 <div style={s.label}>Status</div>
@@ -198,12 +203,12 @@ const AdminOrders = () => {
                   </select>
                 </div>
                 <div style={s.label}>Payment Method</div>
-                <div style={s.value} style={{ ...s.value, textTransform: "capitalize" }}>{selected.paymentMethod}</div>
+                <div style={{ ...s.value, textTransform: "capitalize" }}>{selected.paymentMethod}</div>
               </div>
             </div>
 
             <div style={s.label}>Shipping Address</div>
-            <div style={{ ...s.value, background: "#0a0c14", borderRadius: 8, padding: 12 }}>
+            <div style={{ ...s.value, background: "#0a0c14", borderRadius: 8, padding: 12, wordBreak: "break-word" }}>
               {selected.shippingAddress?.firstName} {selected.shippingAddress?.lastName}<br />
               {selected.shippingAddress?.address}<br />
               {selected.shippingAddress?.city}, {selected.shippingAddress?.zip}<br />
@@ -215,11 +220,11 @@ const AdminOrders = () => {
               {selected.items?.map((item, i) => (
                 <div key={i} style={s.itemRow}>
                   {item.image && <img src={item.image} alt={item.title} style={s.itemImg} />}
-                  <div style={{ flex: 1 }}>
-                    <div style={{ color: "#eef2ff", fontSize: "0.875rem" }}>{item.title}</div>
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div style={{ color: "#eef2ff", fontSize: "0.875rem", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{item.title}</div>
                     <div style={{ color: "#525878", fontSize: "0.75rem" }}>Qty: {item.quantity}</div>
                   </div>
-                  <div style={{ color: "#a78bfa", fontWeight: 600 }}>₹{(item.price * item.quantity).toFixed(2)}</div>
+                  <div style={{ color: "#a78bfa", fontWeight: 600, flexShrink: 0 }}>₹{(item.price * item.quantity).toFixed(2)}</div>
                 </div>
               ))}
             </div>

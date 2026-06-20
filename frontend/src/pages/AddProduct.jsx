@@ -9,7 +9,6 @@ const CATEGORIES = [
   "Sports", "Beauty", "Books", "Gaming", "Accessories",
 ];
 
-// ── NEW: sub-category map keyed by parent category ──────────────────────────
 const SUB_CATEGORIES = {
   Electronics:    ["Smartphones", "Laptops", "Tablets", "Audio", "Cameras", "Wearables", "Accessories"],
   Fashion:        ["Men", "Women", "Kids", "Footwear", "Bags", "Jewellery"],
@@ -95,7 +94,7 @@ const StarRatingInput = ({ value, onChange }) => {
   const [hovered, setHovered] = useState(0);
   const display = hovered || value;
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+    <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
       {[1, 2, 3, 4, 5].map(star => (
         <button
           key={star}
@@ -143,15 +142,13 @@ const AddProduct = () => {
   const [form, setForm] = useState({
     title: "", description: "", price: "",
     category: "", subCategory: "", image: "", stock: "",
-    rating: 0,  // ── NEW
+    rating: 0,
   });
 
-  // Derived sub-category options based on selected category
   const subCatOptions = form.category ? (SUB_CATEGORIES[form.category] || []) : [];
 
   const handleChange = e => {
     const { name, value } = e.target;
-    // When category changes, reset subCategory
     if (name === "category") {
       setForm(f => ({ ...f, category: value, subCategory: "" }));
     } else {
@@ -176,10 +173,10 @@ const AddProduct = () => {
         description:   form.description,
         price:         Number(form.price),
         category:      form.category,
-        subCategory:   form.subCategory,   // ── NEW
+        subCategory:   form.subCategory,
         images:        [form.image],
         stock:         Number(form.stock) || 0,
-        averageRating: form.rating || 0,   // ── NEW
+        averageRating: form.rating || 0,
       });
       toast.success("Product added!", {
         style: { background: "#13161e", color: "#e2e8f0", border: `1px solid ${T.border}` },
@@ -194,87 +191,70 @@ const AddProduct = () => {
   };
 
   const previewReady = form.image && !imgError;
-  // ── Progress now counts 6 fields (added subCategory is optional, so keep 5 required)
   const filled = [form.title, form.description, form.price, form.category, form.image].filter(Boolean).length;
   const progress = Math.round((filled / 5) * 100);
 
   return (
     <AdminLayout>
-      <div style={{
-        minHeight: "100vh",
-        paddingTop: 88,
-        paddingBottom: 80,
-        paddingLeft: 20,
-        paddingRight: 20,
-        background: `radial-gradient(ellipse 70% 40% at 60% -5%, rgba(124,92,252,0.06) 0%, transparent 60%), ${T.bg}`,
-      }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+      <div
+        className="min-h-screen px-4 sm:px-5 pt-6 sm:pt-8 pb-16"
+        style={{
+          background: `radial-gradient(ellipse 70% 40% at 60% -5%, rgba(124,92,252,0.06) 0%, transparent 60%), ${T.bg}`,
+        }}
+      >
+        <div className="max-w-[1100px] mx-auto">
 
           {/* ── Header ─────────────────────────────────────────────── */}
-          <div style={{ display: "flex", alignItems: "flex-start", gap: 14, marginBottom: 32 }}>
+          <div className="flex items-start gap-3 sm:gap-3.5 mb-6 sm:mb-8 flex-wrap">
             <Link
               to="/admin"
-              style={{
-                width: 38, height: 38, borderRadius: 10, flexShrink: 0,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                background: T.surface, border: `1px solid ${T.border}`,
-                color: T.muted, textDecoration: "none", marginTop: 4,
-                transition: "border-color 0.2s, color 0.2s",
-              }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = T.borderHi; e.currentTarget.style.color = T.text; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = T.border;   e.currentTarget.style.color = T.muted; }}
+              className="w-9 h-9 sm:w-[38px] sm:h-[38px] rounded-[10px] flex-shrink-0 flex items-center justify-center no-underline mt-1 transition-colors"
+              style={{ background: T.surface, border: `1px solid ${T.border}`, color: T.muted }}
             >
               <svg width={16} height={16} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </Link>
-            <div style={{ flex: 1 }}>
-              <h1 style={{
-                fontFamily: "'Syne', sans-serif", fontWeight: 700,
-                fontSize: "clamp(1.5rem, 3vw, 2rem)", color: T.text,
-                margin: 0, letterSpacing: "-0.02em",
-              }}>
+            <div className="flex-1 min-w-[200px]">
+              <h1
+                className="font-['Syne',sans-serif] font-bold text-[1.4rem] sm:text-[clamp(1.5rem,3vw,2rem)] m-0"
+                style={{ color: T.text, letterSpacing: "-0.02em" }}
+              >
                 Add New Product
               </h1>
-              <p style={{ color: T.muted, fontSize: "0.875rem", fontFamily: "'DM Sans', sans-serif", marginTop: 3 }}>
+              <p className="text-[#4a5070] text-[0.8rem] sm:text-[0.875rem] font-['DM_Sans',sans-serif] mt-1">
                 Fill in the details below to list a new product
               </p>
             </div>
 
             {/* Progress pill */}
-            <div style={{
-              display: "flex", alignItems: "center", gap: 10, marginTop: 6, flexShrink: 0,
-              padding: "7px 14px", borderRadius: 9999,
-              background: T.surface, border: `1px solid ${T.border}`,
-            }}>
-              <div style={{ width: 80, height: 4, borderRadius: 9999, background: T.border, overflow: "hidden" }}>
+            <div
+              className="flex items-center gap-2.5 mt-1 sm:mt-1.5 flex-shrink-0 px-3 sm:px-3.5 py-1.5 rounded-full w-full sm:w-auto justify-between sm:justify-start"
+              style={{ background: T.surface, border: `1px solid ${T.border}` }}
+            >
+              <div className="w-16 sm:w-20 h-1 rounded-full overflow-hidden" style={{ background: T.border }}>
                 <div style={{
                   width: `${progress}%`, height: "100%", borderRadius: 9999,
                   background: `linear-gradient(90deg, ${T.accent}, #3b82f6)`,
                   transition: "width 0.3s ease",
                 }} />
               </div>
-              <span style={{ color: progress === 100 ? T.success : T.muted, fontSize: "0.75rem", fontFamily: "'DM Sans', sans-serif", fontWeight: 600 }}>
+              <span style={{ color: progress === 100 ? T.success : T.muted }} className="text-xs font-['DM_Sans',sans-serif] font-semibold">
                 {progress}%
               </span>
             </div>
           </div>
 
-          {/* ── Body ────────────────────────────────────────────────── */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: 24, alignItems: "flex-start" }}
-            className="add-product-grid">
+          {/* ── Body: form + live preview ──────────────────────────── */}
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-5 sm:gap-6 items-start">
 
             {/* Form */}
             <form
               onSubmit={handleSubmit}
+              className="flex flex-col gap-5 sm:gap-[22px] rounded-2xl p-5 sm:p-7"
               style={{
                 background: "linear-gradient(160deg, #0d1017, #080a10)",
                 border: `1px solid ${T.border}`,
-                borderRadius: 16,
-                padding: 28,
-                display: "flex",
-                flexDirection: "column",
-                gap: 22,
               }}
             >
               {/* Title */}
@@ -301,7 +281,7 @@ const AddProduct = () => {
               </Field>
 
               {/* Price + Stock */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <Field labelText="Price (USD)" required>
                   <div style={{ position: "relative" }}>
                     <span style={{
@@ -329,8 +309,8 @@ const AddProduct = () => {
                 </Field>
               </div>
 
-              {/* Category + Sub-Category ── NEW layout */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              {/* Category + Sub-Category */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Category */}
                 <Field labelText="Category" required>
                   <div style={{ position: "relative" }}>
@@ -355,7 +335,7 @@ const AddProduct = () => {
                   </div>
                 </Field>
 
-                {/* Sub-Category ── NEW */}
+                {/* Sub-Category */}
                 <Field
                   labelText="Sub-Category"
                   hint={!form.category ? "Select a category first" : ""}
@@ -387,7 +367,7 @@ const AddProduct = () => {
                 </Field>
               </div>
 
-              {/* ── NEW: Rating field ──────────────────────────────── */}
+              {/* Rating field */}
               <Field
                 labelText="Initial Rating"
                 hint="Set a seed rating (0–5 stars). Leave at 0 if not applicable."
@@ -416,7 +396,7 @@ const AddProduct = () => {
               {/* Quick image picker */}
               <div>
                 <p style={{ ...label, marginBottom: 10 }}>Quick Picks</p>
-                <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 8 }}>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
                   {SAMPLE_IMAGES.map((img, i) => {
                     const active = form.image === img;
                     return (
@@ -456,8 +436,6 @@ const AddProduct = () => {
                   transition: "opacity 0.2s",
                   letterSpacing: "0.01em",
                 }}
-                onMouseEnter={e => { if (!loading) e.currentTarget.style.opacity = "0.88"; }}
-                onMouseLeave={e => { e.currentTarget.style.opacity = "1"; }}
               >
                 {loading ? (
                   <>
@@ -480,20 +458,21 @@ const AddProduct = () => {
               </button>
             </form>
 
-            {/* ── Live Preview ──────────────────────────────────────── */}
-            <div style={{ position: "sticky", top: 96 }}>
-              <div style={{
-                background: "linear-gradient(160deg, #0d1017, #080a10)",
-                border: `1px solid ${T.border}`,
-                borderRadius: 16, overflow: "hidden",
-              }}>
+            {/* ── Live Preview — below form on mobile/tablet, sticky sidebar on lg+ ── */}
+            <div className="lg:sticky lg:top-24">
+              <div
+                className="rounded-2xl overflow-hidden"
+                style={{
+                  background: "linear-gradient(160deg, #0d1017, #080a10)",
+                  border: `1px solid ${T.border}`,
+                }}
+              >
                 {/* Preview header */}
-                <div style={{
-                  padding: "13px 16px",
-                  borderBottom: `1px solid ${T.border}`,
-                  display: "flex", alignItems: "center", justifyContent: "space-between",
-                }}>
-                  <span style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, color: T.text, fontSize: "0.85rem" }}>
+                <div
+                  className="px-4 py-3 flex items-center justify-between"
+                  style={{ borderBottom: `1px solid ${T.border}` }}
+                >
+                  <span style={{ color: T.text }} className="font-['Syne',sans-serif] font-semibold text-[0.85rem]">
                     Live Preview
                   </span>
                   <span style={{
@@ -533,8 +512,7 @@ const AddProduct = () => {
                 </div>
 
                 {/* Meta */}
-                <div style={{ padding: 16, display: "flex", flexDirection: "column", gap: 8 }}>
-                  {/* Category + SubCategory badges */}
+                <div className="p-4 flex flex-col gap-2">
                   <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                     {form.category && (
                       <span style={{
@@ -546,7 +524,6 @@ const AddProduct = () => {
                         {form.category}
                       </span>
                     )}
-                    {/* ── NEW: sub-category badge in preview */}
                     {form.subCategory && (
                       <span style={{
                         display: "inline-block",
@@ -580,7 +557,6 @@ const AddProduct = () => {
                     </p>
                   )}
 
-                  {/* ── NEW: rating preview */}
                   {form.rating > 0 && (
                     <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
                       {[1,2,3,4,5].map(s => (
@@ -614,12 +590,11 @@ const AddProduct = () => {
               </div>
 
               {/* Tips card */}
-              <div style={{
-                marginTop: 14,
-                background: T.surface, border: `1px solid ${T.border}`,
-                borderRadius: 13, padding: "14px 16px",
-              }}>
-                <p style={{ fontFamily: "'Syne', sans-serif", fontWeight: 600, color: T.text, fontSize: "0.8rem", margin: "0 0 10px" }}>
+              <div
+                className="mt-3.5 rounded-2xl px-4 py-3.5"
+                style={{ background: T.surface, border: `1px solid ${T.border}` }}
+              >
+                <p style={{ color: T.text }} className="font-['Syne',sans-serif] font-semibold text-[0.8rem] mb-2.5">
                   Tips
                 </p>
                 {[
@@ -644,9 +619,6 @@ const AddProduct = () => {
 
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
-        @media (max-width: 900px) {
-          .add-product-grid { grid-template-columns: 1fr !important; }
-        }
       `}</style>
     </AdminLayout>
   );
